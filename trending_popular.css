@@ -1,5 +1,5 @@
- /*#20CD8D #CCF4E5 #182527 #2D4048 #D9D9D9 #FFFFFF  */
- body {
+/* Common styles */
+body {
     background-color: #CCF4E5;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,34 +7,24 @@
 }
 
 header {
-    position: relative;
     background-color: #20CD8D;
     padding: 20px;
     text-align: center;
     color: #FFFFFF;
 }
 
-.logo {
-    position: absolute;
-    left: 0;
-    top: -65px;
-    max-width: 300px;
-    max-height: 300px;
-}
-
-.login-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.login-icon img {
-    width: 24px;
-    height: auto;
-}
-
 main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
     padding: 20px;
+}
+
+.logo{
+    max-width: 100%;
+    height: auto;
 }
 
 .main_title {
@@ -45,16 +35,17 @@ main {
 h2 {
     position: relative;
     margin-top: 0;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 section {
-    max-width: 50%;
-    margin-right: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%; 
 }
 
 article {
-    position: relative;
     background-color: #FFFFFF;
     border-radius: 10px;
     padding: 20px;
@@ -62,16 +53,15 @@ article {
 }
 
 .clicks {
-    position: absolute;
+    float: right;
     top: 10px;
     right: 10px;
     background-color: #f9f9f9;
     color: #666;
-    padding: 5px 10px;
+    padding: 1%;
     border-radius: 5px;
     font-size: 14px;
 }
-
 
 article h1 {
     margin-top: 0;
@@ -87,10 +77,7 @@ article p {
     color: #666666;
 }
 
-.sidepanel{
-    position: fixed;
-    top: 200px;
-    right: 20px;
+.sidepanel {
     width: 10%;
     background-color: #182527;
     color: #FFFFFF;
@@ -113,12 +100,14 @@ article p {
     margin-bottom: 0; 
 }
 
+.preview{
+    width: 100%; 
+    text-align: left; 
+    margin-top: 20px; 
+}
+
 .article_preview {
-    position: absolute;
-    right: 275px;
-    max-width: 30%;
-    height: 100%;
-    padding: 20px;
+    width: 100%;
     background-color: #f9f9f9;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -137,20 +126,119 @@ article p {
     margin-bottom: 20px;
 }
 
-a:link{
+a {
+    display: block; 
+    overflow: hidden; 
+    word-wrap: break-word;
+}
+
+a:link {
     color: #20CD8D;
-    font-family:fantasy;
+    font-family: fantasy;
     font-size: 28px;
 }
 
+@media only screen and (max-width: 1023px) {            /*mobile+tablet*/
+
+    .sidepanel {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
 
 
-/* article img{
-    float: left;
-    width: auto;
-    height: 150px;
-    margin: 15px;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    object-fit: cover;
-} */
+@media only screen and (min-width: 1024px) and (max-width: 1577px) {  /*laptop*/
+   
+    .logo {
+        position: absolute;
+        left: -25px;
+        top: -65px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    section{
+    width: 50%; 
+    }
+
+    .preview {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+        margin: auto;
+        justify-content: center;          
+
+    }
+
+    .article_preview {
+        width: 100%;
+    }
+
+    .sidepanel {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-around;
+    }
+    
+    .sidepanel p {
+        width: 40%; 
+        margin-bottom: 10px; 
+        margin-right: 2%; 
+    }
+
+    .sidepanel p:last-child {
+        margin-right: 0; 
+    }
+
+}
+
+@media only screen and (min-width: 1578px) {  /*desktop*/
+
+    .logo {
+        position: absolute;
+        left: -25px;
+        top: -65px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    main{
+        align-items: stretch;
+    }
+
+    section{
+        width: 50%; 
+    }
+
+    .preview {
+        width: 30%;
+    }
+
+    .article_preview {
+        width: 100%;
+    }
+
+    .sidepanel {
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content:space-around;
+    }
+
+    .sidepanel p {
+        width: 100%;
+        margin-bottom: 10px; 
+        margin-right: 2%; 
+    }
+        
+    .sidepanel p:last-child {
+        margin-right: 0; 
+    }
+
+}
