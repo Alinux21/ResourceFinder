@@ -2,6 +2,7 @@ body {
     background-image: linear-gradient(rgb(204 244 229), rgb(92, 187, 153));
     height: auto;
     width: auto;
+    scroll-behavior: smooth;
 }
 
 .main-page {
@@ -130,7 +131,7 @@ body {
     .main-photo {
         flex: 1;
         max-width: 50%;
-        min-width: 50%;
+        min-width: 30%;
         margin: 0 auto;
         z-index: -1;
     }
