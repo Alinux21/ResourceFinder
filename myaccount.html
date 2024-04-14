@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <link rel="stylesheet" href="myaccount.css">
+</head>
+
+<body>
+
+    <header>
+        <img class="logo" src="images/logo.png" />
+        <h1>Creative Coding Vault</h1>
+    </header>
+
+    <div class="profile_container">
+
+        <div class="profile_header">
+            <div class="profile_header_text">
+            <h1>Your profile</h1>
+            <h3>These settings allow you to customise your personal details.</h3>
+        </div>
+            <button>💾 Save changes</button>
+        </div>
+
+        <div class="content_container">
+            <div class="left_container">
+
+                <div class="personal_information_container">
+                    <h1>Personal information</h1>
+                    <div class="fields">
+                        <div class="field_group">
+                            <label for="first name">First Name</label>
+                            <input type="text" id="fname" value="John">
+                        </div>
+                        <div class="field_group">
+                            <label for="last name">Last Name</label>
+                            <input type="text" id="lname" value="Denver">
+                        </div>
+                        <div class="field_group">
+                            <label for="phone number">Phone number</label>
+                            <input type="text" id="phonenr" value="0749812232">
+                        </div>
+                        <div class="field_group">
+                            <label for="email address">Email address</label>
+                            <input type="text" id="email" value="johndenver@info.uaic.ro">
+                        </div>
+                        <div class="field_group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" value="Romania">
+                        </div>
+                        <div class="field_group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" value="Iași">
+                        </div>
+                    </div>
+                </div>
+                <div class="password_container">
+                    <h1>Password</h1>
+                    <div class="password_fields">
+                        <div class="field_group">
+                            <label for="passowrd">Current password</label>
+                            <input type="password" id="password" value="pass123123">
+                        </div>
+                        <div class="field_group">
+                            <label for="newpassowrd">New Password</label>
+                            <input type="password" id="newpassword">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right_container">
+                <div class="profile_image_container">
+                    <h1>Profile image</h1>
+                    <h3>Image must be at least 500x500px and no larger than 5mb.</h3>
+                    <img src="images/uiface.jpg" />
+                    <button type="submit">📤 Choose file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
