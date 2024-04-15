@@ -63,7 +63,7 @@ article {
     font-size: 14px;
 }
 
-article h1 {
+article h2 {
     margin-top: 0;
     color: #182527;
     font-size: 24px;
@@ -86,7 +86,7 @@ article p {
     text-align: center;
 }
 
-.sidepanel h1 {
+.sidepanel h2 {
     margin-top: 0;
     font-size: 24px;
     color: #CCF4E5; 
@@ -113,7 +113,7 @@ article p {
     margin-bottom: 20px;
 }
 
-.article_preview h1 {
+.article_preview h2 {
     color: #333;
     font-size: 28px;
     margin-bottom: 10px;

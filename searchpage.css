@@ -60,7 +60,6 @@ h2 {
     padding: 13px;
     background-color: rgb(4 195 126);
     color: white;
-    border: 1px solid rgb(4 195 126);
     border-radius: 0 10px 10px 0;
     cursor: pointer;
     outline: none;
@@ -129,7 +128,7 @@ article {
     margin-bottom: 20px;
 }
 
-article h1 {
+article h2 {
     margin-top: 0;
     color: #182527;
     font-size: 24px;
