@@ -1,0 +1,159 @@
+body {
+    background-color: #CCF4E5;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #20CD8D;
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.upload_resource {
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+form{
+    width: 50%;
+}
+
+.my_resources{
+    margin-left:2%;
+    margin-right: 2%;
+}
+
+.field_group {
+    width: 100%;
+}
+
+.field_group label {
+    margin-bottom: 5px;
+}
+
+.upload_resource input[type="text"],
+.upload_resource input[type="url"],
+.upload_resource textarea{
+   width: calc(90% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.upload_resource_content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.upload_picture{
+    margin: auto;
+}
+
+.upload_picture h2{
+    text-align: center;
+}
+
+.upload_resource img{
+    width: 100%;
+    height: 55%;
+    border-radius: 10%;
+    object-fit:contain;
+}
+
+.upload_resource textarea{
+    resize: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #182527;
+    font-weight: bold;
+}
+
+.resource_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+article {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+article h2 {
+    margin-top: 0;
+    color: #182527;
+    font-size: 24px;
+}
+
+article p {
+    color: #182527;
+}
+
+button {
+    background-color: #20CD8D;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+button:hover {
+    background-color: #1AA582;
+}
+
+
+@media only screen and (max-width: 681px) { /*mobile*/
+
+    form{
+        width: 100%;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {        /*laptop + desktop*/
+
+    .logo {
+        position: absolute;
+        left: -25px;
+        top: -65px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    header {
+        height: 100px;
+    }
+}
