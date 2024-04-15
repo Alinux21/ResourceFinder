@@ -10,6 +10,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 95vw;
 }
 
 .logo {
@@ -35,63 +36,113 @@ body {
     transform: translateY(0);
 }
 
-@media (min-width: 768px) {
-    .main-buttons {
+
+.main-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 5%;
+    margin-right: 7%;
+}
+
+.about-us-button {
+    margin: 10px;
+    height: 8vh;
+    width: 150px;
+    border-radius: 10px;
+    background-color: rgb(4 195 126);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.main-title {
+    flex: 1;
+}
+
+.main-title>h1 {
+    font-size: 6vw;
+    margin-top: 20%;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.main-photo {
+    flex: 1;
+}
+
+.main-photo>img {
+    max-width: 80%;
+    min-width: 80%;
+    animation: float 2.5s ease-in-out infinite;
+    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 598px) {
+    .header {
         display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-top: 5%;
-        margin-right: 13%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
     }
 
-    .about-us-button {
-        margin: 10px;
-        height: 8vh;
-        width: 100px;
-        border-radius: 10px;
-        background-color: rgb(4 195 126);
-        color: white;
-        text-transform: uppercase;
-        font-weight: bold;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease-in-out;
-        text-align: center;
-        letter-spacing: 2px;
+    .logo {
+        align-self: center;
+        margin: 0;
+    }
+
+    .logo>img {
+        max-width: 30vw;
+    }
+
+    .main-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
     }
 
     .container {
+        width: 100%;
         flex: 1;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-bottom: 100px;
+        
     }
 
-    .main-title {
-        flex: 1;
-    }
-    
     .main-title>h1 {
-        font-size: 6vw;
-        margin-top: 20%;
+        font-size: 3rem;
+        margin-top: 5%;
         text-align: center;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         font-weight: bold;
     }
-    
-    .main-photo {
-        flex: 1;
-    }
-    
+
     .main-photo>img {
-        max-width: 80%;
-        min-width: 80%;
+        max-width: 100%;
         animation: float 2.5s ease-in-out infinite;
         filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.5));
     }
 }
 
-@media (max-width: 767px) {
+
+@media (max-width: 1100px) and (min-width: 599px) {
     .main-buttons {
         display: flex;
         flex-direction: row;
@@ -103,7 +154,7 @@ body {
     .about-us-button {
         margin: 5px;
         height: 8vh;
-        width: 60px;
+        width: 100px;
         border-radius: 10px;
         background-color: rgb(4 195 126);
         color: white;
@@ -124,7 +175,7 @@ body {
         align-items: center;
         flex-wrap: wrap;
     }
-    
+
     .main-title>h1 {
         font-size: 3rem;
         margin-top: 5%;
@@ -132,7 +183,7 @@ body {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         font-weight: bold;
     }
-    
+
     .main-photo>img {
         max-width: 100%;
         min-width: 100%;
@@ -159,17 +210,30 @@ body {
 /* ================= HOT/LATESTS BUTTONS ================= */
 
 .sections {
-    
     flex: 1;
     display: flex;
     margin-top: 10%;
     justify-content: space-around;
     flex-wrap: wrap;
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .sections {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
 }
 
 
 .hot-now-button {
     max-width: 500px;
+    min-width: 300px;
     margin-top: 80px;
     flex: 1;
     display: flex;
