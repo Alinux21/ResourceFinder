@@ -4,20 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Log In Form</title>
     <link rel="stylesheet" href="login-form.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo-wheel-favicon.ico">
 </head>
 
 <body>
     <div class="login-box">
-        <h1>Login</h1>
-        <form id="login-form">
+        <h1>Log In</h1>
+        <form id="login-form" action="main-admin.html" method="POST">
             <input class="user-box" type="text" placeholder="Username">
             <input class="user-box" type="password" placeholder="Password">
             <div class="show-psw">
                 <input type="checkbox"> <p>Show Password</p>
             </div>
-            <button class="submit-button">Submit</button>
+            <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
 </body>

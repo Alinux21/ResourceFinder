@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="product.css">
+    <link rel="icon" type="image/x-icon" href="images/logo-wheel-favicon.ico">
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="images/logo-main.png" />
+        <div class="titles">
+            <h1 class="main_title">Search page</h1>
+            <h2>Find your resource on Creative Coding Vault</h2>
+        </div>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Start a new search..." class="search-input">
+        <button type="submit" class="search-button-right" onclick="window.location.href = 'searchpage.html'"></button>
+    </div>
+
+    <main>
+        <div class="search-results-box">
+            <h1>The nature of Code</h1>
+            <div class="search-results-box-content">
+                <article>
+                    <h1>About:</h1>
+                    <p> &emsp; How can we capture the unpredictable evolutionary and emergent properties of nature in
+                        software? How can understanding the mathematical principles behind our physical world help us to
+                        create digital worlds? This book focuses on a range of programming strategies and techniques
+                        behind computer simulations of natural systems, from elementary concepts in mathematics and
+                        physics to more advanced algorithms that enable sophisticated visual results. Readers will
+                        progress from building a basic physics engine to creating intelligent moving objects and complex
+                        systems, setting the foundation for further experiments in generative design. Subjects covered
+                        include forces, trigonometry, fractals, cellular automata, self-organization, and genetic
+                        algorithms. The book's examples are written in Processing, an open-source language and
+                        development environment built on top of the Java programming language.</p>
+                </article>
+            </div>
+            <div class="search-results-box-content">
+                <article>
+                    <h1>Tags:</h1>
+                    <p class="tags">#books</p>
+                </article>
+            </div>
+            <div class="search-results-box-content">
+                <article>
+                    <h1>
+                        Link to resource:
+                    </h1>
+                    <a href="http://www.natureofcode.com">
+                        http://www.natureofcode.com
+                    </a>
+                </article>
+            </div>
+        </div>
+        <div class="photo">
+            <img src="images/Products images/nature of code.png">
+        </div>
+    </main>
+    <script src="search.js"></script>
+</body>
+
+</html>

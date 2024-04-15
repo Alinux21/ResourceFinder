@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Form</title>
+    <title>Sign Up Form</title>
     <link rel="stylesheet" href="signup-form.css">
+    <link rel="icon" type="image/x-icon" href="images/logo-wheel-favicon.ico">
 </head>
 
 <body>
     <div class="login-box">
-        <h1>Signup</h1>
-        <form id="login-form">
+        <h1>Sign Up</h1>
+        <form id="login-form" action="login-form.html" method="POST">
             <input class="user-box" type="text" placeholder="First Name">
             <input class="user-box" type="text" placeholder="Last Name">
             <select id="country-select">
@@ -43,7 +44,7 @@
             <input class="user-box" type="text" placeholder="Username">
             <input class="user-box" type="password" placeholder="Password">
             <input class="user-box" type="password" placeholder="Confirm Password">
-            <button class="submit-button">Submit</button>
+            <button class="submit-button" type="submit">Submit</button>
         </form>
     </div>
 </body>

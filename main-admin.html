@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CreativeProgramming</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/x-icon" href="images/logo-wheel-favicon.ico">
 </head>
 
 <body>
@@ -118,10 +119,10 @@
     </div>
 
     <div class="search-bar">
-        <!-- <button type="submit" class="search-button-left">Search</button> -->
-        <input type="text" placeholder="Looking for something?" class="search-input">
-        <button type="submit" class="search-button-right"></button>
+        <input type="text" id="search" placeholder="Looking for something?" class="search-input">
+        <button type="submit" class="search-button-right" onclick="window.location.href = 'searchpage.html'"></button>
     </div>
+    <script src="search.js"></script>
 </body>
 
 </html>
