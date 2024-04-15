@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .header {
@@ -276,9 +277,16 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-.hot-element>p {
+.hot-element>.btn-h {
+    margin-top: 10px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.hot-element>.btn-p {
     font-size: 18px;
-    margin-top: 4px;
+    margin-top: 8px;
+    margin-bottom: 5px;
 }
 
 /* =================   SEARCH BAR   ================= */
