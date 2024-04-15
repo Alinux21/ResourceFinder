@@ -169,6 +169,7 @@ body {
 
 
 .hot-now-button {
+    max-width: 500px;
     margin-top: 80px;
     flex: 1;
     display: flex;
