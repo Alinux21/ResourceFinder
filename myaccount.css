@@ -44,7 +44,7 @@ header h1{
     height: fit-content;
 }
 
-.profile_header h1 {
+.profile_header h2 {
     margin: 0;
     font-size: 34px;
 }
@@ -116,7 +116,7 @@ header h1{
     height: fit-content;
 }
 
-.content_container h1{
+.content_container h2{
     margin-top: 0;
     font-size: 20px;
     color: #182527;
