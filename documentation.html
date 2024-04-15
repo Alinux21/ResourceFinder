@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReFi - Creative Coding Vault | Documentație</title>
+    <style>
+        body {
+            margin: 0;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        img {
+            max-width: 30vw;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <header>
+            <h1>Resource Finder - Creative Coding Vault</h1>
+        </header>
+        <div role="contentinfo">
+            <p>Authors: </p>
+            <ul>
+                <li>Isache Bogdan</li>
+                <li>Moloce Alin</li>
+            </ul>
+            <p>Affiliation: University "Alexandru Ioan Cuza",
+                Department of Computer Science</p>
+        </div>
+        <section>
+            <h2 aria-level="1">1. Introduction</h2>
+            <section>
+                <h3 aria-level="2">1.1 Purpose</h3>
+                <p>ReFi (Resource Finder) is a comprehensive platform designed to assist developers in sourcing,
+                    organizing, and discovering resources relevant to creative programming endeavors. ReFi aims to
+                    streamline the process of locating specialized websites, tutorials, multimedia presentations, source
+                    code, and software projects tailored to various aspects of creative coding, such as JavaScript,
+                    WebGL, and WebAssembly. By enabling users to specify their programming language preferences, desired
+                    outcomes (e.g., 2D illustration, 3D virtual worlds, animations, or sound content), and interaction
+                    preferences, ReFi will provide personalized recommendations for existing software solutions,
+                    including frameworks, libraries, and components essential for creating specific artifacts.
+                </p>
+            </section>
+
+            <section>
+                <h3 aria-level="3">1.2 Intended Audience</h3>
+                <p>ReFi is designed for those who will utilize the ReFi platform to discover and access resources
+                    relevant to
+                    creative programming. Users may include programmers, developers, artists, designers, educators, and
+                    other professionals or enthusiasts interested in creative coding and related disciplines.
+                    The focus is on those who will engage with the platform's features and functionalities to achieve
+                    their creative programming goals.
+                </p>
+            </section>
+
+            <section>
+                <h3 aria-level="4">1.3 Product Scope</h3>
+                <p>By leveraging resources from the GitHub repository "awesome-creative-coding"
+                    (https://github.com/terkelg/awesome-creative-coding), ReFi offers users a curated collection of
+                    tools, frameworks, libraries, and components tailored to various aspects of creative programming,
+                    such as JavaScript, WebGL, and WebAssembly.
+
+                    The primary goal of ReFi is to enhance the creative programming experience by simplifying the
+                    resource discovery process and facilitating access to relevant tools and materials. By providing
+                    users with personalized recommendations based on their programming language preferences, desired
+                    outcomes, and interaction preferences, ReFi aims to empower individuals to explore and experiment
+                    with creative coding techniques more effectively.
+
+                </p>
+            </section>
+
+            <section>
+                <h3 aria-level="5">1.4 References</h3>
+                <p>
+                    GitHub Repository for "awesome-creative-coding":
+                <ul>
+                    <li>Title: Awesome Creative Coding</li>
+                    <li>Author: Terkel Gjervig</li>
+                    <li>Source or Location: <a
+                            href="https://github.com/terkelg/awesome-creative-coding">https://github.com/terkelg/awesome-creative-coding</a>
+                    </li>
+                </ul>
+                </p>
+            </section>
+
+        </section>
+
+        <section>
+            <h2 aria-level="2">2. Overall description</h2>
+
+            <section>
+                <h3 aria-level="2">2.1 Product Perpective</h3>
+                <p>This is a new, self-contained product, which provides a frindly and accesible way for programmers,
+                    but not only, to gather useful and practical resources, regarding creative coding. It takes use of
+                    the natural language in order to provide the most accurate resource, which suits best the client
+                    needs.
+                </p>
+            </section>
+
+            <section>
+                <h3 aria-level="3">2.2 Product Functions</h3>
+                <p>
+                    The product wil have the following functionalities:
+                </p>
+                <ul>
+                    <li>Resource Recomandation</li>
+                    <li>Natural language processing</li>
+                    <li>Fast and clever filtering of the resources based on search algorithms</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 aria-level="4">2.3. User Classes and Characteristics</h3>
+                <p>
+                    There will be 2 types of users: admin and guest. The main difference between them, is that the admin
+                    will have the posibility of uploading resources on the website and modifying/deleting his previous
+                    uploads, while the guest user will only have the permission to view them. We have to note that the
+                    admin is the most important class, including all the functionalities that the guest has. In order
+                    for a client to register and become an admin, he must complete a sign up formular with data about
+                    name, surname, email, phone, country, city, username and password. After that he must log in with
+                    the credentials.
+                </p>
+            </section>
+            <section>
+                <h3 aria-level="5">2.4 Operating Environment</h3>
+                <p>
+                    The product is designed to operate in a web-based environment. It used php 8.2 for the backend and
+                    HTML, CSS and JavaScript for the frontend. It is responsive, which makes it compatible with multiple
+                    hardware platforms (desktops, tablet, mobile, ...) and operating systems as well as different
+                    browsers.
+                </p>
+            </section>
+            <section>
+                <h3 aria-level="6">2.5 Assumptions and Dependencies</h3>
+                <p>
+                    Assumptions and dependencies include the MySql database for colecting varius user prefferences and
+                    storing the resources brief descriptions, as well as the pictures.
+                </p>
+            </section>
+        </section>
+        <section>
+            <h2 aria-level="2">3. External Interface Requirements</h2>
+            <section>
+                <h3 aria-level="2">3.1 User Interfaces</h3>
+                <p>
+                    The web application will offer a simple, intuitive and responsive design in order to make the users
+                    experience as eazy and pleasent as possible.
+                </p>
+                <section>
+                    <h4 aria-level="3">3.1.1 First Page</h4>
+                    <p>
+                        The main page will let the user chose how to continue. As an admin or as a guest. It features a
+                        nice animation and 3 large buttons, in order to make it very intuitive. If the user deicdes to
+                        access the website as an admin, he must log in and will eb redirected to the log in page. If the
+                        user wants to enter as a guest, he can jsut press the button "Enter as guest". If he wants to
+                        become and admin, he will press the sign up button and be redirecte to the sign up page.
+                    </p>
+                    <img src="images/doc-img-1.jpg" alt="image not available!">
+                </section>
+                <section>
+                    <h4 aria-level="3">3.1.2 Log in page</h4>
+                    <p>
+                        This page will authetificate the user through a HTML form. If the username and the password
+                        mathes the one in the database, the user is authetificated as admin.
+                    </p>
+                </section>
+                <section>
+                    <h4 aria-level="4">3.1.3 Sign in page</h4>
+                    <p>
+                        The sign in page consist also in a HTML form with the role of storing the data about the user in
+                        the database, in order for him to be able to authetificate as admin.
+                    </p>
+                </section>
+                <section>
+                    <h4 aria-level="3">3.1.4 Main Page</h4>
+                    <p>
+                        The main page will have 2 variations: guest-main page and admin-main page. The only difference
+                        is that from the admin-main page the user has the extra 2 buttons: my accound and dashboard,
+                        which lead to the pages accordingly.
+                    </p>
+                    <p>
+                        Except from that, the pages offer the same functionalities: see the most viewd and
+                        latests added resources with a prewiew of top 3 from this week and search for a resource you
+                        want. Each button will take the user to the specified page. The hot-now and latests-added will
+                        redirect to a dedicated page with the top 5 resources from each category. The resources buttons
+                        itself will redirect to the resource page. And after writing the deisred resource and clicking
+                        "Enter", it will display all the resources related to the search.
+                    </p>
+                    <img src="images/img-main-doc.png" alt="image not availabe!">
+                    <img src="images/img-main-doc-1.png" alt="image not availabe">
+                    <img src="images/filler.jpeg" alt="image not available">
+                    <img src="images/doc-img-3.jpeg" alt="image not available">
+                </section>
+                <section>
+                    <h4 aria-level="3">3.1.5 Product page</h4>
+                    <p>
+                        The product page will diaply a brief information about the conent of the resourec, a picture and
+                        the admin who uploaded it. It will also provide a link to redirect to the main page of the
+                        resource. It will also display the tags, which will help in filtering the reosurces.
+                    </p>
+                </section>
+                <section>
+                    <h4 aria-level="3">3.1.6 Trending&Popular pages</h4>
+                    <p>
+                        Trending and Popular pages have the same layout. The Trending page displays a list of the most accesed resources from the current month, compared to
+                        the Popular page which displays in the same manner those resources that have the most searches, all time. On both pages, there is a Preview resource
+                        section. If the user clicks on one resource from the resource list the Preview resource updates automatically to show details about that resource.
+                        Also there is a sidepanel where there are resources grouped into categories. If the user clicks on one category it will automatically redirect the user
+                        to the search page with the coresponding category filter set. 
+                    </p>
+                </section>
+
+                <section>
+                    <h4 aria-level="3">3.1.7 Search page</h4>
+                    <p>
+                       The Search page contains a search bar at the top of the page where the user will type the resource name he's trying to find. After pressing search,
+                       the "Search results" section will be updated with the corresponding resources found. The user has the posibility to filter the results by selecting
+                       the desired filters from the "Fitlers" section. When checking  a filter the search results will be automatically updated.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 aria-level="3">3.1.8 My account page</h4>
+                    <p>
+                       This page displays the profile of the current logged in admin. The user has the possibility to edit information like: "First Name", "Email" , profile
+                       picture, password etc. When user is done, the submit button should be pressed. Next, the user will confirm these changes by email. If done correctly,
+                       the user will have its profile changes made. 
+                    </p>
+                    <img src="images/my-acc-doc.png" alt="image not availabe">
+                </section>
+
+                <section>
+                    <h4 aria-level="3">3.1.9 Dashboard page</h4>
+                    <p>
+                       The Dashboard page has two components: a form for uploading a new resource and a list of previous uploaded resources by the current logged admin.
+                       The user's uploaded resources will be loaded dynamically. An admin can edit or delete previous uploaded resources by pressing the "Edit" and "Delete" 
+                       buttons from each resource. After pressing the delete button the respective resource will be deleted from the database. When pressing "Edit" the upload
+                       resource form will by dynamically completed with the existing resource information. After this the "Upload Resource!" button will be replaced by
+                       a button that contains the text "Edit Resource!".
+                    </p>
+                    <img src="images/dash-doc-1.png" alt="image not availabe">
+                    <img src="images/dash-doc.png" alt="image not availabe">
+                </section>
+            </section>
+            <section>
+                <h3 aria-level="2">3.2 Softwear interface </h3>
+                <p>
+                    The softwear will interact with the MySql databse in the backend and the server-side logic will be
+                    implemented with php 8.2.
+                </p>
+            </section>
+        </section>
+        <section>
+            <h2 aria-level="3">4. System Features </h2>
+            <section>
+                <h4 aria-level="3">4.1 Resource Provided Management </h4>
+                <p>
+                    The product will take use of natural language processing in order to be able to give the user the
+                    result desired. For that it will use key words and patterns matchings in order to do an efficient
+                    graph search by comparing the results with the one in the database.
+                </p>
+            </section>
+            <section>
+                <h4 aria-level="3">4.2 Admin user profile management </h4>
+                <p>
+                    Users can manage their personal data such as name, username, password, etc., but most important the
+                    resources uploaded. They will have access to a dashboard and be able to modify/delete them as they
+                    want. The web application also
+                    uses a text compressoin algorithm, in order to use the database as efficienlty as possible. In order
+                    to upload a ressource, the user will have to fill in the following form:
+                </p>
+                <ul>
+                    <li>Title</li>
+                    <li>Description</li>
+                    <li>Tags</li>
+                    <li>Link to ressource</li>
+                </ul>
+                <img src="images/img-main-doc-2.png" alt="image not availabe">
+            </section>
+            <section>
+                <h4 aria-level="3"> 4.3 Recomandations</h4>
+                <p>
+                    The softwear will collect data about ressources being accesed and propose to the user weekly the
+                    most searched materials. For that it will calculate every 30 minutes the visitng degree of a
+                    ressource and do a mean. It will also take in account the latests addisions and do a ranking
+                    also.
+                </p>
+
+
+            </section>
+        </section>
+        <section>
+            <h2 aria-level="2">5. Other Nonfunctional Requirements</h2>
+            <section>
+                <h4 aria-level="3">5.1 Security Requirements</h4>
+                <p>
+                    Security measures will include protection against attacks like SQL injection, XSS, Directory
+                    Traversal and MiTM.
+                </p>
+
+            </section>
+        </section>
+    </article>
+    <footer>
+        <p>&copy; ReFi - Creative Coding Vault 2E1. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
