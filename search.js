@@ -17,3 +17,7 @@ function funcProd(event) {
     window.location.href = "product.html";
     event.stopPropagation();
 }
+
+function funcSearch() {
+    window.location.href = "searchpage.html"
+}
