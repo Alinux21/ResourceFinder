@@ -1,0 +1,212 @@
+body {
+    background-color: #CCF4E5;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #20CD8D;
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+header h1{
+    margin: 0;
+    font-size: 36px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.profile_container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #182527;
+    padding: 20px;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.profile_header {
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_header button{
+    height: fit-content;
+}
+
+.profile_header h2 {
+    margin: 0;
+    font-size: 34px;
+}
+
+.profile_header h3 {
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.content_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.right_container {
+    width: 30%;
+}
+
+.personal_information_container,
+.password_container,
+.profile_image_container {
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.field_group {
+    width: 50%;
+}
+
+.field_group label {
+    margin-bottom: 5px;
+}
+
+.field_group input[type="text"],
+.password_container input[type="password"] {
+    width: calc(90% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.password_fields{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+
+.profile_image_container{
+    width: 100%;
+    margin-left: 15%;
+    height: fit-content;
+}
+
+.content_container h2{
+    margin-top: 0;
+    font-size: 20px;
+    color: #182527;
+}
+
+.personal_information_container label,
+.password_container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #182527;
+    font-weight: bold;
+}
+
+.profile_image_container h3 {
+    margin-top: 0;
+    font-size: 14px;
+    color: #182527;
+}
+.profile_image_container button{
+    margin-top: 1%;
+}
+
+.profile_image_container button,
+.profile_header button {
+    background-color: #20CD8D;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+
+.profile_image_container button:hover,
+.profile_header button:hover {
+    background-color: #1AA582;
+}
+
+.profile_image_container img{
+    width: 100%;
+    height: 85%;
+    border-radius: 10%;
+    object-fit: cover;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+    .fields{
+        flex-direction: column;
+    }
+    .field_group{
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 1023px) { /* mobile + tablet*/
+    .content_container {
+        flex-direction: column;
+    }
+
+    .left_container,
+    .right_container {
+        width: 100%;
+    }
+
+    .profile_header{
+        flex-direction: column;
+    }
+
+    .profile_image_container{
+        margin-left: 0;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 1024px) { /*desktop*/
+    .logo {
+        position: absolute;
+        left: -25px;
+        top: -65px;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    header {
+        height: 100px;
+    }
+}

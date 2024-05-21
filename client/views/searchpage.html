@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Popular Page</title>
+    <link rel="stylesheet" href="../css/searchpage.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo-wheel-favicon.ico">
+</head>
+
+<body>
+
+    <header>
+        <img class="logo" src="../assets/images/logo.png" alt="Logo">
+        <h1 class="main_title">Search page</h1>
+        <h2>Find your resource on Creative Coding Vault</h2>
+    </header>
+
+    <main>
+
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Start a new search..." class="search-input">
+            <button type="submit" class="search-button-right"
+                onclick="window.location.href = 'searchpage.html'"></button>
+        </div>
+
+        <div class="filters-box">
+            <h2>Filters:</h2>
+            <div class="filters-box-content">
+
+                <h3>Desired Result</h3>
+                <ul>
+                    <li><input type="checkbox"><span>Books</span> <span class="filter-result-count">(42)</span></li>
+                    <li><input type="checkbox"><span>2D Illustration</span> <span
+                            class="filter-result-count">(42)</span></li>
+                    <li><input type="checkbox"><span>3D Virtual World</span> <span
+                            class="filter-result-count">(25)</span></li>
+                    <li><input type="checkbox"><span>Animation</span> <span class="filter-result-count">(33)</span></li>
+                    <li><input type="checkbox"><span>Sound Content</span> <span class="filter-result-count">(12)</span>
+                    </li>
+                </ul>
+
+                <h3>Software Type</h3>
+                <ul>
+                    <li><input type="checkbox"><span>Frameworks</span> <span class="filter-result-count">(30)</span>
+                    </li>
+                    <li><input type="checkbox"><span>Libraries</span> <span class="filter-result-count">(45)</span></li>
+                    <li><input type="checkbox"><span>Components</span> <span class="filter-result-count">(20)</span>
+                    </li>
+                    <li><input type="checkbox"><span>Tools</span> <span class="filter-result-count">(55)</span></li>
+                    <li><input type="checkbox"><span>Software Projects</span> <span
+                            class="filter-result-count">(18)</span></li>
+                    <li><input type="checkbox"><span>Multimedia Presentations</span> <span
+                            class="filter-result-count">(10)</span></li>
+                </ul>
+
+                <h3>Programming Language</h3>
+                <ul>
+                    <li><input type="checkbox"><span>Java</span> <span class="filter-result-count">(57)</span></li>
+                    <li><input type="checkbox"><span>JavaScript</span> <span class="filter-result-count">(20)</span>
+                    </li>
+                    <li><input type="checkbox"><span>TypeScript</span> <span class="filter-result-count">(15)</span>
+                    </li>
+                    <li><input type="checkbox"><span>WebGL</span> <span class="filter-result-count">(0)</span></li>
+                </ul>
+
+                <h3>Interaction</h3>
+                <ul>
+                    <li><input type="checkbox"><span>Classic</span> <span class="filter-result-count">(74)</span></li>
+                    <li><input type="checkbox"><span>Vocal</span> <span class="filter-result-count">(15)</span></li>
+                    <li><input type="checkbox"><span>Tactile</span> <span class="filter-result-count">(3)</span></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="search-results-box">
+            <h2>Search results:</h2>
+            <div class="search-results-box-content">
+                <article onclick="funcProd(event)">
+                    <h2>The Nature of Code</h2>
+                    <p>Simulating natural systems with Processing.</p>
+                    <p class="tags">Tags: #books</p>
+                </article>
+
+                <article onclick="funcProd(event)">
+                    <h2>Learning Modern 3D Graphics Programming </h2>
+                    <p>Series of tutorials on using OpenGL to do graphical rendering.</p>
+                    <p class="tags">Tags: #books</p>
+                </article>
+
+                <article onclick="funcProd(event)">
+                    <h2>Generative Art: A Practical Guide </h2>
+                    <p>Practical guide using Processing.</p>
+                    <p class="tags">Tags: #books</p>
+                </article>
+                
+                <article onclick="funcProd(event)">
+                    <h2>Generative Art: A Practical Guide </h2>
+                    <p>Practical guide using Processing.</p>
+                    <p class="tags">Tags: #books</p>
+                </article>
+
+                <article onclick="funcProd(event)">
+                    <h2>Generative Art: A Practical Guide </h2>
+                    <p>Practical guide using Processing.</p>
+                    <p class="tags">Tags: #books</p>
+                </article>
+
+                <article onclick="funcProd(event)">
+                    <h2>Generative Art: A Practical Guide </h2>
+                    <p>Practical guide using Processing.</p>
+                    <p class="tags">Tags: #books</p>
+                </article>
+
+                <article onclick="funcProd(event)">
+                    <h2>Generative Design</h2>
+                    <p>Visualize, Program, and Create with Processing</p>
+                    <p class="tags">Tags: #books</p>
+                </article>
+            </div>
+        </div>
+
+    </main>
+    <script src="../js/search.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo-wheel-favicon.ico">
+
+</head>
+
+<body>
+
+    <header>
+        <img class="logo" src="../assets/images/logo.png" alt="Logo">
+        <h1>Dashboard</h1>
+    </header>
+
+
+    <div class="upload_resource">
+
+        <div class="upload_resource_header">
+            <h2>Upload a resource</h2>
+        </div>
+
+        <div class="upload_resource_content">
+
+            <form>
+                <div class="field_group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="field_group">
+                    <label for="about">Description</label>
+                    <textarea id="about" rows="4" required></textarea>
+                </div>
+                <div class="field_group">
+                    <label for="tags">Tags</label>
+                    <input type="text" id="tags" required>
+                </div>
+                <div class="field_group">
+                    <label for="link">Link to Resource</label>
+                    <input type="url" id="link" required>
+                </div>
+                <button type="submit">Upload Resource!</button>
+            </form>
+
+            <div class="upload_picture">
+                <h2>Upload picture</h2>
+                <img src="../assets/images/upload.png" alt="Upload picture">
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="my_resources">
+
+        <h2>My Resources:</h2>
+
+        <div class="resource_list">
+
+            <article onclick="funcProd(event)">
+                <h2>The Nature of Code</h2>
+                <p>Simulating natural systems with Processing.</p>
+                <p class="tags">Tags: #books</p>
+                <button type="submit">Edit</button>
+                <button type="submit">Delete</button>
+            </article>
+
+            <article onclick="funcProd(event)">
+                <h2>The Nature of Code</h2>
+                <p>Simulating natural systems with Processing.</p>
+                <p class="tags">Tags: #books</p>
+                <button type="submit">Edit</button>
+                <button type="submit">Delete</button>
+            </article>
+
+            <article onclick="funcProd(event)">
+                <h2>The Nature of Code</h2>
+                <p>Simulating natural systems with Processing.</p>
+                <p class="tags">Tags: #books</p>
+                <button type="submit">Edit</button>
+                <button type="submit">Delete</button>
+            </article>
+
+        </div>
+
+
+    </div>
+
+    <script src="../js/search.js"></script>
+</body>
+
+</html>
