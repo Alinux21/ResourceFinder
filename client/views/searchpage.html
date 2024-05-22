@@ -77,8 +77,29 @@
 
         <div class="search-results-box">
             <h2>Search results:</h2>
-            <div class="search-results-box-content">
-                <article onclick="funcProd(event)">
+            <div class="search-results-box-content" id="search-results">
+
+                <script>
+                    fetch("http://localhost:5001/api/resources")
+                        .then(response => response.json())
+                        .then(data => {
+                            var rows = "";
+                            data.forEach(element => {
+                                rows += '<article>'
+                                    + '<h2>' + element.title + '</h2>'
+                                    + '<p>' + element.summary + '</p>'
+                                    + '<p class="tags">' + element.tags.split(',').map(tag => '#' + tag) + '</p>'
+                                    +"</article>"
+                            });
+
+                            document.getElementById("search-results").innerHTML = rows;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                </script>
+
+                <!-- <article onclick="funcProd(event)">
                     <h2>The Nature of Code</h2>
                     <p>Simulating natural systems with Processing.</p>
                     <p class="tags">Tags: #books</p>
@@ -95,7 +116,7 @@
                     <p>Practical guide using Processing.</p>
                     <p class="tags">Tags: #books</p>
                 </article>
-                
+
                 <article onclick="funcProd(event)">
                     <h2>Generative Art: A Practical Guide </h2>
                     <p>Practical guide using Processing.</p>
@@ -118,7 +139,7 @@
                     <h2>Generative Design</h2>
                     <p>Visualize, Program, and Create with Processing</p>
                     <p class="tags">Tags: #books</p>
-                </article>
+                </article> -->
             </div>
         </div>
 
