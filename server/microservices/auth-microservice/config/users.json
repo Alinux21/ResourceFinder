@@ -1,0 +1,24 @@
+{
+    "users": [
+        {
+            "userName": "bogdan",
+            "password": "bogdan",
+            "firstName": "Bogdan",
+            "lastName": "Isache",
+            "phoneNumber": "0773369769",
+            "emailAdress": "isache.bogdan2003@gmail.com",
+            "country": "Iasi",
+            "city": "Romania"
+        },
+        {
+            "userName": "alin",
+            "password": "alin",
+            "firstName": "Alin",
+            "lastName": "Moloce",
+            "phoneNumber": "0223269769",
+            "emailAdress": "moloce.alin@gmail.com",
+            "country": "Iasi",
+            "city": "Romania"
+        }
+    ]
+}
