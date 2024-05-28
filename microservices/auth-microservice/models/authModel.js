@@ -1,6 +1,5 @@
 const path = require('path');
-const { connectToDatabase } = require('../config/db-config');
-const { rejects } = require('assert');
+const { connectToDatabase } = require('../config/DbConfig');
 const con = connectToDatabase();
 
 function findUser(username, password) {
@@ -9,12 +8,19 @@ function findUser(username, password) {
         sql = con.format(sql, username);
 
         const [rows] = connection.execute(sql);
-        if (rows.length === 0) {
-            return null;
+        if (rows.length != 1) {
+            return false;
+        } else {
+            if (rows[0].password == password) {
+                return true;
+            } else {
+                return false;
+            }
         }
-        return rows[0].password;
-
         
-
     })
+}
+
+module.exports = {
+    findUser
 }
