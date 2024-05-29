@@ -33,7 +33,7 @@ const server = http.createServer(async (req, res) => {
 
             const response = await fetch('http://localhost:5002/api/auth', { 
                 method: req.method,
-                headers: req.headers
+                headers: req.headers,
             });
 
             const body = await response.text();
