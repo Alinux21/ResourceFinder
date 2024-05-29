@@ -4,7 +4,7 @@ const con = connectToDatabase();
 
 function checkUser(username, password) {
     return new Promise((resolve, reject) => {
-        var sql = "select password from users_info where username = ?";
+        var sql = "select password from users_info where userName=?";
         sql = con.format(sql, username);
         console.log(sql);
 

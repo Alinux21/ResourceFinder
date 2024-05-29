@@ -4,9 +4,9 @@ const { getPostData } = require('../utils');
 async function checkUser(req, res) {
     
         const body = await getPostData(req);
-        console.log(body)
         const { username, password } = JSON.parse(body);
-        console.log(username, password);
+        
+       console.log(username, password);
         try {
             const user = await User.checkUser(username, password);
             if (user) {
