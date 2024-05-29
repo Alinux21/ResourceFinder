@@ -1,19 +1,25 @@
 const User = require('../models/authModel');
+const { getPostData } = require('../utils');
 
 async function checkUser(req, res) {
-    try {
-        const user = await User.findUser(req.body.username, req.body.password);
-        if (user) {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ status: true }));
-        } else {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ status: false }));
+    
+        const body = await getPostData(req);
+        console.log(body)
+        const { username, password } = JSON.parse(body);
+        console.log(username, password);
+        try {
+            const user = await User.checkUser(username, password);
+            if (user) {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ admin: true }));
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ admin: false }));
+            }
+        } catch (error) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ admin: false, error: error.message }));
         }
-    } catch (error) {
-        res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ status: false, error: error.message }));
-    }
 }
 
 module.exports = {

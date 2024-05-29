@@ -31,9 +31,16 @@ const server = http.createServer(async (req, res) => {
         }
         else if (parsedUrl[2] === 'users') {
 
-            res.statusCode = 200;
+            const response = await fetch('http://localhost:5002/api/auth', { 
+                method: req.method,
+                headers: req.headers
+            });
+
+            const body = await response.text();
+
+            res.statusCode = response.status;
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({ message: 'Users api' }));
+            res.end(body);
         }
 
         else if (parsedUrl[2] === 'searches') {
