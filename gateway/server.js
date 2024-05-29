@@ -1,3 +1,5 @@
+const { getPostData } = require('./utils.js')
+
 const http = require('http');
 
 const PORT = 5010;
@@ -31,16 +33,20 @@ const server = http.createServer(async (req, res) => {
         }
         else if (parsedUrl[2] === 'users') {
 
+
+            const body = await getPostData(req);
+
             const response = await fetch('http://localhost:5002/api/auth', { 
                 method: req.method,
                 headers: req.headers,
+                body: body
             });
 
-            const body = await response.text();
+            const responseBody = await response.text();
 
             res.statusCode = response.status;
             res.setHeader('Content-Type', 'application/json');
-            res.end(body);
+            res.end(responseBody);
         }
 
         else if (parsedUrl[2] === 'searches') {
