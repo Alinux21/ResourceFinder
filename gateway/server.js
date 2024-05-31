@@ -18,29 +18,46 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
-
-    //TODO add verification with JWT for before giving acces to the API's endpoints where needed (e.g. POST in resources)
-
     const parsedUrl = req.url.split('/');
 
     if (parsedUrl[1] === 'api') {
 
         if (parsedUrl[2] === 'resources') {
+            
+            if (req.method === 'GET') {
+
+                console.log(req.url);
+
+                const response = await fetch('http://localhost:5001'+req.url, {   //forwarding the request to the resources api
+                    method: req.method,
+                    headers: req.headers,
+                });
+
+                const responseBody = await response.text();
+                
+                res.statusCode = response.status;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(responseBody);
+
+            } else if (req.method === 'POST') {
 
 
+                const body = await getPostData(req);
 
-            const response = await fetch('http://localhost:5001/api/resources', {   //forwarding the request to the resources api
-                method: req.method,
-                headers: req.headers
-            });
-
-            const body = await response.text();
-
-            res.statusCode = response.status;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(body);
+                const response = await fetch('http://localhost:5001/api/resources', {   //forwarding the request to the resources api
+                    method: req.method,
+                    headers: req.headers,
+                    body: body
+                });
 
 
+                const responseBody = await response.text();
+
+
+                res.statusCode = response.status;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(responseBody);
+            }
 
         }
         else if (parsedUrl[2] === 'users') {
@@ -84,5 +101,5 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
 
-    console.log(`Server running on http://localhost:${PORT}/api`);
+    console.log(`API Gateway running on http://localhost:${PORT}/api`);
 });

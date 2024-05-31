@@ -12,11 +12,13 @@ function getPostData(req) {
             })
 
             req.on('end', () => {
+        console.log(body);
                 resolve(body)
             })
         } catch (error) {
             reject(error)
         }
+
 
     })
 

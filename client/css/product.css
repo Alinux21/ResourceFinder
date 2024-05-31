@@ -101,7 +101,8 @@ article p {
     color: #182527;
     text-align: justify;
     overflow: scroll;
-    max-height: 15vh;
+    height: fit-content;
+    overflow: hidden;
 }
 
 .tags {

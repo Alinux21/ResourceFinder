@@ -13,8 +13,8 @@ function funcLat() {
     window.location.href = "popular.html";
 }
 
-function funcProd(event) {
-    window.location.href = "product.html";
+function getResource(event,id) {
+    window.location.href = "product.html?id=" + id;
     event.stopPropagation();
 }
 

@@ -33,7 +33,10 @@ async function getResource(req, res, id) {
 async function createResource(req, res) {
     try {
 
+
         const body = await getPostData(req)
+        console.log(body)
+
         const { id, title, summary, description
             , tags, link, posted_by
             , is_book
