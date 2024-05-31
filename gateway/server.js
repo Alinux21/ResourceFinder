@@ -1,10 +1,22 @@
 const { getPostData } = require('./utils.js')
+const jwt = require('jsonwebtoken');
 
 const http = require('http');
 
 const PORT = 5010;
 
 const server = http.createServer(async (req, res) => {
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+        res.writeHead(200); // Respond OK to preflight request
+        res.end();
+        return;
+    }
 
 
     //TODO add verification with JWT for before giving acces to the API's endpoints where needed (e.g. POST in resources)
@@ -18,8 +30,8 @@ const server = http.createServer(async (req, res) => {
 
 
             const response = await fetch('http://localhost:5001/api/resources', {   //forwarding the request to the resources api
-                method: req.method, 
-                headers: req.headers 
+                method: req.method,
+                headers: req.headers
             });
 
             const body = await response.text();
@@ -36,17 +48,18 @@ const server = http.createServer(async (req, res) => {
 
             const body = await getPostData(req);
 
-            const response = await fetch('http://localhost:5002/api/auth', { 
+            const response = await fetch('http://localhost:5002/api/auth', {
                 method: req.method,
                 headers: req.headers,
                 body: body
             });
 
             const responseBody = await response.text();
+            const jwtToken = JSON.parse(responseBody);
 
             res.statusCode = response.status;
             res.setHeader('Content-Type', 'application/json');
-            res.end(responseBody);
+            res.end(JSON.stringify(jwtToken));
         }
 
         else if (parsedUrl[2] === 'searches') {

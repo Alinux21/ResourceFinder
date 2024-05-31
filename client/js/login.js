@@ -1,25 +1,17 @@
-document.getElementById('login-form').addEventListener('submit', function(event) {
+const loginForm = document.getElementById('login-form');
+loginForm.addEventListener('submit', event =>  {
     event.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const formData = new FormData(loginForm);
+    const data = Object.fromEntries(formData);
 
-    fetch('http://localhost:5500/login', {
+    fetch('http://localhost:5010/api/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ username: username, password: password })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Login successful');
-        } else {
-            alert('Login failed');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        body: JSON.stringify(data),
+        credentials: 'include'
+    }).then(res => res.json())
+      .then(data => localStorage.setItem('token', data.token))
 });

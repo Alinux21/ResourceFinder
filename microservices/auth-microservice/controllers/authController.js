@@ -1,7 +1,7 @@
 const User = require('../models/authModel');
 const { getPostData } = require('../utils.js')
 const jwt = require('jsonwebtoken');
-
+const localStorage = require("localStorage");
 
 async function checkUser(req, res) {
 
@@ -12,12 +12,19 @@ async function checkUser(req, res) {
     try {
         const user = await User.checkUser(username, password);
         if (user) {
+            
+            const secret = '1234567890';
+            const payload = {
+                tokenUsername: username,
+                tokenAdmin: password
+            };
+            const token = jwt.sign(payload, secret);
+
             // res.writeHead(200, { 'Content-Type': 'application/json' });
             // res.end(JSON.stringify({ admin: true }));
-            const payload = {
-                username: user.username,
-                admin: user.admin
-            };
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ token }));
         } else {
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ admin: false }));
