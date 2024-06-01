@@ -60,7 +60,6 @@ function create(resource) {
     });
 }
 
-
 function update(id, resourceData) {
     return new Promise((resolve, reject) => {
         var keys = [];
@@ -92,8 +91,8 @@ function update(id, resourceData) {
     });
 }
 
-function deleteRes(id){
-        return new Promise((resolve, reject) => {
+function deleteRes(id) {
+    return new Promise((resolve, reject) => {
         var sql = "DELETE FROM resources WHERE id=?";
         sql = con.format(sql, id);
         console.log(sql);
@@ -109,11 +108,43 @@ function deleteRes(id){
     })
 }
 
+function saveImage(image) {
+    return new Promise((resolve, reject) => {
+        const fs = require('fs');
+        const path = require('path');
+        
+
+        // Define the path where the file should be saved
+        const savePath = path.join(__dirname, '../assets/resource-images', image.originalname);
+
+        // Create a write stream
+        const fileStream = fs.createWriteStream(savePath);
+
+        // Pipe the file data to the write stream
+        fileStream.write(image.buffer);
+
+        // Handle the 'finish' event
+        fileStream.on('finish', () => {
+            console.log('File saved successfully');
+            resolve(image.originalname);
+        });
+
+        // Handle the 'error' event
+        fileStream.on('error', (err) => {
+            console.error('Error saving file:', err);
+            reject(err);
+        });
+
+        // Close the stream
+        fileStream.end();
+    });
+}
 
 module.exports = {
     findAll,
     findById,
     create,
     update,
-    deleteRes
+    deleteRes,
+    saveImage
 }

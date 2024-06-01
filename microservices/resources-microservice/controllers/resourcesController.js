@@ -1,6 +1,7 @@
 const Resource = require('../models/resourcesModel');
 const { getPostData } = require('../utils')
 
+
 async function getAllResources(req, res) {
     try {
         const resources = await Resource.findAll()
@@ -30,47 +31,69 @@ async function getResource(req, res, id) {
     }
 }
 
+
+
 async function createResource(req, res) {
     try {
 
+        const multer = require('multer');
+        const upload = multer();
 
-        const body = await getPostData(req)
-        console.log(body)
+        upload.any()(req, res, async (err) => {
+            if (err) {
+                console.error(err);
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Internal server error');
+                return;
+            }
 
-        const { id, title, summary, description
-            , tags, link, posted_by
-            , is_book
-            , is_online_book
-            , is_course
-            , is_framework
-            , is_visual_programming_language
-            , is_sound_programming_language
-            , is_web_programming_library
-            , is_hardware
-            , is_video
-            , is_tutorial
-            , is_machine_learning
-            , is_blog } = JSON.parse(body);
+            console.log('Files:', req.files);
 
-        const resource = {
-            id, title, summary, description
-            , tags, link, posted_by
-            , is_book, is_online_book
-            , is_course, is_framework
-            , is_visual_programming_language
-            , is_sound_programming_language
-            , is_web_programming_library
-            , is_hardware
-            , is_video
-            , is_tutorial
-            , is_machine_learning
-            , is_blog
-        }
 
-        const newResource = await Resource.create(resource)
-        res.writeHead(201, { 'Content-Type': 'application/json' })
-        res.end(JSON.stringify(newResource))
+            const { id, title, summary, description
+                , tags, link, posted_by
+                , is_book
+                , is_online_book
+                , is_course
+                , is_framework
+                , is_visual_programming_language
+                , is_sound_programming_language
+                , is_web_programming_library
+                , is_hardware
+                , is_video
+                , is_tutorial
+                , is_machine_learning
+                , is_blog } = JSON.parse(req.body.data);
 
+            const resource = {
+                id, title, summary, description
+                , tags, link, posted_by
+                , is_book, is_online_book
+                , is_course, is_framework
+                , is_visual_programming_language
+                , is_sound_programming_language
+                , is_web_programming_library
+                , is_hardware
+                , is_video
+                , is_tutorial
+                , is_machine_learning
+                , is_blog
+            }
+
+
+            const newResource = await Resource.create(resource)
+
+            const response = Resource.saveImage(req.files[0]);
+
+            if(response){
+                console.log('Image saved successfully');
+            }else{
+                console.log('Error saving image');
+            }
+
+            res.writeHead(201, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify(newResource))
+        });
     } catch (error) {
         console.log(error)
     }
@@ -155,9 +178,6 @@ async function deleteResource(req, res, id) {
         console.log(error)
     }
 }
-
-
-
 
 module.exports = {
     getAllResources,
