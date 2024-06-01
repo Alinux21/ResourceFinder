@@ -1,12 +1,12 @@
-document.getElementById('uploadImage').addEventListener('click', function() {
+document.getElementById('uploadImage').addEventListener('click', function () {
     document.getElementById('fileInput').click();
 });
 
-document.getElementById('fileInput').addEventListener('change', function() {
+document.getElementById('fileInput').addEventListener('change', function () {
     var file = this.files[0];
     var reader = new FileReader();
 
-    reader.onloadend = function() {
+    reader.onloadend = function () {
         document.getElementById('uploadImage').src = reader.result;
         document.getElementById('imageName').innerText = file.name;
     }
@@ -18,9 +18,9 @@ document.getElementById('fileInput').addEventListener('change', function() {
     }
 });
 
-document.getElementById('resourceForm').addEventListener('submit', function(e) {
+document.getElementById('resourceForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     var type = document.getElementById('type').value;
 
     var typeMap = {
@@ -38,37 +38,58 @@ document.getElementById('resourceForm').addEventListener('submit', function(e) {
         blog: 'is_blog'
     };
 
-    var data = {
-        title: document.getElementById('title').value,
-        summary: document.getElementById('summary').value,
-        description: document.getElementById('about').value,
-        tags: document.getElementById('tags').value,
-        link: document.getElementById('link').value
-    };
+    const token = localStorage.getItem('token');
+    var username = null;
 
-    // Initialize all type properties to undefined
-    for (var key in typeMap) {
-        data[typeMap[key]] = undefined;
-    }
-
-    // Set the correct type property to 1
-    if (type in typeMap) {
-        data[typeMap[type]] = 1;
-    }
-
-
-    console.log(data);
-
-
-    fetch('http://localhost:5010/api/resources', {
+    fetch('http://localhost:5010/api/users/username', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ token })
+
     }).then(response => response.json())
-      .then(data => console.log(data))
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+        .then(data => {
+
+            username = data.username;
+
+            var data = {
+                title: document.getElementById('title').value,
+                summary: document.getElementById('summary').value,
+                description: document.getElementById('about').value,
+                tags: document.getElementById('tags').value,
+                link: document.getElementById('link').value,
+                posted_by: username
+            };
+
+            console.log(data);
+
+            // Initialize all type properties to undefined
+            for (var key in typeMap) {
+                data[typeMap[key]] = undefined;
+            }
+
+            // Set the correct type property to 1
+            if (type in typeMap) {
+                data[typeMap[type]] = 1;
+            }
+
+            fetch('http://localhost:5010/api/resources', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(response => response.json())
+                .then(data => console.log(data))
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        }
+        )
+
 });

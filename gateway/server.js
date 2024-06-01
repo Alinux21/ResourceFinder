@@ -62,6 +62,32 @@ const server = http.createServer(async (req, res) => {
         }
         else if (parsedUrl[2] === 'users') {
 
+            if(parsedUrl[3] === 'username' && req.method === 'POST') {
+            
+                const body = await getPostData(req);
+
+                const response = await fetch('http://localhost:5002/api/log/username', {
+                    method: req.method,
+                    headers: req.headers,
+                    body: body
+                });
+
+                 if (response.status === 500){
+                    res.writeHead(500, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ message: 'Server error' })); 
+                } else {
+
+                    const responseBody = await response.text();
+                    const jsonResponse = JSON.parse(responseBody);
+
+                    res.statusCode = response.status;
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end(JSON.stringify(jsonResponse));
+                }
+
+            }
+
+
 
             const body = await getPostData(req);
 
