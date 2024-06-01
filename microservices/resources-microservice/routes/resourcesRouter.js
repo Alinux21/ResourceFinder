@@ -5,6 +5,7 @@ const resourcesRouter = (req,res) =>{
     console.log(req.url);
 
     if(req.url === '/api/resources' && req.method === 'GET'){
+        console.log('get all resources');
         resourceController.getAllResources(req,res);
     }else if(req.url.match(/\/api\/resources\/([0-9-]+)/) && req.method === 'GET'){
         resourceController.getResource(req,res,req.url.split('/')[3]);

@@ -41,10 +41,10 @@ if (!checkToken(authToken)) {
         window.location.href = "popular.html";
     }
 
-    function funcProd(event) {
-        window.location.href = "product.html";
-        event.stopPropagation();
-    }
+function getResource(event,id) {
+    window.location.href = "product.html?id=" + id;
+    event.stopPropagation();
+}
 
     function funcSearch() {
         window.location.href = "searchpage.html"
