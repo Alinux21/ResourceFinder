@@ -48,25 +48,60 @@ const server = http.createServer(async (req, res) => {
 
             const body = await getPostData(req);
 
-            const response = await fetch('http://localhost:5002/api/auth', {
+            const response = await fetch('http://localhost:5002/api/log', {
                 method: req.method,
                 headers: req.headers,
                 body: body
             });
 
-            const responseBody = await response.text();
-            const jwtToken = JSON.parse(responseBody);
+            if (response.status === 404) {
+                res.writeHead(404, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ message: 'User not found' }));
+            } else if (response.status === 500){
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ message: 'Server error' })); 
+            } else {
 
-            res.statusCode = response.status;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(jwtToken));
+                const responseBody = await response.text();
+                const jwtToken = JSON.parse(responseBody);
+
+                res.statusCode = response.status;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify(jwtToken));
+            }
         }
 
         else if (parsedUrl[2] === 'searches') {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify({ message: 'Searches api' }));
+        }
 
+        else if (parsedUrl[2] === 'authentification') {
+
+            const body = await getPostData(req);
+
+            const response = await fetch('http://localhost:5003/api/auth', {
+                method: req.method,
+                headers: req.headers,
+                body: body
+            });
+
+            if (response.status === 404) {
+                res.writeHead(404, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ message: 'User not found' }));
+            } else if (response.status === 500){
+                res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ message: 'Server error' }));
+            } else {
+
+                const responseBody = await response.text();
+                const jsonResponse = JSON.parse(responseBody);
+
+                res.statusCode = response.status;
+                res.writeHead(200, {'Content-Type': 'application/json'});
+                res.end(JSON.stringify(jsonResponse));
+            }
 
         } else {
             res.statusCode = 404;

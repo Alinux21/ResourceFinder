@@ -1,33 +1,23 @@
-const User = require('../models/authModel');
+const User = require('../models/authModel.js');
 const { getPostData } = require('../utils.js')
 const jwt = require('jsonwebtoken');
-const localStorage = require("localStorage");
 
 async function checkUser(req, res) {
 
     const body = await getPostData(req);
-    const { username, password } = JSON.parse(body);
-
-    console.log(username, password);
+    const jwtVar = JSON.parse(body);
+    const decodedJtw = jwt.verify(jwtVar.token, "1234567890");
+    
+    const username = decodedJtw.tokenUsername;
+    const password = decodedJtw.tokenPassword;
     try {
         const user = await User.checkUser(username, password);
         if (user) {
-            
-            const secret = '1234567890';
-            const payload = {
-                tokenUsername: username,
-                tokenAdmin: password
-            };
-            const token = jwt.sign(payload, secret);
-
-            // res.writeHead(200, { 'Content-Type': 'application/json' });
-            // res.end(JSON.stringify({ admin: true }));
-
             res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ token }));
+            res.end(JSON.stringify({ status: true }));
         } else {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ admin: false }));
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ status: false, error: 'User not found'}));
         }
     } catch (error) {
         console.error('Error:', error);
