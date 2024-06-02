@@ -232,6 +232,22 @@ async function updateResource(req,res,id){
 
 }
 
+async function deleteResource(req,res,id){
+    
+        const response = await fetch(`http://localhost:5001/api/resources/${id}`, {   //forwarding the request to the resources api
+            method: req.method,
+            headers: req.headers,
+        });
+    
+        const responseBody = await response.text();
+    
+        res.statusCode = response.status;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(responseBody);
+    
+    
+}
+
 module.exports = {
     getAllResources,
     getResource,
@@ -241,5 +257,6 @@ module.exports = {
     authentification,
     getImage,
     getResourcesByUser,
-    updateResource
+    updateResource,
+    deleteResource
 };

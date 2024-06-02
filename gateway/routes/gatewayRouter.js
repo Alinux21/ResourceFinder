@@ -24,7 +24,13 @@ const gatewayRouter = (req,res) =>{
         gatewayController.updateResource(req,res,id);
 
 
-    }else if(req.url.match(/\api\/resources\/images\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)\.(jpg|jpeg|png|gif)/) && req.method === 'GET'){
+    }else if(req.url.match(/\/api\/resources\/([0-9-]+)/) && req.method === 'DELETE'){
+    
+        const id = req.url.split('/')[3];
+        gatewayController.deleteResource(req,res,id);
+        
+    }
+    else if(req.url.match(/\api\/resources\/images\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)\.(jpg|jpeg|png|gif)/) && req.method === 'GET'){
         
         const imageName = req.url.split('/')[4];
         gatewayController.getImage(req,res,imageName);

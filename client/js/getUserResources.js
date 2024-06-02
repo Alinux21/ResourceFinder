@@ -26,7 +26,7 @@ fetch('http://localhost:5010/api/users/username', {
                 + '<p>' + element.summary + '</p>'
                 + '<p class="tags">' + element.tags.split(',').map(tag => '#' + tag.trim().replace(' ', '_')) + '</p>'
                 + '<button type="submit" onclick="redirectToEditResource(event,' + element.id + ')">Edit</button>'
-                + '<button type="submit">Delete</button>'
+                + '<button type="submit" onclick="deleteResource(event, ' + element.id + ')">Delete</button>'
                 + "</article>"
         });
 
@@ -46,4 +46,43 @@ function redirectToEditResource(event, id) {
 function redirectToResource(id) {
 
     window.location.href = "product.html?id=" + id;
+}
+
+function deleteResource(event, id) {
+    event.stopPropagation();
+
+    // Show the confirmation box
+    var confirmationBox = document.getElementById('confirmationBox');
+    confirmationBox.style.display = 'block';
+    confirmationBox.style.zIndex = '1';
+    confirmationBox.style.position = 'absolute';
+    confirmationBox.style.top = '50%';
+    confirmationBox.style.left = '50%';
+    confirmationBox.style.transform = 'translate(-50%, -50%)';
+    confirmationBox.style.backgroundColor = 'white';
+    confirmationBox.style.border = '1px solid black';
+    confirmationBox.style.padding = '10px';
+    confirmationBox.style.borderRadius = '5px';
+
+
+    // Handle the Yes button
+    document.getElementById('confirmYes').onclick = function() {
+        confirmationBox.style.display = 'none';
+
+        fetch('http://localhost:5010/api/resources/' + id, {
+            method: 'DELETE'
+        }).then(response => response.json())
+            .then(data =>{
+                console.log('Success:', data);
+                window.location.reload();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    };
+
+    // Handle the No button
+    document.getElementById('confirmNo').onclick = function() {
+        confirmationBox.style.display = 'none';
+    };
 }
