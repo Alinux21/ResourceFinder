@@ -51,7 +51,7 @@ async function createResource(req, res) {
 
 
             const { id, title, summary, description
-                , tags, link, posted_by
+                , tags, link, posted_by,image_src
                 , is_book
                 , is_online_book
                 , is_course
@@ -67,7 +67,7 @@ async function createResource(req, res) {
 
             const resource = {
                 id, title, summary, description
-                , tags, link, posted_by
+                , tags, link, posted_by, image_src
                 , is_book, is_online_book
                 , is_course, is_framework
                 , is_visual_programming_language

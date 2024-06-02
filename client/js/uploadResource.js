@@ -42,7 +42,8 @@ document.getElementById('resourceForm').addEventListener('submit', function (e) 
                 description: document.getElementById('about').value,
                 tags: document.getElementById('tags').value,
                 link: document.getElementById('link').value,
-                posted_by: username
+                posted_by: username,
+                image_src: document.getElementById('imageName').innerText               
             };
 
             console.log(data);
