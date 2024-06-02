@@ -19,7 +19,7 @@
             "posted_by": "AlinM",
             "is_book" : true,
             "is_online_book": true,
-            "image_src" : "../assets/images/Products-images/nature-of-code.png"
+            "image_src" : "nature-of-code.png"
         },
         {
             "title": "Programming Fractals and Strange Attractors in JavaScript",

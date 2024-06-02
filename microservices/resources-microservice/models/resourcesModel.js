@@ -1,6 +1,8 @@
 const path = require('path');
 const { connectToDatabase } = require('../config/db-config');
 const con = connectToDatabase();
+const fs = require('fs');
+
 
 function findAll() {
     return new Promise((resolve, reject) => {
@@ -60,7 +62,6 @@ function create(resource) {
     });
 }
 
-
 function update(id, resourceData) {
     return new Promise((resolve, reject) => {
         var keys = [];
@@ -92,8 +93,8 @@ function update(id, resourceData) {
     });
 }
 
-function deleteRes(id){
-        return new Promise((resolve, reject) => {
+function deleteRes(id) {
+    return new Promise((resolve, reject) => {
         var sql = "DELETE FROM resources WHERE id=?";
         sql = con.format(sql, id);
         console.log(sql);
@@ -109,11 +110,73 @@ function deleteRes(id){
     })
 }
 
+function saveImage(image) {
+    return new Promise((resolve, reject) => {
+        const fs = require('fs');
+        const path = require('path');
+        
+
+        // Define the path where the file should be saved
+        const savePath = path.join(__dirname, '../assets/resource-images', image.originalname.replace(/\s/g, '_'));
+
+        // Create a write stream
+        const fileStream = fs.createWriteStream(savePath);
+
+        // Pipe the file data to the write stream
+        fileStream.write(image.buffer);
+
+        // Handle the 'finish' event
+        fileStream.on('finish', () => {
+            console.log('File saved successfully');
+            resolve(image.originalname);
+        });
+
+        // Handle the 'error' event
+        fileStream.on('error', (err) => {
+            console.error('Error saving file:', err);
+            reject(err);
+        });
+
+        // Close the stream
+        fileStream.end();
+    });
+}
+
+function getImage(imageName, res){
+    return new Promise((resolve, reject) => {
+        var sql = "SELECT COUNT(*) FROM resources WHERE image_src=?";
+        sql = con.format(sql, imageName);
+        console.log(sql);
+
+        con.query(sql, function (err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                console.log("Select performed!");
+                console.log(result);
+                if(result[0]['COUNT(*)'] >= 1){
+                    const imagePath = path.join(__dirname, '../assets/resource-images', imageName);
+                    fs.readFile(imagePath, (err, data) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(data);
+                        }
+                    });
+                } else {
+                    resolve(null);
+                }
+            }
+        });
+    });
+}
 
 module.exports = {
     findAll,
     findById,
     create,
     update,
-    deleteRes
+    deleteRes,
+    saveImage,
+    getImage
 }
