@@ -171,6 +171,23 @@ function getImage(imageName, res){
     });
 }
 
+function findByUser(username) {
+    return new Promise((resolve, reject) => {
+        var sql = "SELECT * FROM resources WHERE posted_by=?";
+        sql = con.format(sql, username);
+        console.log(sql);
+
+        con.query(sql, function (err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                console.log("Select performed!");
+                resolve(result);
+            }
+        });
+    })
+}
+
 module.exports = {
     findAll,
     findById,
@@ -178,5 +195,6 @@ module.exports = {
     update,
     deleteRes,
     saveImage,
-    getImage
+    getImage,
+    findByUser
 }
