@@ -25,8 +25,8 @@ function checkToken(token) {
 checkToken(jwtToken).then((res) => {
     if (res == false) {
         console.log("Token invalid");
+        window.location.href = "login.html";
     } else {
         console.log("Token valid");
-        window.location.href = "main-admin.html";
     }
 });
