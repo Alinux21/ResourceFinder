@@ -43,7 +43,7 @@ document.getElementById('resourceForm').addEventListener('submit', function (e) 
                 tags: document.getElementById('tags').value,
                 link: document.getElementById('link').value,
                 posted_by: username,
-                image_src: document.getElementById('imageName').innerText               
+                image_src:  document.getElementById('imageName').innerText.replace(/\s/g, '_')              
             };
 
             console.log(data);
@@ -81,6 +81,9 @@ document.getElementById('resourceForm').addEventListener('submit', function (e) 
             if (fileInput.files.length > 0) {
                 formData.append('image', fileInput.files[0]);
             }
+
+            console.log(formData.get('image'));
+
 
             formData.append('data', JSON.stringify(data));
 

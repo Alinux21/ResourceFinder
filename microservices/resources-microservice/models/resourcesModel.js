@@ -1,6 +1,8 @@
 const path = require('path');
 const { connectToDatabase } = require('../config/db-config');
 const con = connectToDatabase();
+const fs = require('fs');
+
 
 function findAll() {
     return new Promise((resolve, reject) => {
@@ -115,7 +117,7 @@ function saveImage(image) {
         
 
         // Define the path where the file should be saved
-        const savePath = path.join(__dirname, '../assets/resource-images', image.originalname);
+        const savePath = path.join(__dirname, '../assets/resource-images', image.originalname.replace(/\s/g, '_'));
 
         // Create a write stream
         const fileStream = fs.createWriteStream(savePath);
@@ -140,11 +142,41 @@ function saveImage(image) {
     });
 }
 
+function getImage(imageName, res){
+    return new Promise((resolve, reject) => {
+        var sql = "SELECT COUNT(*) FROM resources WHERE image_src=?";
+        sql = con.format(sql, imageName);
+        console.log(sql);
+
+        con.query(sql, function (err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                console.log("Select performed!");
+                console.log(result);
+                if(result[0]['COUNT(*)'] >= 1){
+                    const imagePath = path.join(__dirname, '../assets/resource-images', imageName);
+                    fs.readFile(imagePath, (err, data) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(data);
+                        }
+                    });
+                } else {
+                    resolve(null);
+                }
+            }
+        });
+    });
+}
+
 module.exports = {
     findAll,
     findById,
     create,
     update,
     deleteRes,
-    saveImage
+    saveImage,
+    getImage
 }

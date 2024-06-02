@@ -18,7 +18,13 @@ const gatewayRouter = (req,res) =>{
 
         gatewayController.createResource(req,res);
 
-    }else if (req.url === '/api/users' && req.method === 'POST'){
+    }else if(req.url.match(/\api\/resources\/images\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)\.(jpg|jpeg|png|gif)/) && req.method === 'GET'){
+        
+        const imageName = req.url.split('/')[4];
+        gatewayController.getImage(req,res,imageName);
+
+    }
+    else if (req.url === '/api/users' && req.method === 'POST'){
     
         gatewayController.createUser(req,res);
     

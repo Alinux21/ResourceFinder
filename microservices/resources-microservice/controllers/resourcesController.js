@@ -179,10 +179,30 @@ async function deleteResource(req, res, id) {
     }
 }
 
+async function getImage(req, res, imageName) {
+
+    try {
+        const image = await Resource.getImage(imageName,res);
+
+        if (image.length === 0) {
+            res.writeHead(404, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ message: "Image not found!" }));
+        } else {
+
+            res.writeHead(200, { 'Content-Type': 'image/jpg' })
+            res.end(image)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
 module.exports = {
     getAllResources,
     getResource,
     createResource,
     updateResource,
-    deleteResource
+    deleteResource,
+    getImage
 }

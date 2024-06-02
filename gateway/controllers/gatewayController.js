@@ -1,6 +1,6 @@
 const { getPostData } = require('../utils')
 const jwt = require('jsonwebtoken');
-
+const http = require('http');
 
 async function getAllResources(req, res) {
     console.log(req.url);
@@ -149,6 +149,28 @@ async function authentification(req,res){
     }
 }
 
+async function getImage(req, res, imageName) {
+    console.log(req.url);
+
+    const options = {
+        hostname: 'localhost',
+        port: 5001,
+        path: `/api/resources/images/${imageName}`,
+        method: req.method,
+        headers: req.headers,
+    };
+
+    const request = http.request(options, (response) => {
+        res.setHeader('Content-Type', 'image/jpg');
+        response.pipe(res);
+    });
+
+    request.on('error', (error) => {
+        console.error(`Problem with request: ${error.message}`);
+    });
+
+    request.end();
+}
 
 module.exports = {
     getAllResources,
@@ -156,5 +178,6 @@ module.exports = {
     createResource,
     getUsername,
     createUser,
-    authentification
+    authentification,
+    getImage
 };
