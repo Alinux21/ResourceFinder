@@ -17,6 +17,8 @@ const resourcesRouter = (req,res) =>{
         resourceController.deleteResource(req,res,req.url.split('/')[3]);
     }else if(req.url.match(/\api\/resources\/images\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)\.(jpg|jpeg|png|gif)/) && req.method === 'GET'){
         resourceController.getImage(req,res,req.url.split('/')[4]);
+    }else if (req.url.match(/\/api\/resources\/user\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)/) && req.method === 'GET'){
+        resourceController.getUserResources(req,res,req.url.split('/')[4]);
     }
     else{
             res.writeHead(404, {'Content-type':'application/json' })

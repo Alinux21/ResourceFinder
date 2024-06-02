@@ -51,7 +51,7 @@ async function createResource(req, res) {
 
 
             const { id, title, summary, description
-                , tags, link, posted_by,image_src
+                , tags, link, posted_by, image_src
                 , is_book
                 , is_online_book
                 , is_course
@@ -85,9 +85,9 @@ async function createResource(req, res) {
 
             const response = Resource.saveImage(req.files[0]);
 
-            if(response){
+            if (response) {
                 console.log('Image saved successfully');
-            }else{
+            } else {
                 console.log('Error saving image');
             }
 
@@ -103,56 +103,77 @@ async function updateResource(req, res, id) {
 
     try {
 
-        const resource = await Resource.findById(id);
+        const multer = require('multer');
+        const upload = multer();
 
-        if (resource.length === 0) {
-            res.writeHead(404, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify({ message: 'Resource not found' }))
-        } else {
-
-            const body = await getPostData(req)
-
-            const { title, summary, description
-                , tags, link, posted_by
-                , is_book
-                , is_online_book
-                , is_course
-                , is_framework
-                , is_visual_programming_language
-                , is_sound_programming_language
-                , is_web_programming_library
-                , is_hardware
-                , is_video
-                , is_tutorial
-                , is_machine_learning
-                , is_blog } = JSON.parse(body);
-
-            const resourceData = {
-
-                title: title || resource.title
-                , summary: summary || resource.summary
-                , description: description || resource.description
-                , tags: tags || resource.tags
-                , link: link || resource.link
-                , posted_by: posted_by || resource.posted_by
-                , is_book: is_book || resource.is_book
-                , is_online_book: is_online_book || resource.is_online_book
-                , is_course, is_framework: is_framework || resource.is_framework
-                , is_visual_programming_language: is_visual_programming_language || resource.is_visual_programming_language
-                , is_sound_programming_language: is_sound_programming_language || resource.is_sound_programming_language
-                , is_web_programming_library: is_web_programming_library || resource.is_web_programming_library
-                , is_hardware: is_hardware || resource.is_hardware
-                , is_video: is_video || resource.is_video
-                , is_tutorial: is_tutorial || resource.is_tutorial
-                , is_machine_learning: is_machine_learning || resource.is_machine_learning
-                , is_blog: is_blog || resource.is_blog
+        upload.any()(req, res, async (err) => {
+            if (err) {
+                console.error(err);
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Internal server error');
+                return;
             }
 
-            const updatedResource = await Resource.update(id, resourceData);
+            console.log('Files:', req.files);
 
-            res.writeHead(200, { 'Content-Type': 'application/json' })
-            res.end(JSON.stringify(updatedResource))
-        }
+            const resource = await Resource.findById(id);
+
+            if (resource.length === 0) {
+                res.writeHead(404, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify({ message: 'Resource not found' }))
+            } else {
+
+                const { title, summary, description
+                    , tags, link, posted_by, image_src
+                    , is_book
+                    , is_online_book
+                    , is_course
+                    , is_framework
+                    , is_visual_programming_language
+                    , is_sound_programming_language
+                    , is_web_programming_library
+                    , is_hardware
+                    , is_video
+                    , is_tutorial
+                    , is_machine_learning
+                    , is_blog } = JSON.parse(req.body.data);
+
+                const resourceData = {
+
+                    title: title || resource.title
+                    , summary: summary || resource.summary
+                    , description: description || resource.description
+                    , tags: tags || resource.tags
+                    , link: link || resource.link
+                    , posted_by: posted_by || resource.posted_by
+                    , image_src: image_src || resource.image_src
+                    , is_book: is_book || resource.is_book
+                    , is_online_book: is_online_book || resource.is_online_book
+                    , is_course, is_framework: is_framework || resource.is_framework
+                    , is_visual_programming_language: is_visual_programming_language || resource.is_visual_programming_language
+                    , is_sound_programming_language: is_sound_programming_language || resource.is_sound_programming_language
+                    , is_web_programming_library: is_web_programming_library || resource.is_web_programming_library
+                    , is_hardware: is_hardware || resource.is_hardware
+                    , is_video: is_video || resource.is_video
+                    , is_tutorial: is_tutorial || resource.is_tutorial
+                    , is_machine_learning: is_machine_learning || resource.is_machine_learning
+                    , is_blog: is_blog || resource.is_blog
+                }
+
+                const updatedResource = await Resource.update(id, resourceData);
+
+                const response = Resource.saveImage(req.files[0]);
+
+                if (response) {
+                    console.log('Image saved successfully');
+                } else {
+                    console.log('Error saving image');
+                }
+
+                res.writeHead(201, { 'Content-Type': 'application/json' })
+                res.end(JSON.stringify(updatedResource))
+            }
+        });
 
     } catch (error) {
         console.log(error)
@@ -182,7 +203,7 @@ async function deleteResource(req, res, id) {
 async function getImage(req, res, imageName) {
 
     try {
-        const image = await Resource.getImage(imageName,res);
+        const image = await Resource.getImage(imageName, res);
 
         if (image.length === 0) {
             res.writeHead(404, { 'Content-Type': 'application/json' })
@@ -198,11 +219,32 @@ async function getImage(req, res, imageName) {
 
 }
 
+async function getUserResources(req, res, username) {
+
+    try {
+        const resources = await Resource.findByUser(username)
+
+        if (resources.length === 0) {
+            res.writeHead(404, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify({ message: "Resource not found!" }));
+        } else {
+
+            res.writeHead(200, { 'Content-Type': 'application/json' })
+            res.end(JSON.stringify(resources))
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+
+}
+
 module.exports = {
     getAllResources,
     getResource,
     createResource,
     updateResource,
     deleteResource,
-    getImage
+    getImage,
+    getUserResources
 }

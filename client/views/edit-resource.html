@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Edit Resource</title>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/logo-wheel-favicon.ico">
 
@@ -15,14 +15,14 @@
 
     <header>
         <img class="logo" src="../assets/images/logo.png" alt="Logo">
-        <h1>Dashboard</h1>
+        <h1>Edit Resource Panel</h1>
     </header>
 
 
     <div class="upload_resource">
 
         <div class="upload_resource_header">
-            <h2>Upload a resource</h2>
+            <h2>Edit a resource</h2>
         </div>
 
         <div class="upload_resource_content">
@@ -69,31 +69,19 @@
                     </select>
                 </div>
 
-                <button type="submit">Upload Resource!</button>
+                <button type="submit">Edit Resource!</button>
             </form>
 
             <div class="upload_picture">
                 <h2>Upload picture</h2>
-                <img src="../assets/images/upload.png" alt="Upload picture" id="uploadImage">
+                <img src="" alt="Upload picture" id="uploadImage">
                 <input type="file" id="fileInput" style="display: none;">
                 <p id="imageName"></p>
             </div>
             
-            <script src="../js/uploadResource.js"></script>
+            <script src="../js/editResource.js"></script>
         </div>
 
-
-    </div>
-
-    <div class="my_resources">
-
-        <h2>My Resources:</h2>
-
-        <div class="resource_list" id="userResources">
-
-        </div>
-
-        <script src="../js/getUserResources.js"></script>
 
     </div>
 
