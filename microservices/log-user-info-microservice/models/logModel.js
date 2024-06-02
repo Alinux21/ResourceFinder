@@ -24,6 +24,25 @@ function checkUser(username, password) {
     });
 }
 
+function createUser(firstName, lastName, country, city, emailAdress, phoneNumber, userName, password) {
+    return new Promise((resolve, reject) => {
+        var sql = "insert into users_info (firstName, lastName, country, city, emailAdress, phoneNumber, userName, password) values (?,?,?,?,?,?,?,?)";
+        sql = con.format(sql, [firstName, lastName, country, city, emailAdress, phoneNumber, userName, password]);
+        console.log(sql);
+
+        con.query(sql, function (err, result) {
+            if (err) {
+                reject(err);
+            }
+            else {
+                resolve(true);
+            }
+        });
+    });
+    
+}
+
 module.exports = {
-    checkUser
+    checkUser,
+    createUser
 }

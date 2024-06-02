@@ -26,7 +26,7 @@ const gatewayRouter = (req,res) =>{
     }
     else if (req.url === '/api/users' && req.method === 'POST'){
     
-        gatewayController.createUser(req,res);
+        gatewayController.setJwt(req,res);
     
     }
     else if (req.url === '/api/users/username' && req.method === 'POST'){
@@ -36,6 +36,9 @@ const gatewayRouter = (req,res) =>{
     }else if (req.url === '/api/authentification' && req.method === 'POST'){
         
         gatewayController.authentification(req,res);
+    } else if (req.url === '/api/sign' && req.method === 'POST'){
+
+        gatewayController.createUser(req,res);
     }
     else{
             res.statusCode = 404;

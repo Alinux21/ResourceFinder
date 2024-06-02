@@ -97,7 +97,7 @@ async function getUsername(req, res) {
     }
 }
 
-async function createUser(req, res) {
+async function setJwt(req, res) {
     const body = await getPostData(req);
 
     const response = await fetch('http://localhost:5002/api/log', {
@@ -172,12 +172,39 @@ async function getImage(req, res, imageName) {
     request.end();
 }
 
+async function createUser(req, res) {
+    const body = await getPostData(req);
+
+    console.log(body);
+
+    const response = await fetch('http://localhost:5002/api/sign', {
+        method: req.method,
+        headers: req.headers,
+        body: body
+    });
+
+    if (response.status === 500) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Server error' }));
+    } else {
+
+        const responseBody = await response.text();
+        const jsonResponse = JSON.parse(responseBody);
+
+        res.statusCode = response.status;
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(jsonResponse));
+    }
+
+}
+
 module.exports = {
     getAllResources,
     getResource,
     createResource,
     getUsername,
-    createUser,
+    setJwt,
     authentification,
-    getImage
+    getImage,
+    createUser
 };
