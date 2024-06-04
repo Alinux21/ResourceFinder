@@ -56,6 +56,10 @@ const gatewayRouter = (req,res) =>{
     } else if (req.url === '/api/sign' && req.method === 'POST'){
 
         gatewayController.createUser(req,res);
+    } else if (req.url === '/api/imports' && req.method === 'POST'){
+    
+        gatewayController.importResources(req,res);
+
     }
     else{
             res.statusCode = 404;
