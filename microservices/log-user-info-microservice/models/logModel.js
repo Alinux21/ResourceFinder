@@ -38,11 +38,46 @@ function createUser(firstName, lastName, country, city, emailAdress, phoneNumber
                 resolve(true);
             }
         });
+    });   
+}
+
+function getUser(username) {
+    return new Promise((resolve, reject) => {
+        var sql = "select * from users_info where userName=?";
+        sql = con.format(sql, username);
+        console.log(sql);
+
+        con.query(sql, function (err, result) {
+            if (err) {
+                reject(err);
+            }
+            else {
+                resolve(result);
+            }
+        });
     });
-    
+}
+
+function updateUser(firstName, lastName, country, city, emailAdress, phoneNumber, newPassword, username) {
+    return new Promise((resolve, reject) => {
+        var sql = "update users_info set firstName=?, lastName=?, country=?, city=?, emailAdress=?, phoneNumber=?, password=? where userName=?";
+        sql = con.format(sql, [firstName, lastName, country, city, emailAdress, phoneNumber, newPassword, username]);
+        console.log(sql);
+
+        con.query(sql, function (err, result) {
+            if (err) {
+                reject(err);
+            }
+            else {
+                resolve(true);
+            }
+        });
+    });
 }
 
 module.exports = {
     checkUser,
-    createUser
+    createUser,
+    getUser,
+    updateUser
 }

@@ -23,7 +23,7 @@
             <h2>Your profile</h2>
             <h3>These settings allow you to customise your personal details.</h3>
         </div>
-            <button>💾 Save changes</button>
+            <button id="saveChanges">💾 Save changes</button>
         </div>
 
         <div class="content_container">
@@ -31,45 +31,14 @@
 
                 <div class="personal_information_container">
                     <h2>Personal information</h2>
-                    <div class="fields">
-                        <div class="field_group">
-                            <label for="fname">First Name</label>
-                            <input type="text" id="fname" value="John">
-                        </div>
-                        <div class="field_group">
-                            <label for="lname">Last Name</label>
-                            <input type="text" id="lname" value="Denver">
-                        </div>
-                        <div class="field_group">
-                            <label for="phonenr">Phone number</label>
-                            <input type="text" id="phonenr" value="0749812232">
-                        </div>
-                        <div class="field_group">
-                            <label for="email">Email address</label>
-                            <input type="text" id="email" value="johndenver@info.uaic.ro">
-                        </div>
-                        <div class="field_group">
-                            <label for="country">Country</label>
-                            <input type="text" id="country" value="Romania">
-                        </div>
-                        <div class="field_group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" value="Iași">
-                        </div>
+                    <div class="fields" id="personalFields">
                     </div>
                 </div>
                 <div class="password_container">
                     <h2>Password</h2>
-                    <div class="password_fields">
-                        <div class="field_group">
-                            <label for="password">Current password</label>
-                            <input type="password" id="password" value="pass123123">
-                        </div>
-                        <div class="field_group">
-                            <label for="newpassword">New Password</label>
-                            <input type="password" id="newpassword">
-                        </div>
+                    <div class="password_fields" id="passwordFields">
                     </div>
+                    <label><input type="checkbox" onclick="seePassword()">Show Password</label>
                 </div>
             </div>
             <div class="right_container">

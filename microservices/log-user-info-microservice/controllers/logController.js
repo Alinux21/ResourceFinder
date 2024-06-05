@@ -76,4 +76,54 @@ async function createUser(req, res) {
     }
 }
 
-module.exports = { getUserName, setJwt, createUser };
+async function accountInfo(req, res) {
+    try {
+        const jwtVar = req.url.split('/')[4];
+        const decodedJtw = jwt.verify(jwtVar, "1234567890");
+
+        const username = decodedJtw.tokenUsername;
+
+        const user = await User.getUser(username);
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(user));
+    }
+    catch (error) {
+        console.error('Error:', error);
+
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ status: false, error: error.message }));
+    }
+}
+
+async function updateUser(req, res) {
+    try {
+        const data = await getPostData(req);
+        const { firstName, lastName, country, city, emailAdress, phoneNumber, newPassword, token } = JSON.parse(data);
+
+        const decodedJtw = jwt.verify(token, "1234567890");
+        const username = decodedJtw.tokenUsername;
+
+        const user = await User.updateUser(firstName, lastName, country, city, emailAdress, phoneNumber, newPassword, username);
+        if (user) {
+            const secret = '1234567890';
+            const payload = {
+                tokenUsername: username,
+                tokenPassword: newPassword
+            };
+            const token = jwt.sign(payload, secret);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ status: true, token: token }));
+        } else {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ status: false, error: 'User not found' }));
+        }
+    } catch (error) {
+        console.error('Error:', error);
+
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ status: false, error: 'Server error' }));
+    }
+}
+
+module.exports = { getUserName, setJwt, createUser, accountInfo, updateUser };

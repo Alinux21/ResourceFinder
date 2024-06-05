@@ -66,6 +66,10 @@ const gatewayRouter = (req,res) =>{
         gatewayController.getPopularResources(req,res);
     } else if (req.url === '/api/resources/latestResources' && req.method === 'GET') {
         gatewayController.getLatestResources(req,res);
+    } else if (req.url.match(/\/api\/users\/myaccount\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)/) && req.method === 'GET') {
+        gatewayController.getMyAccount(req,res);
+    } else if (req.url === '/api/users/myaccount/' && req.method === 'PUT') {
+        gatewayController.updateMyAccount(req,res);
     }
     else{
             res.statusCode = 404;

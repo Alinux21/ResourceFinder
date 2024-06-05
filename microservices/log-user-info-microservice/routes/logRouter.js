@@ -7,6 +7,11 @@ const authRouter = (req, res) => {
         authController.getUserName(req, res);
     } else if(req.url === '/api/log/sign' && req.method === 'POST'){
         authController.createUser(req, res);
+    } else if(req.url.match(/\/api\/users\/myaccount\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)/) && req.method === 'GET') {
+        console.log('Log Router: ', req.url);
+        authController.accountInfo(req, res);
+    } else if (req.url === '/api/users/myaccount' && req.method === 'PUT') {
+        authController.updateUser(req, res);
     }
     else {
         res.writeHead(404, { 'Content-type': 'application/json' })

@@ -363,6 +363,49 @@ async function getLatestResources(req, res) {
     });
 }
 
+async function getMyAccount(req, res) {
+    const query = req.url.split('/')[4];
+
+    console.log('http://localhost:5004/api/users/myaccount/' + query);
+
+    fetch('http://localhost:5002/api/users/myaccount/' + query)
+        .then(response => response.text())
+        .then(responseBody => {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(responseBody);
+        })
+        .catch(error => {
+            console.error(error);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Internal server error');
+        });
+}
+
+async function updateMyAccount(req, res) {
+    const body = await getPostData(req);
+
+    console.log(body);
+
+    const response = await fetch('http://localhost:5002/api/users/myaccount', {
+        method: req.method,
+        headers: req.headers,
+        body: body
+    });
+
+    if (response.status === 500) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Server error' }));
+    } else {
+
+        const responseBody = await response.text();
+        const jsonResponse = JSON.parse(responseBody);
+
+        res.statusCode = response.status;
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(jsonResponse));
+    }
+}
+
 module.exports = {
     getAllResources,
     getResource,
@@ -378,5 +421,7 @@ module.exports = {
     importResources,
     search,
     getPopularResources,
-    getLatestResources
+    getLatestResources,
+    getMyAccount,
+    updateMyAccount
 };
