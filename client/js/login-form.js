@@ -24,6 +24,12 @@ checkToken(jwtToken).then((res) => {
             }).then(res => {
                 if (res.status == 404) {
                     console.log('Reloading the page');
+
+                    var invalidCredentialsParagraph = document.getElementById('invalid-credentials');
+                    invalidCredentialsParagraph.style.display = 'block';
+                    invalidCredentialsParagraph.style.color = 'red';
+                    invalidCredentialsParagraph.style.fontSize = '20px';
+
                     throw new Error('Resource not found');
                 } else if (res.status == 500) {
                     throw new Error('Internal server error');
@@ -45,3 +51,14 @@ checkToken(jwtToken).then((res) => {
         window.location.href = "main-admin.html";
     }
 });
+
+function showpass(){
+
+    var x = document.getElementById("pass");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+
+}
