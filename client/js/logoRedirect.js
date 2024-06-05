@@ -8,7 +8,7 @@ function logoRedirect() {
             window.location.href = "main-guest.html";
         } else {
             console.log("Token valid");
-            window,location.href = "main-admin.html";
+            window.location.href = "main-admin.html";
         }
     });
 }
