@@ -75,9 +75,45 @@ function updateUser(firstName, lastName, country, city, emailAdress, phoneNumber
     });
 }
 
+async function validateCredentials(firstName, lastName, country, city, emailAdress, phoneNumber, userName, password, newPassword) {
+    if (!firstName || !lastName || !country || !city || !emailAdress || !phoneNumber || !userName || !password || !newPassword) {
+        console.log("All fields must be filled");
+        return "All fields must be filled";
+    }
+
+    let emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(emailAdress)) {
+        console.log("Invalid email address");
+        return "Invalid email address";
+    }
+
+    let phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+        console.log("Invalid phone number");
+        return "Invalid phone number";
+    }
+
+    if (userName.length < 5) {
+        console.log("Username must be at least 5 characters long");
+        return "Username must be at least 5 characters long";
+    }
+
+    var user = await getUser(userName);
+    console.log("checl user: " + user);
+        
+    if (user && user.length > 0) {
+        console.log("Username already exists");
+        return "Username already exists";
+    }
+
+    console.log("Valid credentials");
+    return "Valid credentials";
+}
+
 module.exports = {
     checkUser,
     createUser,
     getUser,
-    updateUser
+    updateUser,
+    validateCredentials
 }

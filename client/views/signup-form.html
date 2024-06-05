@@ -16,37 +16,15 @@
             <input class="user-box" name="firstName" type="text" placeholder="First Name" required>
             <input class="user-box" name="lastName" type="text" placeholder="Last Name" required>
             <input class="user-box" name="country" type="text" placeholder="Country" required>
-            <!-- <select name="country" id="country-select" required>
-                <option value="">Select Country</option>
-                <option value="us">United States</option>
-                <option value="ca">Canada</option>
-                <option value="mx">Mexico</option>
-                <option value="uk">United Kingdom</option>
-                <option value="de">Germany</option>
-                <option value="fr">France</option>
-                <option value="it">Italy</option>
-                <option value="es">Spain</option>
-                <option value="au">Australia</option>
-                <option value="cn">China</option>
-                <option value="jp">Japan</option>
-                <option value="in">India</option>
-            </select> -->
-            <!-- <select name="city" id="city-select" required>
-                <option value="">Select City</option>
-                <option value="us">Iasi</option>
-                <option value="ca">Los Angeles</option>
-                <option value="mx">Madrid</option>
-                <option value="uk">London</option>
-                <option value="de">Berlin</option>
-                <option value="fr">Paris</option>
-            </select> -->
             <input class="user-box" name="city" type="text" placeholder="City" required>
             <input class="user-box" name="emailAdress" type="email" placeholder="Email" required>
             <input class="user-box" name="phoneNumber" type="text" placeholder="Phone" required>
             <input class="user-box" name="userName" type="text" placeholder="Username" required>
             <input class="user-box" name="password" type="password" placeholder="Password" required>
-            <input class="user-box" type="password" placeholder="Confirm Password" required>
+            <input class="user-box" name="confirmPassword" type="password" placeholder="Confirm Password" required>
             <button class="submit-button" type="submit">Submit</button>
+            <p id="invalid-password" style="display: none;">Passwords do not match!</p>
+            <p id="invalid-username" style="display: none;"></p>
         </form>
     </div>
     <script src="../js/checkToken.js"></script>

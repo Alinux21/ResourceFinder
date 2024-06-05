@@ -52,13 +52,20 @@ async function getUserName(req, res) {
     }
 }
 
+
+
 async function createUser(req, res) {
     try {
         const body = await getPostData(req);
         console.log(body);
-        const { firstName, lastName, country, city, emailAdress, phoneNumber, userName, password } = JSON.parse(body);
-        User.createUser(firstName, lastName, country, city, emailAdress, phoneNumber, userName, password);
-        const secret = '1234567890';
+        const { firstName, lastName, country, city, emailAdress, phoneNumber, userName, password, confirmPassword } = JSON.parse(body);
+
+        console.log(firstName, lastName, country, city, emailAdress, phoneNumber, userName, password, confirmPassword);
+
+        const answear = await User.validateCredentials(firstName, lastName, country, city, emailAdress, phoneNumber, userName, password, confirmPassword);
+        if (answear === "Valid credentials") {
+            User.createUser(firstName, lastName, country, city, emailAdress, phoneNumber, userName, password);
+            const secret = '1234567890';
             const payload = {
                 tokenUsername: userName,
                 tokenPassword: password
@@ -66,8 +73,13 @@ async function createUser(req, res) {
             const token = jwt.sign(payload, secret);
 
 
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ token }));
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ token }));
+        } else {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ status: false, error: answear }));
+
+        }
     } catch (error) {
         console.error('Error:', error);
 

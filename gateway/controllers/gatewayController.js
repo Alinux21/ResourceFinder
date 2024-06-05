@@ -49,26 +49,26 @@ async function createResource(req, res) {
         // req.body contains the non-file fields
         const data = JSON.parse(req.body.data);
 
-  
-            const formData = new FormData();
-            formData.append('data', JSON.stringify(data));
 
-            if (req.files.length > 0) {
-            
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(data));
+
+        if (req.files.length > 0) {
+
             const file = req.files[0];
             //create a blob from the file buffer
             const blob = new Blob([file.buffer], { type: file.mimetype });
             formData.append('image', blob, file.originalname);
 
-            }
+        }
 
-            const response = await fetch('http://localhost:5001/api/resources', {
-                method: 'POST',
-                body: formData
-            });
+        const response = await fetch('http://localhost:5001/api/resources', {
+            method: 'POST',
+            body: formData
+        });
 
-            const responseText = await response.text();
-            res.end(responseText);
+        const responseText = await response.text();
+        res.end(responseText);
     });
 
 }
@@ -253,17 +253,25 @@ async function createUser(req, res) {
     console.log(body);
 
     const response = await fetch('http://localhost:5002/api/log/sign', {
-        method: req.method,
-        headers: req.headers,
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: body
     });
+
+    const responseBody = await response.text();
 
     if (response.status === 500) {
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: 'Server error' }));
-    } else {
+    } else if (response.status === 404) {
+        console.log(response.error);
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ status: false, error: JSON.parse(responseBody).error }));
+    }
+    else {
 
-        const responseBody = await response.text();
         const jsonResponse = JSON.parse(responseBody);
 
         res.statusCode = response.status;
@@ -273,7 +281,7 @@ async function createUser(req, res) {
 
 }
 
-async function importResources(req,res) {
+async function importResources(req, res) {
 
     const multer = require('multer');
     const upload = multer();
@@ -314,7 +322,7 @@ async function importResources(req,res) {
 
 
 async function search(req, res) {
-    
+
     const query = req.url.split('/')[3];
 
     console.log('http://localhost:5004/api/words/' + query);
@@ -350,16 +358,16 @@ async function getPopularResources(req, res) {
 
 async function getLatestResources(req, res) {
     fetch('http://localhost:5001/api/resources/latestResources')
-    .then(response => response.text())
-    .then(responseBody => {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(responseBody);
-    })
-    .catch(error => {
-        console.error(error);
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('Internal server error');
-    });
+        .then(response => response.text())
+        .then(responseBody => {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(responseBody);
+        })
+        .catch(error => {
+            console.error(error);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Internal server error');
+        });
 }
 
 async function getMyAccount(req, res) {

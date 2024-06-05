@@ -12,17 +12,33 @@ checkToken(jwtToken).then((res) => {
             const formData = new FormData(loginForm);
             const data = Object.fromEntries(formData);
 
+            if (data.password != data.confirmPassword) {
+                var invalidCredentialsParagraph = document.getElementById('invalid-password');
+                invalidCredentialsParagraph.style.display = 'block';
+                invalidCredentialsParagraph.style.color = 'red';
+                invalidCredentialsParagraph.style.fontSize = '20px';
+                return;
+            }
+
             fetch('http://localhost:5010/api/users/sign', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data),
-                credentials: 'include'
+                // credentials: 'include'
             }).then(res => {
                 if (res.status == 404) {
-                    console.log('Reloading the page');
-                    throw new Error('Resource not found');
+                    return res.json().then(err => {
+                        console.log(err.error);
+                        var invalidCredentialsParagraph = document.getElementById('invalid-username');
+                        invalidCredentialsParagraph.style.display = 'block';
+                        invalidCredentialsParagraph.style.color = 'red';
+                        invalidCredentialsParagraph.style.fontSize = '20px';
+
+                        invalidCredentialsParagraph.innerHTML = err.error;
+                        throw new Error('Internal server error');
+                    });
                 } else if (res.status == 500) {
                     throw new Error('Internal server error');
                 }
