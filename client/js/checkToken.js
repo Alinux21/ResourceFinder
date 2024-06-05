@@ -4,7 +4,7 @@ function checkToken(token) {
             resolve(false);
             return; // Add an early return here
         }
-        fetch('http://localhost:5010/api/authentification', {
+        fetch('http://localhost:5010/api/users/authentification', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

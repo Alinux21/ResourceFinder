@@ -12,7 +12,7 @@ checkToken(jwtToken).then((res) => {
             const formData = new FormData(loginForm);
             const data = Object.fromEntries(formData);
 
-            fetch('http://localhost:5010/api/sign', {
+            fetch('http://localhost:5010/api/users/sign', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

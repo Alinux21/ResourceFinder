@@ -9,3 +9,4 @@ checkToken(jwtToken).then((res) => {
         console.log("Token valid");
     }
 });
+
