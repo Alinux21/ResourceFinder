@@ -8,7 +8,9 @@
             "link": "https://www.manning.com/books/generative-art",
             "posted_by": "AlinM",
             "is_book" : true,
-            "is_online_book": true
+            "is_online_book": true,
+            "image_src" : "generative-art.jpg",
+            "clicks" : 20
         },
         {
             "title": "The Nature of Code",
@@ -19,7 +21,8 @@
             "posted_by": "AlinM",
             "is_book" : true,
             "is_online_book": true,
-            "image_src" : "nature-of-code.png"
+            "image_src" : "nature-of-code.png",
+            "clicks" : 10
         },
         {
             "title": "Programming Fractals and Strange Attractors in JavaScript",
@@ -28,7 +31,8 @@
             "tags": "fractals, chaos theory, strange attractors, JavaScript",
             "link": "http://www.playingwithchaos.net/",
             "posted_by": "AlinM",
-            "is_online_book": true
+            "is_online_book": true,
+            "clicks" : 5
         },
         {
             "title": "Programming Interactivity",

@@ -8,7 +8,8 @@ fetch("http://localhost:5010/api/resources/" + id)
             window.location.href = "404.html";
         } else {
             return response.json()
-        }})
+        }
+    })
     .then(data => {
 
         title = data[0].title;
@@ -21,7 +22,7 @@ fetch("http://localhost:5010/api/resources/" + id)
 
         console.log(data);
 
-        
+
         linkElement = document.getElementById("resource-link");
 
         document.getElementById("resource-title").innerHTML = title;
@@ -30,7 +31,7 @@ fetch("http://localhost:5010/api/resources/" + id)
         document.getElementById("resource-link").innerHTML = link;
         linkElement.setAttribute('href', link);
         document.getElementById("resource-posted-by").innerHTML = posted_by;
-        document.getElementById("resource-image").src = 'http://localhost:5010/api/resources/images/'+image_src;
+        document.getElementById("resource-image").src = 'http://localhost:5010/api/resources/images/' + image_src;
 
     })
     .catch(error => {

@@ -37,6 +37,9 @@ const resourcesRouter = (req,res) =>{
     
         resourceController.importResources(req,res);
     
+    }else if (req.url === '/api/resources/popularResources' && req.method === 'GET'){
+    
+        resourceController.getPopularResources(req,res);
     }
     else{
             res.writeHead(404, {'Content-type':'application/json' })

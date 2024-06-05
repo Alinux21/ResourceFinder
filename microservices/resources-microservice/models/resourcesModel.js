@@ -29,6 +29,18 @@ function findById(id) {
                 reject(err);
             } else {
                 console.log("Select performed!");
+
+                var sql = "UPDATE resources SET clicks = clicks + 1 WHERE id=?";
+                sql = con.format(sql, id);
+
+                con.query(sql, function (err, result) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        console.log("Update performed!");
+                    }
+                });
+
                 resolve(result);
             }
         });
@@ -188,6 +200,22 @@ function findByUser(username) {
     })
 }
 
+function findPopularResources(){
+    return new Promise((resolve, reject) => {
+        var sql = "SELECT * FROM resources ORDER BY clicks DESC LIMIT 5";
+        con.query(sql, function (err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                console.log("Select performed!");
+                resolve(result);
+            }
+        });
+    })
+
+}
+
+
 module.exports = {
     findAll,
     findById,
@@ -196,5 +224,6 @@ module.exports = {
     deleteRes,
     saveImage,
     getImage,
-    findByUser
+    findByUser,
+    findPopularResources
 }

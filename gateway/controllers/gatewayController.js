@@ -333,6 +333,22 @@ async function search(req, res) {
         });
 }
 
+async function getPopularResources(req, res) {
+
+    fetch('http://localhost:5001/api/resources/popularResources')
+        .then(response => response.text())
+        .then(responseBody => {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(responseBody);
+        })
+        .catch(error => {
+            console.error(error);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Internal server error');
+        });
+
+}
+
 module.exports = {
     getAllResources,
     getResource,
@@ -346,5 +362,6 @@ module.exports = {
     deleteResource,
     createUser,
     importResources,
-    search
+    search,
+    getPopularResources
 };

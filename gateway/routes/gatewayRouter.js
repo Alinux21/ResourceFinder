@@ -62,6 +62,8 @@ const gatewayRouter = (req,res) =>{
 
     } else if (req.url.match(/\/api\/words\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)/) && req.method === 'GET') {
         gatewayController.search(req,res);
+    } else if (req.url === '/api/resources/popularResources' && req.method === 'GET') {
+        gatewayController.getPopularResources(req,res);
     }
     else{
             res.statusCode = 404;
