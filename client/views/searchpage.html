@@ -25,66 +25,64 @@
                 onclick="window.location.href = 'searchpage.html'"></button>
         </div>
 
-        <div class="filters-box">
+        <form class="filters-box">
             <h2>Filters:</h2>
             <div class="filters-box-content">
 
-                <h3>Desired Result</h3>
+                <h3>Books</h3>
                 <ul>
-                    <li><input type="checkbox"><span>Books</span> <span class="filter-result-count">(42)</span></li>
-                    <li><input type="checkbox"><span>2D Illustration</span> <span
-                            class="filter-result-count">(42)</span></li>
-                    <li><input type="checkbox"><span>3D Virtual World</span> <span
-                            class="filter-result-count">(25)</span></li>
-                    <li><input type="checkbox"><span>Animation</span> <span class="filter-result-count">(33)</span></li>
-                    <li><input type="checkbox"><span>Sound Content</span> <span class="filter-result-count">(12)</span>
+                    <li><input type="checkbox" value="is_book"><span>Books</span> <span class="filter-result-count">(42)</span></li>
+                    <li><input type="checkbox" value="is_online_book"><span>Online Books</span> <span class="filter-result-count">(42)</span>
+                    </li>
+                    <li><input type="checkbox" value="is_course"><span>Courses</span> <span class="filter-result-count">(25)</span></li>
+                    <!-- <li><input type="checkbox"><span>Animation</span> <span class="filter-result-count">(33)</span></li>
+                    <li><input type="checkbox"><span>Sound Content</span> <span class="filter-result-count">(12)</span> -->
                     </li>
                 </ul>
 
                 <h3>Software Type</h3>
                 <ul>
-                    <li><input type="checkbox"><span>Frameworks</span> <span class="filter-result-count">(30)</span>
+                    <li><input type="checkbox" value="is_framework"><span>Frameworks</span> <span class="filter-result-count">(30)</span>
                     </li>
-                    <li><input type="checkbox"><span>Libraries</span> <span class="filter-result-count">(45)</span></li>
-                    <li><input type="checkbox"><span>Components</span> <span class="filter-result-count">(20)</span>
-                    </li>
-                    <li><input type="checkbox"><span>Tools</span> <span class="filter-result-count">(55)</span></li>
-                    <li><input type="checkbox"><span>Software Projects</span> <span
+                    <li><input type="checkbox" value="is_machine_learning"><span>Machine learning • AI</span> <span
+                            class="filter-result-count">(45)</span></li>
+                    <!-- <li><input type="checkbox" value="is_components"><span>Components</span> <span class="filter-result-count">(20)</span>
+                    </li> -->
+                    <li><input type="checkbox" value="is_hardware"><span>Hardware</span> <span class="filter-result-count">(55)</span></li>
+                    <!-- <li><input type="checkbox"><span>Software Projects</span> <span
                             class="filter-result-count">(18)</span></li>
                     <li><input type="checkbox"><span>Multimedia Presentations</span> <span
-                            class="filter-result-count">(10)</span></li>
+                            class="filter-result-count">(10)</span></li> -->
                 </ul>
 
                 <h3>Programming Language</h3>
                 <ul>
-                    <li><input type="checkbox"><span>Java</span> <span class="filter-result-count">(57)</span></li>
-                    <li><input type="checkbox"><span>JavaScript</span> <span class="filter-result-count">(20)</span>
+                    <li><input type="checkbox"><span>Visual Programming </span> <span
+                            class="filter-result-count">(57)</span></li>
+                    <li><input type="checkbox"><span>Sound Programming </span> <span
+                            class="filter-result-count">(20)</span>
                     </li>
-                    <li><input type="checkbox"><span>TypeScript</span> <span class="filter-result-count">(15)</span>
+                    <li><input type="checkbox"><span>Web Programming </span> <span
+                            class="filter-result-count">(15)</span>
                     </li>
-                    <li><input type="checkbox"><span>WebGL</span> <span class="filter-result-count">(0)</span></li>
+                    <!-- <li><input type="checkbox"><span>WebGL</span> <span class="filter-result-count">(0)</span></li> -->
                 </ul>
 
                 <h3>Interaction</h3>
                 <ul>
-                    <li><input type="checkbox"><span>Classic</span> <span class="filter-result-count">(74)</span></li>
-                    <li><input type="checkbox"><span>Vocal</span> <span class="filter-result-count">(15)</span></li>
-                    <li><input type="checkbox"><span>Tactile</span> <span class="filter-result-count">(3)</span></li>
+                    <li><input type="checkbox"><span>Blogs</span> <span class="filter-result-count">(74)</span></li>
+                    <li><input type="checkbox"><span>Tutorial</span> <span class="filter-result-count">(15)</span></li>
+                    <li><input type="checkbox"><span>Video</span> <span class="filter-result-count">(3)</span></li>
                 </ul>
 
+                <button type="submit" class="filter-button">Apply filters</button>
             </div>
-        </div>
+        </form>
 
         <div class="search-results-box">
             <h2>Search results:</h2>
             <div class="search-results-box-content" id="search-results">
-            <script src="../js/getSearchTokens.js"></script>
-
-                <!-- <article onclick="funcProd(event)">
-                    <h2>The Nature of Code</h2>
-                    <p>Simulating natural systems with Processing.</p>
-                    <p class="tags">Tags: #books</p>
-                </article> -->
+                <script src="../js/getSearchTokens.js"></script>
             </div>
         </div>
 
