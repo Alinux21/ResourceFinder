@@ -85,7 +85,6 @@ function applyFilters() {
 }
 
 document.addEventListener('DOMContentLoaded', fetchAndDisplayResources);
-=======
 
 function startSearch() {
     currentPage = 1;
