@@ -53,19 +53,9 @@ function deleteResource(event, id) {
 
     // Show the confirmation box
     var confirmationBox = document.getElementById('confirmationBox');
-    confirmationBox.style.display = 'block';
-    confirmationBox.style.zIndex = '1';
-    confirmationBox.style.position = 'absolute';
-    confirmationBox.style.top = '50%';
-    confirmationBox.style.left = '50%';
-    confirmationBox.style.transform = 'translate(-50%, -50%)';
-    confirmationBox.style.backgroundColor = 'white';
-    confirmationBox.style.border = '1px solid black';
-    confirmationBox.style.padding = '10px';
-    confirmationBox.style.borderRadius = '5px';
+    centeredAlert('confirmationBox');
 
-
-    // Handle the Yes button
+    //handle the Yes button
     document.getElementById('confirmYes').onclick = function() {
         confirmationBox.style.display = 'none';
 
@@ -84,5 +74,6 @@ function deleteResource(event, id) {
     // Handle the No button
     document.getElementById('confirmNo').onclick = function() {
         confirmationBox.style.display = 'none';
+        overlay.click();
     };
 }

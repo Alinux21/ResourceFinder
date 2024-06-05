@@ -43,7 +43,7 @@ document.getElementById('resourceForm').addEventListener('submit', function (e) 
                 tags: document.getElementById('tags').value,
                 link: document.getElementById('link').value,
                 posted_by: username,
-                image_src:  document.getElementById('imageName').innerText.replace(/\s/g, '_')              
+                image_src: document.getElementById('imageName').innerText.replace(/\s/g, '_')
             };
 
             console.log(data);
@@ -78,11 +78,19 @@ document.getElementById('resourceForm').addEventListener('submit', function (e) 
 
             var formData = new FormData();
             var fileInput = document.getElementById('fileInput');
-            if (fileInput.files.length > 0) {
-                formData.append('image', fileInput.files[0]);
-            }
 
-            console.log(formData.get('image'));
+
+            if (fileInput.files.length != 0) {
+
+                if (fileInput.files[0].type != 'image/jpeg' && fileInput.files[0].type != 'image/png' && fileInput.files[0].type != 'image/jpg') {
+
+                    centeredAlert('invalidImageBox');
+                    return;
+                }
+
+                formData.append('image', fileInput.files[0]);
+
+            }
 
 
             formData.append('data', JSON.stringify(data));
@@ -91,7 +99,10 @@ document.getElementById('resourceForm').addEventListener('submit', function (e) 
                 method: 'POST',
                 body: formData
             }).then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    console.log(data)
+                    window.location.href='dashboard.html';
+                })
                 .catch((error) => {
                     console.error('Error:', error);
                 });

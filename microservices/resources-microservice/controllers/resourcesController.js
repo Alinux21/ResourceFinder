@@ -83,12 +83,14 @@ async function createResource(req, res) {
 
             const newResource = await Resource.create(resource)
 
-            const response = Resource.saveImage(req.files[0]);
-
-            if (response) {
-                console.log('Image saved successfully');
-            } else {
-                console.log('Error saving image');
+            if (req.files.length != 0) {
+                const response = Resource.saveImage(req.files[0]);
+                if (response) {
+                    console.log('Image saved successfully');
+                }
+                else {
+                    console.log('Error saving image');
+                }
             }
 
             res.writeHead(201, { 'Content-Type': 'application/json' })
@@ -243,7 +245,7 @@ async function importResources(req, res) {
     try {
         const multer = require('multer');
         const upload = multer();
-        
+
         upload.any()(req, res, async (err) => {
             if (err) {
                 console.error('Error in multer:', err);
@@ -260,11 +262,11 @@ async function importResources(req, res) {
             // Convert the buffer to a string and parse it as JSON
             const data = file.buffer.toString();
             const jsonData = JSON.parse(data);
-            
+
             // Log the names of the resources
             jsonData.resources.forEach(resource => {
-                
-               Resource.create(resource);
+
+                Resource.create(resource);
 
             });
         });
@@ -272,7 +274,7 @@ async function importResources(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: 'Resources imported successfully' }));
 
-    } catch(error) {
+    } catch (error) {
         console.log(error);
     }
 }
@@ -283,7 +285,7 @@ async function getPopularResources(req, res) {
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(resources));
-    } catch(error) {
+    } catch (error) {
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: 'Internal server error' }));
         console.log(error);
@@ -296,7 +298,7 @@ async function getLatestResources(req, res) {
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(resources));
-    } catch(error) {
+    } catch (error) {
         res.writeHead(500, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ message: 'Internal server error' }));
         console.log(error);

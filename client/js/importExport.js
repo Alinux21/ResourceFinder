@@ -1,19 +1,20 @@
-function importResources(){
+function importResources() {
 
     console.log("Importing resources");
-    
+
     document.querySelector('#importResourcesButton').click() //clicking the hidden file input button
 
-    document.querySelector('#importResourcesButton').onchange = function(event) {
+    document.querySelector('#importResourcesButton').onchange = function (event) {
         console.log("File selected");
         var file = event.target.files[0];
         console.log(file);
         var formData = new FormData();
         formData.append('file', file);
-        
+
         var fileType = file.name.split('.').pop().toLowerCase();
         if (fileType !== 'json' && fileType !== 'csv') {
             console.error('Invalid file type. Please select a .json or .csv file.');
+            centeredAlert('importErrorBox');
             return;
         }
 
@@ -34,34 +35,35 @@ function importResources(){
 
 }
 
-function exportResources() {
+function centeredAlert(elementId) {
 
-    var exportBox = document.getElementById('exportBox');
+    var currentBox = document.getElementById(elementId);
     var overlay = document.getElementById('overlay');
 
 
     //showing the exportBox and the overlay
-    exportBox.style.display = 'block';
+    currentBox.style.display = 'block';
     overlay.style.display = 'block';
 
     //disabling scrolling
     document.body.style.overflow = 'hidden';
 
-    exportBox.style.display = 'block';
-    exportBox.style.position = 'absolute';
-    exportBox.style.top = '40%';
-    exportBox.style.left = '28%';
-    exportBox.style.backgroundColor = 'white';
-    exportBox.style.padding = '20px';
-    exportBox.style.border = '1px solid black';
-    exportBox.style.borderRadius = '5px';
-    exportBox.style.zIndex = '2';
-    exportBox.style.width = '40%';
+    currentBox.style.display = 'block';
+    currentBox.style.position = 'fixed'; 
+    currentBox.style.top = '50%'; 
+    currentBox.style.left = '50%'; 
+    currentBox.style.transform = 'translate(-50%, -50%)'; 
+    currentBox.style.backgroundColor = 'white';
+    currentBox.style.padding = '20px';
+    currentBox.style.border = '1px solid black';
+    currentBox.style.borderRadius = '5px';
+    currentBox.style.zIndex = '2';
+    currentBox.style.width = '40%';
 
 
-    overlay.addEventListener('click', function() {
+    overlay.addEventListener('click', function () {
         //hiding the exportBox and the overlay
-        exportBox.style.display = 'none';
+        currentBox.style.display = 'none';
         overlay.style.display = 'none';
 
         //re-enabling scrolling
@@ -69,62 +71,61 @@ function exportResources() {
     });
 
 
-
 }
 
-function exportJSON(){
+function exportJSON() {
     console.log("Exporting JSON");
 
 
     fetch('http://localhost:5010/api/resources')
-    .then(response => response.json())
-    .then(data => {
-        
-        console.log(data);
+        .then(response => response.json())
+        .then(data => {
 
-        var jsonString = JSON.stringify(data);
+            console.log(data);
 
-        var blob = new Blob([jsonString], {type: "application/json"});
+            var jsonString = JSON.stringify(data);
 
-        var url = URL.createObjectURL(blob);
+            var blob = new Blob([jsonString], { type: "application/json" });
 
-        var link = document.createElement('a');
+            var url = URL.createObjectURL(blob);
 
-        link.href = url;
-        link.download = 'resources.json';
-        document.body.appendChild(link);
+            var link = document.createElement('a');
 
-        link.click();
+            link.href = url;
+            link.download = 'resources.json';
+            document.body.appendChild(link);
 
-        document.body.removeChild(link);
+            link.click();
 
-    })
+            document.body.removeChild(link);
+
+        })
 
 
 }
 
-function exportCSV(){
+function exportCSV() {
     console.log("Exporting CSV");
 
     fetch('http://localhost:5010/api/resources')
-    .then(response => response.json())
-    .then(data => {
-        
-       var csvString = convertToCSV(data);
+        .then(response => response.json())
+        .then(data => {
 
-       var blob = new Blob([csvString], {type: "text/csv"});
+            var csvString = convertToCSV(data);
 
-       var url = URL.createObjectURL(blob);
+            var blob = new Blob([csvString], { type: "text/csv" });
 
-       var link = document.createElement('a');
+            var url = URL.createObjectURL(blob);
 
-       link.href = url;
-       link.download = 'resources.csv';
-        document.body.appendChild(link);
-        link.click();
+            var link = document.createElement('a');
 
-        document.body.removeChild(link);
-    });
+            link.href = url;
+            link.download = 'resources.csv';
+            document.body.appendChild(link);
+            link.click();
+
+            document.body.removeChild(link);
+        });
 
 
 

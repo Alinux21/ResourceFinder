@@ -49,14 +49,18 @@ async function createResource(req, res) {
         // req.body contains the non-file fields
         const data = JSON.parse(req.body.data);
 
-        if (req.files.length > 0) {
-            const file = req.files[0];
+  
             const formData = new FormData();
             formData.append('data', JSON.stringify(data));
 
-            // Create a Blob from the file buffer
+            if (req.files.length > 0) {
+            
+            const file = req.files[0];
+            //create a blob from the file buffer
             const blob = new Blob([file.buffer], { type: file.mimetype });
             formData.append('image', blob, file.originalname);
+
+            }
 
             const response = await fetch('http://localhost:5001/api/resources', {
                 method: 'POST',
@@ -65,11 +69,6 @@ async function createResource(req, res) {
 
             const responseText = await response.text();
             res.end(responseText);
-        } else {
-            res.writeHead(400, { 'Content-Type': 'text/plain' });
-            res.end('No files uploaded');
-        }
-
     });
 
 }
