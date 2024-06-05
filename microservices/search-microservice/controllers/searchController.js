@@ -2,11 +2,9 @@
 const searchModel = require('../models/searchModel');
 const levenshtein = require('js-levenshtein');
 
-async function searchAlgorithm(req, res) {
+
+async function searchAlgorithm(req, res, query, limit, offset) {
     try {
-
-        var query = req.url.split('/')[3];
-
         console.log("Query:", query);
 
         const searchQuery = query.split("%20");
@@ -18,8 +16,12 @@ async function searchAlgorithm(req, res) {
         const negativeWords = ["fara", "without"];
         const linkWords = ["and", "si", "or", "sau"];
 
+<<<<<<< Updated upstream
         // Levenshtein distance - delete, insert, replace - used for normalizing words
         const specializedDictionary = ["java", "opengl", "3d", "three.js", "art", "nature of code", "nature", "code", "book", "books"];
+=======
+        const specializedDictionary = ["java", "opengl", "3d", "three.js", "art", "nature of code", "nature", "code"];
+>>>>>>> Stashed changes
         const specializedWords = wordVector.filter(word => {
             const lowerWord = word.toLowerCase();
             return specializedDictionary.some(dictWord => levenshtein(lowerWord, dictWord) <= 1);
@@ -68,7 +70,7 @@ async function searchAlgorithm(req, res) {
         console.log("Negative groups:", negativeGroup);
 
         if (naturalWords.length == 0) {
-            searchModel.getResourcesByWords(specializedWords)
+            searchModel.getResourcesByWords(specializedWords, limit, offset)
                 .then((data) => {
 
                     const results = data.map(item => {
@@ -111,7 +113,7 @@ async function searchAlgorithm(req, res) {
             const hasNegativeWords = naturalWords.some(word => negativeWords.includes(word.toLowerCase()));
 
             if (hasPositiveWords && !hasNegativeWords) {
-                searchModel.getResourcesByWords(specializedWords)
+                searchModel.getResourcesByWords(specializedWords, limit, offset)
                     .then((data) => {
 
                         const results = data.map(item => {
@@ -150,7 +152,7 @@ async function searchAlgorithm(req, res) {
                         res.end(JSON.stringify({ message: err.message }));
                     });
             } else if (!hasPositiveWords && hasNegativeWords) {
-                searchModel.getAllExceptSpecialWords(specializedWords)
+                searchModel.getAllExceptSpecialWords(specializedWords, limit, offset)
                     .then((data) => {
 
                         const results = data.map(item => {
@@ -189,7 +191,7 @@ async function searchAlgorithm(req, res) {
                         res.end(JSON.stringify({ message: err.message }));
                     });
             } else if (hasPositiveWords && hasNegativeWords) {
-                searchModel.getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionary)
+                searchModel.getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionary, limit, offset)
                     .then((data) => {
 
                         const results = data.map(item => {

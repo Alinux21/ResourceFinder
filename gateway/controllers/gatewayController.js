@@ -315,103 +315,105 @@ async function importResources(req, res) {
         }
 
     });
-
-
-
 }
 
+    async function getPopularResources(req, res) {
 
-async function search(req, res) {
+        fetch('http://localhost:5001/api/resources/popularResources')
+            .then(response => response.text())
+            .then(responseBody => {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(responseBody);
+            })
+            .catch(error => {
+                console.error(error);
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Internal server error');
+            });
 
-    const query = req.url.split('/')[3];
-
-    console.log('http://localhost:5004/api/words/' + query);
-
-    fetch('http://localhost:5004/api/words/' + query)
-        .then(response => response.text())
-        .then(responseBody => {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(responseBody);
-        })
-        .catch(error => {
-            console.error(error);
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
-            res.end('Internal server error');
-        });
-}
-
-async function getPopularResources(req, res) {
-
-    fetch('http://localhost:5001/api/resources/popularResources')
-        .then(response => response.text())
-        .then(responseBody => {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(responseBody);
-        })
-        .catch(error => {
-            console.error(error);
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
-            res.end('Internal server error');
-        });
-
-}
-
-async function getLatestResources(req, res) {
-    fetch('http://localhost:5001/api/resources/latestResources')
-        .then(response => response.text())
-        .then(responseBody => {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(responseBody);
-        })
-        .catch(error => {
-            console.error(error);
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
-            res.end('Internal server error');
-        });
-}
-
-async function getMyAccount(req, res) {
-    const query = req.url.split('/')[4];
-
-    console.log('http://localhost:5004/api/users/myaccount/' + query);
-
-    fetch('http://localhost:5002/api/users/myaccount/' + query)
-        .then(response => response.text())
-        .then(responseBody => {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(responseBody);
-        })
-        .catch(error => {
-            console.error(error);
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
-            res.end('Internal server error');
-        });
-}
-
-async function updateMyAccount(req, res) {
-    const body = await getPostData(req);
-
-    console.log(body);
-
-    const response = await fetch('http://localhost:5002/api/users/myaccount', {
-        method: req.method,
-        headers: req.headers,
-        body: body
-    });
-
-    if (response.status === 500) {
-        res.writeHead(500, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ message: 'Server error' }));
-    } else {
-
-        const responseBody = await response.text();
-        const jsonResponse = JSON.parse(responseBody);
-
-        res.statusCode = response.status;
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(jsonResponse));
     }
-}
+
+    async function getLatestResources(req, res) {
+        fetch('http://localhost:5001/api/resources/latestResources')
+            .then(response => response.text())
+            .then(responseBody => {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(responseBody);
+            })
+            .catch(error => {
+                console.error(error);
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Internal server error');
+            });
+    }
+
+    async function getMyAccount(req, res) {
+        const query = req.url.split('/')[4];
+
+        console.log('http://localhost:5004/api/users/myaccount/' + query);
+
+        fetch('http://localhost:5002/api/users/myaccount/' + query)
+            .then(response => response.text())
+            .then(responseBody => {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(responseBody);
+            })
+            .catch(error => {
+                console.error(error);
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Internal server error');
+            });
+    }
+
+    async function updateMyAccount(req, res) {
+        const body = await getPostData(req);
+
+        console.log(body);
+
+        const response = await fetch('http://localhost:5002/api/users/myaccount', {
+            method: req.method,
+            headers: req.headers,
+            body: body
+        });
+
+        if (response.status === 500) {
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ message: 'Server error' }));
+        } else {
+
+            const responseBody = await response.text();
+            const jsonResponse = JSON.parse(responseBody);
+
+            res.statusCode = response.status;
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(jsonResponse));
+        }
+    }
+
+    async function search(req, res) {
+
+        const pathParts = req.url.split('/');
+        const query = pathParts[3].split('?')[0];
+        const queryParams = pathParts[3].split('?')[1].split('&');
+        const limit = queryParams[0].split('=')[1];
+        const offset = queryParams[1].split('=')[1];
+        console.log(limit + ' ' + offset);
+        console.log('http://localhost:5004/api/words/' + query + '?limit=' + limit + '&offset=' + offset);
+
+
+        fetch('http://localhost:5004/api/words/' + query + '?limit=' + limit + '&offset=' + offset)
+            .then(response => response.text())
+            .then(responseBody => {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(responseBody);
+            })
+            .catch(error => {
+                console.error(error);
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('Internal server error');
+            });
+    }
+
 
 module.exports = {
     getAllResources,
