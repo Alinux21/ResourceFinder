@@ -14,7 +14,7 @@
 <body>
 
     <header>
-        <img class="logo" src="../assets/images/logo.png" alt="Logo">
+        <img class="logo" src="../assets/images/logo.png" alt="Logo" onclick="logoRedirect()">
         <h1>Edit Resource Panel</h1>
     </header>
 
@@ -78,8 +78,15 @@
                 <input type="file" id="fileInput" style="display: none;">
                 <p id="imageName"></p>
             </div>
+
+            <div id="invalidImageBox" style="display:none">
+                <p>Please upload an image of type jpg, png, jpeg.</p>
+            </div>
+        
             
             <script src="../js/editResource.js"></script>
+            <script src="../js/logoRedirect.js"></script>
+            <script src="../js/checkToken.js"></script>
         </div>
 
 
