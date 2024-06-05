@@ -31,7 +31,12 @@ fetch("http://localhost:5010/api/resources/" + id)
         document.getElementById("resource-link").innerHTML = link;
         linkElement.setAttribute('href', link);
         document.getElementById("resource-posted-by").innerHTML = posted_by;
-        document.getElementById("resource-image").src = 'http://localhost:5010/api/resources/images/' + image_src;
+        if(image_src == undefined || image_src == null || image_src == ""){
+            document.getElementById("resource-image").src = '../assets/images/no-image.jpg';
+        }
+        else{
+            document.getElementById("resource-image").src = 'http://localhost:5010/api/resources/images/' + image_src;
+        }
 
     })
     .catch(error => {
