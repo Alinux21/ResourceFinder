@@ -4,6 +4,14 @@ let currentPage = 1;
 const resultsPerPage = 10;
 let fetching = false;
 
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('query');
+    if (query) {
+        document.getElementById('search').value = query;
+    }
+}
+
 var typeMap = [
     'is_book',
     'is_online_book',
