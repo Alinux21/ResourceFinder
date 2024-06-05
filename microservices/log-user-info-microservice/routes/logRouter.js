@@ -5,7 +5,7 @@ const authRouter = (req, res) => {
         authController.setJwt(req, res);
     } else if(req.url === '/api/log/username' && req.method === 'POST'){
         authController.getUserName(req, res);
-    } else if(req.url === '/api/sign' && req.method === 'POST'){
+    } else if(req.url === '/api/log/sign' && req.method === 'POST'){
         authController.createUser(req, res);
     }
     else {

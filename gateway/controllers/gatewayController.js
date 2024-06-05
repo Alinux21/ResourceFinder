@@ -123,7 +123,7 @@ async function setJwt(req, res) {
     }
 }
 
-async function authentification(req,res){
+async function authentification(req, res) {
     const body = await getPostData(req);
 
     const response = await fetch('http://localhost:5003/api/auth', {
@@ -190,7 +190,7 @@ async function getResourcesByUser(req, res, username) {
 
 }
 
-async function updateResource(req,res,id){
+async function updateResource(req, res, id) {
 
     const multer = require('multer');
     const upload = multer();
@@ -215,7 +215,7 @@ async function updateResource(req,res,id){
             const blob = new Blob([file.buffer], { type: file.mimetype });
             formData.append('image', blob, file.originalname);
 
-            const response = await fetch('http://localhost:5001/api/resources/'+id, {
+            const response = await fetch('http://localhost:5001/api/resources/' + id, {
                 method: 'PUT',
                 body: formData
             });
@@ -232,20 +232,20 @@ async function updateResource(req,res,id){
 
 }
 
-async function deleteResource(req,res,id){
-    
-        const response = await fetch(`http://localhost:5001/api/resources/${id}`, {   //forwarding the request to the resources api
-            method: req.method,
-            headers: req.headers,
-        });
-    
-        const responseBody = await response.text();
-    
-        res.statusCode = response.status;
-        res.setHeader('Content-Type', 'application/json');
-        res.end(responseBody);
-    
-    
+async function deleteResource(req, res, id) {
+
+    const response = await fetch(`http://localhost:5001/api/resources/${id}`, {   //forwarding the request to the resources api
+        method: req.method,
+        headers: req.headers,
+    });
+
+    const responseBody = await response.text();
+
+    res.statusCode = response.status;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(responseBody);
+
+
 }
 
 async function createUser(req, res) {
@@ -253,7 +253,7 @@ async function createUser(req, res) {
 
     console.log(body);
 
-    const response = await fetch('http://localhost:5002/api/sign', {
+    const response = await fetch('http://localhost:5002/api/log/sign', {
         method: req.method,
         headers: req.headers,
         body: body
@@ -314,6 +314,25 @@ async function importResources(req,res) {
 }
 
 
+async function search(req, res) {
+    
+    const query = req.url.split('/')[3];
+
+    console.log('http://localhost:5004/api/words/' + query);
+
+    fetch('http://localhost:5004/api/words/' + query)
+        .then(response => response.text())
+        .then(responseBody => {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(responseBody);
+        })
+        .catch(error => {
+            console.error(error);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Internal server error');
+        });
+}
+
 module.exports = {
     getAllResources,
     getResource,
@@ -326,5 +345,6 @@ module.exports = {
     updateResource,
     deleteResource,
     createUser,
-    importResources
+    importResources,
+    search
 };

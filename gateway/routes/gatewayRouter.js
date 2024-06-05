@@ -50,16 +50,18 @@ const gatewayRouter = (req,res) =>{
     
         gatewayController.getUsername(req,res);
     
-    }else if (req.url === '/api/authentification' && req.method === 'POST'){
+    }else if (req.url === '/api/users/authentification' && req.method === 'POST'){
         
         gatewayController.authentification(req,res);
-    } else if (req.url === '/api/sign' && req.method === 'POST'){
+    } else if (req.url === '/api/users/sign' && req.method === 'POST'){
 
         gatewayController.createUser(req,res);
     } else if (req.url === '/api/imports' && req.method === 'POST'){
     
         gatewayController.importResources(req,res);
 
+    } else if (req.url.match(/\/api\/words\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)/) && req.method === 'GET') {
+        gatewayController.search(req,res);
     }
     else{
             res.statusCode = 404;
