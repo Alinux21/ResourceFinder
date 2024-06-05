@@ -16,12 +16,8 @@ async function searchAlgorithm(req, res, query, limit, offset) {
         const negativeWords = ["fara", "without"];
         const linkWords = ["and", "si", "or", "sau"];
 
-<<<<<<< Updated upstream
         // Levenshtein distance - delete, insert, replace - used for normalizing words
         const specializedDictionary = ["java", "opengl", "3d", "three.js", "art", "nature of code", "nature", "code", "book", "books"];
-=======
-        const specializedDictionary = ["java", "opengl", "3d", "three.js", "art", "nature of code", "nature", "code"];
->>>>>>> Stashed changes
         const specializedWords = wordVector.filter(word => {
             const lowerWord = word.toLowerCase();
             return specializedDictionary.some(dictWord => levenshtein(lowerWord, dictWord) <= 1);

@@ -4,7 +4,6 @@ let currentPage = 1;
 const resultsPerPage = 10;
 let fetching = false;
 
-<<<<<<< Updated upstream
 var typeMap = [
     'is_book',
     'is_online_book',
@@ -43,7 +42,7 @@ function getAllTypes(element) {
 }
 
 function fetchAndDisplayResources() {
-    fetch('http://localhost:5010/api/words/' + query)
+    fetch('http://localhost:5010/api/words/' + query+'?limit=10&offset=0')
         .then(response => response.json())
         .then(data => {
             window.allData = data;
@@ -87,9 +86,10 @@ function applyFilters() {
 
 document.addEventListener('DOMContentLoaded', fetchAndDisplayResources);
 =======
+
 function startSearch() {
     currentPage = 1;
-    document.getElementById("search-results").innerHTML = ''; // Clear previous results
+    document.getElementById("search-results").innerHTML = ''; //clear previous results
     fetchResults();
 }
 
@@ -149,5 +149,4 @@ function handleScroll() {
 
 window.addEventListener('scroll', handleScroll);
 
-startSearch();  // Initialize the first search
->>>>>>> Stashed changes
+startSearch();  //initialize the first search
