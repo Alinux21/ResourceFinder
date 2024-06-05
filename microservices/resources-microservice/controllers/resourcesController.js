@@ -290,6 +290,20 @@ async function getPopularResources(req, res) {
     }
 }
 
+async function getLatestResources(req, res) {
+    try {
+        const resources = await Resource.findLatestResources();
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(resources));
+    } catch(error) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Internal server error' }));
+        console.log(error);
+    }
+
+}
+
 
 
 module.exports = {
@@ -301,5 +315,6 @@ module.exports = {
     getImage,
     getUserResources,
     importResources,
-    getPopularResources
+    getPopularResources,
+    getLatestResources
 }

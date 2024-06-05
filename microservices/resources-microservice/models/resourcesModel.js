@@ -215,6 +215,20 @@ function findPopularResources(){
 
 }
 
+function findLatestResources() {
+    return new Promise((resolve, reject) => {
+        var sql = "SELECT * FROM resources ORDER BY created_at DESC LIMIT 5";
+        con.query(sql, function (err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                console.log("Select performed!");
+                resolve(result);
+            }
+        });
+    })
+}
+
 
 module.exports = {
     findAll,
@@ -225,5 +239,6 @@ module.exports = {
     saveImage,
     getImage,
     findByUser,
-    findPopularResources
+    findPopularResources,
+    findLatestResources
 }

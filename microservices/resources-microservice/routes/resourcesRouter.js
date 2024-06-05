@@ -40,6 +40,9 @@ const resourcesRouter = (req,res) =>{
     }else if (req.url === '/api/resources/popularResources' && req.method === 'GET'){
     
         resourceController.getPopularResources(req,res);
+    } else if (req.url === '/api/resources/latestResources' && req.method === 'GET'){
+        
+            resourceController.getLatestResources(req,res);
     }
     else{
             res.writeHead(404, {'Content-type':'application/json' })

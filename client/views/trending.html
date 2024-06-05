@@ -21,85 +21,20 @@
 
         <section>
             <h2>Most searched resources this month:</h2>
-            <article onclick="funcProd(event)">
-                <div class="clicks">
-                    <p>👀 5.8k</p>
-                </div>
-                <h2>The Nature of Code</h2>
-                <p>Simulating natural systems with Processing.</p>
-                <p class="tags">Tags: #books</p>
-            </article>
+            <script src="../js/trending.js"></script>
 
-            <article onclick="funcProd(event)">
-                <div class="clicks">
-                    <p>👀 5.5k</p>
-                </div>
-                <h2>Processing</h2>
-                <p>Computer programming language and IDE for visual arts</p>
-                <p class="tags">Tags: #frameworks</p>
-            </article>
-
-            <article onclick="funcProd(event)">
-                <div class="clicks">
-                    <p>👀 5.2k</p>
-                </div>
-                <h2>Learning Modern 3D Graphics Programming </h2>
-                <p>Series of tutorials on using OpenGL to do graphical rendering.</p>
-                <p class="tags">Tags: #books</p>
-            </article>
-
-            <article onclick="funcProd(event)">
-                <div class="clicks">
-                    <p>👀 4.9k</p>
-                </div>
-                <h2>Generative Art: A Practical Guide </h2>
-                <p>Practical guide using Processing.</p>
-                <p class="tags">Tags: #books</p>
-            </article>
-
-            <article onclick="funcProd(event)">
-                <div class="clicks">
-                    <p>👀 4.4k</p>
-                </div>
-                <h2>Generative Design</h2>
-                <p>Visualize, Program, and Create with Processing</p>
-                <p class="tags">Tags: #books</p>
-            </article>
+            <div id="fetchedResources"></div>
 
         </section>
 
 
         <div class="preview">
             <h2>Preview resource:</h2>
-            <div class="article_preview">
-                <article>
-                    <h2>The Nature of Code</h2>
-                    <p>How can we capture the unpredictable evolutionary and emergent properties of nature in software?
-                        How can understanding the mathematical principles behind our physical world help us to create
-                        digital worlds?
-                        This book focuses on a range of programming strategies and techniques behind computer
-                        simulations of
-                        natural systems,
-                        from elementary concepts in mathematics and physics to more advanced algorithms that enable
-                        sophisticated visual results.
-                        Readers will progress from building a basic physics engine to creating intelligent moving
-                        objects
-                        and complex systems,
-                        setting the foundation for further experiments in generative design.
-                        Subjects covered include forces, trigonometry, fractals, cellular automata, self-organization,
-                        and
-                        genetic algorithms.
-                        The book's examples are written in Processing, an open-source language and development
-                        environment
-                        built on top of the Java programming language.
-                    </p>
-                    <h2>See resource:</h2>
-                    <a href="http://www.natureofcode.com">http://www.natureofcode.com</a>
-                </article>
+            <div class="article_preview" id="articlePreview">
             </div>
         </div>
 
-        <div class="sidepanel" onclick="funcSearch()">
+        <div class="sidepanel">
             <h2>See more categories:</h2>
             <p>📚 Books</p>
             <p>📖 Online Books</p>
@@ -118,8 +53,6 @@
 
     </main>
 
-
-    <script src="../js/search.js"></script>
 </body>
 
 </html>
