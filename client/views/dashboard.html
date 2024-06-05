@@ -13,11 +13,22 @@
 
 <body>
 
+    <div id="overlay" style="display: none;"></div>
+
     <header>
-        <img class="logo" src="../assets/images/logo.png" alt="Logo">
+        <img class="logo" src="../assets/images/logo.png" alt="Logo" onclick="window.location.href='main-admin.html'">
         <h1>Dashboard</h1>
     </header>
 
+    <article class="importExportPanelWrapper">
+        <h2>Import/Export resources (JSON, CSV)</h2>
+        <div class="importExportPanel">
+            <input type="file" id="importResourcesButton" style="display: none;">            
+            <button onclick="importResources()">Import Resources</button>
+            <button id="exportButton" onclick="exportResources()">Export Resources</button>
+        </div>
+        <script src="../js/importExport.js"></script>
+    </article>
 
     <div class="upload_resource">
 
@@ -93,9 +104,6 @@
 
         </div>
 
-        <script src="../js/getUserResources.js"></script>
-
-
     </div>
 
 
@@ -105,6 +113,14 @@
         <button id="confirmNo">No</button>
     </div>
 
+    <script src="../js/getUserResources.js"></script>
+
+
+    <div id="exportBox" style="display: none;">
+        <p>Export as:</p>
+        <button id="exportJSON" onclick="exportJSON()">JSON</button>
+        <button id="exportCSV" onclick="exportCSV()">CSV</button>
+    </div>
 
 </body>
 

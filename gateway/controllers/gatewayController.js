@@ -274,6 +274,46 @@ async function createUser(req, res) {
 
 }
 
+async function importResources(req,res) {
+
+    const multer = require('multer');
+    const upload = multer();
+
+    upload.any()(req, res, async (err) => {
+        if (err) {
+            console.error(err);
+            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.end('Internal server error');
+            return;
+        }
+
+        if (req.files.length > 0) {
+            const file = req.files[0];
+            const formData = new FormData();
+
+            const blob = new Blob([file.buffer], { type: file.mimetype });
+            formData.append('file', blob, file.originalname);
+
+            const response = await fetch('http://localhost:5001/api/resources/imports', {
+                method: 'POST',
+                body: formData
+            });
+
+
+            res.writeHead(response.status, { 'Content-Type': 'application/json' });
+            res.end(await response.text());
+        } else {
+            res.writeHead(400, { 'Content-Type': 'text/plain' });
+            res.end('No files uploaded');
+        }
+
+    });
+
+
+
+}
+
+
 async function search(req, res) {
     
     const query = req.url.split('/')[3];
@@ -305,5 +345,6 @@ module.exports = {
     updateResource,
     deleteResource,
     createUser,
+    importResources,
     search
 };

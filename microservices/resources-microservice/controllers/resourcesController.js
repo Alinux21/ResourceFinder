@@ -239,6 +239,44 @@ async function getUserResources(req, res, username) {
 
 }
 
+async function importResources(req, res) {
+    try {
+        const multer = require('multer');
+        const upload = multer();
+        
+        upload.any()(req, res, async (err) => {
+            if (err) {
+                console.error('Error in multer:', err);
+                return;
+            }
+
+            if (!req.files || req.files.length === 0) {
+                console.error('No file uploaded.');
+                return;
+            }
+
+            const file = req.files[0];
+
+            // Convert the buffer to a string and parse it as JSON
+            const data = file.buffer.toString();
+            const jsonData = JSON.parse(data);
+            
+            // Log the names of the resources
+            jsonData.resources.forEach(resource => {
+                
+               Resource.create(resource);
+
+            });
+        });
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ message: 'Resources imported successfully' }));
+
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getAllResources,
     getResource,
@@ -246,5 +284,6 @@ module.exports = {
     updateResource,
     deleteResource,
     getImage,
-    getUserResources
+    getUserResources,
+    importResources
 }
