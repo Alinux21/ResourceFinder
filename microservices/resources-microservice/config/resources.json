@@ -1,425 +1,509 @@
 {
-    "resources": [
-        {
-            "title": "Generative Art: A Practical Guide",
-            "summary": "Practical guide using Processing.",
-            "description": "Generative Art presents both the techniques and the beauty of algorithmic art. In it, you'll find dozens of high-quality examples of generative art, along with the specific steps the author followed to create each unique piece using the Processing programming language. The book includes concise tutorials for each of the technical components required to create the book's images, and it offers countless suggestions for how you can combine and reuse the various techniques to create your own works.",
-            "tags": "generative art, Processing, algorithmic art, book, online book",
-            "link": "https://www.manning.com/books/generative-art",
-            "posted_by": "AlinM",
-            "is_book" : true,
-            "is_online_book": true,
-            "image_src" : "generative-art.jpg",
-            "clicks" : 20
-        },
-        {
-            "title": "The Nature of Code",
-            "summary": "Simulating natural systems with Processing.",
-            "description": "How can we capture the unpredictable evolutionary and emergent properties of nature in software? How can understanding the mathematical principles behind our physical world help us to create digital worlds? This book focuses on the programming strategies and techniques behind computer simulations of natural systems using Processing.",
-            "tags": "natural systems, Processing, simulations, book, online book",
-            "link": "http://natureofcode.com/",
-            "posted_by": "AlinM",
-            "is_book" : true,
-            "is_online_book": true,
-            "image_src" : "nature-of-code.png",
-            "clicks" : 10
-        },
-        {
-            "title": "Programming Fractals and Strange Attractors in JavaScript",
-            "summary": "A tutorial on how to create fractals and strange attractors in JavaScript.",
-            "description": "This book, as its name implies, is about playing with fractals, strange attractors and chaos theory. By 'playing' is meant writing computer programs that will generate fractals and other related forms. By learning the principles behind the shapes and the code that creates these images, you will gain a far greater understanding of and appreciation for the subject. You will also be able to experiment with these concepts on a level that you could probably never achieve if you were just randomly tweaking some sliders in someone else's application.",
-            "tags": "fractals, chaos theory, strange attractors, JavaScript, online book",
-            "link": "http://www.playingwithchaos.net/",
-            "posted_by": "AlinM",
-            "is_online_book": true,
-            "clicks" : 5
-        },
-        {
-            "title": "Programming Interactivity",
-            "summary": "Designer's Guide to Processing, Arduino, and openFrameworks.",
-            "description": "Make cool stuff. If you're a designer or artist without a lot of programming experience, this book will teach you to work with 2D and 3D graphics, sound, physical interaction, and electronic circuitry to create all sorts of interesting and compelling experiences -- online and off.",
-            "tags": "2D, 3D, sound, Processing, Arduino, openFrameworks, book",
-            "link": "https://www.oreilly.com/library/view/programming-interactivity/9780596800598/",
-            "posted_by": "AlinM",
-            "is_book": true
-        },
-        {
-            "title": "The Book of Shaders",
-            "summary": "Step-by-step guide through the abstract and complex universe of fragment shaders.",
-            "description": "The Book of Shaders provides a comprehensive, step-by-step guide through the abstract and complex universe of fragment shaders. It's designed to teach you the fundamentals of shaders, making it accessible even to those with no prior experience in graphics programming.",
-            "tags": "shaders, fragment shaders, graphics programming, online book",
-            "link": "https://thebookofshaders.com/",
-            "posted_by": "AlinM",
-            "is_online_book": true
-        },
-        {
-            "title": "Learn OpenGL",
-            "summary": "Extensive tutorial resource for learning Modern OpenGL.",
-            "description": "Learn OpenGL is an extensive tutorial resource for learning Modern OpenGL. It covers a wide range of topics from the basics of rendering to advanced techniques. This resource is ideal for anyone looking to gain a deep understanding of OpenGL programming.",
-            "tags": "OpenGL, graphics programming, rendering, online book",
-            "link": "https://learnopengl.com/",
-            "posted_by": "AlinM",
-            "is_online_book": true
-        },
-        {
-            "title": "WebGL Fundamentals",
-            "summary": "WebGL from the ground up. No magic.",
-            "description": "WebGL Fundamentals is a comprehensive guide that teaches you WebGL from the ground up without relying on any frameworks or libraries. It covers everything you need to know to create 3D graphics using WebGL, making it a perfect resource for beginners and experienced programmers alike.",
-            "tags": "WebGL, 3D graphics, JavaScript, online book",
-            "link": "https://webglfundamentals.org/",
-            "posted_by": "AlinM",
-            "is_online_book": true
-        },
-        {
-            "title": "Scratchapixel 2.0",
-            "summary": "Learn Computer Graphics From Scratch.",
-            "description": "Scratchapixel 2.0 is an educational resource that teaches computer graphics from scratch. It covers a wide range of topics including ray tracing, rasterization, and other essential graphics techniques. This resource is suitable for anyone interested in understanding the fundamentals of computer graphics.",
-            "tags": "computer graphics, ray tracing, rasterization, online book",
-            "link": "https://www.scratchapixel.com/",
-            "posted_by": "AlinM",
-            "is_online_book": true
-        },
-        {
-            "title": "Interactive 3D Graphics",
-            "summary": "Udacity course that teaches you the principles of 3D computer graphics.",
-            "description": "The Interactive 3D Graphics course from Udacity teaches you the principles of 3D computer graphics, covering topics such as rendering, lighting, and shading. Through hands-on projects and expert feedback, you'll learn how to create immersive 3D experiences using industry-standard tools and techniques.",
-            "tags": "3D graphics, computer graphics, rendering, course",
-            "link": "https://www.udacity.com/course/interactive-3d-graphics--cs291",
-            "posted_by": "AlinM",
-            "is_course": true
-        },
-        {
-            "title": "Creative Programming for Digital Media & Mobile Apps",
-            "summary": "Coursera course on creative coding with Processing.",
-            "description": "The Creative Programming for Digital Media & Mobile Apps course on Coursera teaches you how to use creative coding techniques with Processing to develop digital media and mobile applications. Through hands-on projects and interactive exercises, you'll learn how to create visually stunning and interactive experiences for various platforms.",
-            "tags": "creative coding, Processing, digital media, mobile apps, course",
-            "link": "https://www.coursera.org/learn/digitalmedia",
-            "posted_by": "AlinM",
-            "is_course": true
-        },
-        {
-            "title": "Three.js Journey",
-            "summary": "Course by Bruno Simon that teaches you to create WebGL websites with Three.js.",
-            "description": "The Three.js Journey course by Bruno Simon teaches you the secrets to create the coolest WebGL websites with Three.js, whether you're a beginner or an advanced developer. Through step-by-step tutorials and real-world projects, you'll learn how to leverage the power of Three.js to build stunning 3D web experiences.",
-            "tags": "Three.js, WebGL, 3D web development, course",
-            "link": "https://threejs-journey.com/",
-            "posted_by": "AlinM",
-            "is_course": true
-        },
-        {
-            "title": "3D Computer Graphics Programming",
-            "summary": "Learn all the theory and the math behind 3D graphics while creating a software renderer from scratch using the C programming language.",
-            "description": "The 3D Computer Graphics Programming course teaches you all the theory and math behind 3D graphics while guiding you through the process of creating a software renderer from scratch using the C programming language. Through this hands-on approach, you'll gain a deep understanding of the principles of 3D computer graphics.",
-            "tags": "3D graphics, computer graphics, software renderer, C programming, course",
-            "link": "https://pikuma.com/courses/learn-3d-computer-graphics-programming",
-            "posted_by": "AlinM",
-            "is_course": true
-        },
-        {
-            "title": "Processing",
-            "summary": "Computer programming language and IDE for visual arts.",
-            "description": "Processing is a flexible software sketchbook and a language for learning how to code within the context of the visual arts.",
-            "tags": ["Processing", "visual arts", "IDE", "programming language", "framework"],
-            "link": "https://processing.org/",
-            "posted_by": "AlinM",
-            "is_framework": true
-          },
-          {
-            "title": "openFrameworks",
-            "summary": "Open source C++ toolkit for creative coding.",
-            "description": "openFrameworks is an open-source C++ toolkit for creative coding. It's designed to make it easy to experiment with coding and create interactive art projects.",
-            "tags": ["openFrameworks", "C++", "creative coding", "toolkit", "framework"],
-            "link": "https://openframeworks.cc/",
-            "posted_by": "AlinM",
-            "is_framework": true
-          },
-          {
-            "title": "Phaser",
-            "summary": "HTML5 framework for building games, uses both a Canvas and WebGL renderer.",
-            "description": "Phaser is an HTML5 framework for building games that uses both a Canvas and WebGL renderer. It's designed to be easy to use and flexible, making it ideal for both beginners and experienced game developers.",
-            "tags": ["Phaser", "HTML5", "game framework", "Canvas", "WebGL", "framework"],
-            "link": "https://phaser.io/",
-            "posted_by": "AlinM",
-            "is_framework": true
-          },
-          {
-            "title": "three.js",
-            "summary": "JavaScript 3D library.",
-            "description": "three.js is a JavaScript 3D library that makes it easy to create stunning 3D graphics in the browser. It provides a range of features for creating and manipulating 3D objects, including rendering, lighting, and animation.",
-            "tags": ["three.js", "JavaScript", "3D graphics", "library", "framework"],
-            "link": "https://threejs.org/",
-            "posted_by": "AlinM",
-            "is_framework": true
-          },
-          {
-            "title": "Max",
-            "summary": "Visual programming language for media.",
-            "description": "Max is a visual programming language for media. It allows users to create interactive and multimedia applications by connecting visual objects with virtual patch cords.",
-            "tags": ["Max", "visual programming", "multimedia","visual programming language"],
-            "link": "https://cycling74.com/",
-            "posted_by": "AlinM",
-            "is_visual_programming_language": true
-          },
-          {
-            "title": "Pure Data",
-            "summary": "Open source visual programming language for multimedia.",
-            "description": "Pure Data is an open-source visual programming language for multimedia. It's designed to enable musicians, artists, and researchers to create interactive audiovisual projects.",
-            "tags": ["Pure Data", "visual programming", "multimedia", "open-source","visual programming language"],
-            "link": "https://puredata.info/",
-            "posted_by": "AlinM",
-            "is_visual_programming_language": true
-          },
-          {
-            "title": "VVVV",
-            "summary": "Hybrid visual/textual live-programming environment for easy prototyping and development.",
-            "description": "VVVV is a hybrid visual/textual live-programming environment for easy prototyping and development. It's designed to make it easy to create interactive multimedia installations, performances, and experiences.",
-            "tags": ["VVVV", "visual programming", "live-programming", "multimedia","visual programming language"],
-            "link": "https://vvvv.org/",
-            "posted_by": "AlinM",
-            "is_visual_programming_language": true
-          },
-          {
-            "title": "TouchDesigner",
-            "summary": "Visual development platform to create realtime projects.",
-            "description": "TouchDesigner is a visual development platform to create realtime projects. It's used by artists, designers, and developers to create interactive installations, immersive experiences, and live performances.",
-            "tags": ["TouchDesigner", "visual programming", "realtime projects", "interactive installations","visual programming language"],
-            "link": "https://derivative.ca/",
-            "posted_by": "AlinM",
-            "is_visual_programming_language": true
-          },
-          {
-            "title": "SuperCollider",
-            "summary": "Platform for audio synthesis and algorithmic composition.",
-            "description": "SuperCollider is a platform for audio synthesis and algorithmic composition. It's used by musicians, artists, and researchers to create complex and expressive soundscapes.",
-            "tags": ["SuperCollider", "audio synthesis", "algorithmic composition","sound programming language"],
-            "link": "https://supercollider.github.io/",
-            "posted_by": "AlinM",
-            "is_sound_programming_language": true
-          },
-          {
-            "title": "ChucK",
-            "summary": "Strongly-timed, concurrent, and on-the-fly music programming language.",
-            "description": "ChucK is a strongly-timed, concurrent, and on-the-fly music programming language. It's designed to make it easy to create complex and dynamic musical compositions in real-time.",
-            "tags": ["ChucK", "music programming", "real-time composition","sound programming language"],
-            "link": "https://chuck.cs.princeton.edu/",
-            "posted_by": "AlinM",
-            "is_sound_programming_language": true
-          },
-          {
-            "title": "Sonic Pi",
-            "summary": "The live coding music synth for everyone.",
-            "description": "Sonic Pi is a live coding music synth for everyone. It's designed to make it easy for musicians, educators, and beginners to create music using code.",
-            "tags": ["Sonic Pi", "live coding", "music synth","sound programming language"],
-            "link": "https://sonic-pi.net/",
-            "posted_by": "AlinM",
-            "is_sound_programming_language": true
-          },
-          {
-            "title": "TidalCycles",
-            "summary": "Domain specific language for live coding of pattern.",
-            "description": "TidalCycles is a domain-specific language (DSL) for live coding of pattern. It's used by musicians, DJs, and producers to create complex and dynamic rhythms and patterns in real-time.",
-            "tags": ["TidalCycles", "live coding", "pattern", "rhythm","sound programming language"],
-            "link": "https://tidalcycles.org/",
-            "posted_by": "AlinM",
-            "is_sound_programming_language": true
-          },
-          {
-            "title": "three.js",
-            "summary": "JavaScript 3D library.",
-            "description": "three.js is a JavaScript 3D library that makes it easy to create stunning 3D graphics in the browser. It provides a range of features for creating and manipulating 3D objects, including rendering, lighting, and animation.",
-            "tags": ["three.js", "JavaScript", "3D graphics", "library","web programming library"],
-            "link": "https://threejs.org/",
-            "posted_by": "AlinM",
-            "is_web_programming_library": true
-          },
-          {
-            "title": "regl",
-            "summary": "Functional WebGL.",
-            "description": "regl is a functional WebGL library. It's designed to make it easy to work with WebGL by providing a simple and expressive API.",
-            "tags": ["regl", "WebGL", "library", "functional","web programming library"],
-            "link": "http://regl.party/",
-            "posted_by": "AlinM",
-            "is_web_programming_library": true
-          },
-          {
-            "title": "Paper.js",
-            "summary": "The swiss army knife of vector graphics scripting.",
-            "description": "Paper.js is the swiss army knife of vector graphics scripting. It's designed to make it easy to work with vector graphics in the browser, allowing you to create complex and interactive visualizations.",
-            "tags": ["Paper.js", "vector graphics", "scripting", "library","web programming library"],
-            "link": "http://paperjs.org/",
-            "posted_by": "AlinM",
-            "is_web_programming_library": true
-          },
-          {
-            "title": "Pixi.js",
-            "summary": "HTML 5 2D rendering engine that uses WebGL with canvas fallback.",
-            "description": "Pixi.js is an HTML 5 2D rendering engine that uses WebGL with canvas fallback. It's designed to make it easy to create fast and interactive 2D graphics in the browser.",
-            "tags": ["Pixi.js", "HTML5", "2D rendering engine", "WebGL", "canvas","web programming library"],
-            "link": "https://pixijs.com/",
-            "posted_by": "AlinM",
-            "is_web_programming_library": true
-          },
-          {
-            "title": "Arduino",
-            "summary": "Open source microcontroller kits for building digital devices and interactive objects.",
-            "description": "Arduino is an open-source platform used for building digital devices and interactive objects that can sense and control physical devices. It consists of both hardware and software components, making it easy for beginners and professionals alike to create a wide range of projects.",
-            "tags": ["Arduino", "microcontroller", "hardware", "electronics", "hardware"],
-            "link": "https://www.arduino.cc/",
-            "posted_by": "AlinM",
-            "is_hardware": true
-          },
-          {
-            "title": "Raspberry Pi",
-            "summary": "Small single-board computers.",
-            "description": "Raspberry Pi is a series of small single-board computers developed by the Raspberry Pi Foundation. It is widely used for various purposes, including education, DIY projects, and as a low-cost platform for computing applications.",
-            "tags": ["Raspberry Pi", "single-board computer", "hardware", "education"],
-            "link": "https://www.raspberrypi.org/",
-            "posted_by": "AlinM",
-            "is_hardware": true
-          },
-          {
-            "title": "Puck.js",
-            "summary": "Open source JavaScript microcontroller you can program wirelessly.",
-            "description": "Puck.js is an open-source JavaScript microcontroller that can be programmed wirelessly. It is compact, low-power, and equipped with various sensors, making it suitable for IoT (Internet of Things) projects and wearable devices.",
-            "tags": ["Puck.js", "JavaScript", "microcontroller", "IoT", "wearable", "hardware"],
-            "link": "https://www.puck-js.com/",
-            "posted_by": "AlinM",
-            "is_hardware": true
-          },
-          {
-            "title": "BeagleBoard",
-            "summary": "Low-power open source single-board computers.",
-            "description": "BeagleBoard is a family of low-power open-source single-board computers. It is designed for embedded computing applications and DIY projects, providing a flexible and expandable platform for developers and hobbyists.",
-            "tags": ["BeagleBoard", "single-board computer", "embedded computing", "DIY", "hardware"],
-            "link": "https://beagleboard.org/",
-            "posted_by": "AlinM",
-            "is_hardware": true
-          },
-          {
-            "title": "The Coding Train",
-            "summary": "Daniel Shiffman makes videos about creative coding.",
-            "description": "The Coding Train is a YouTube channel hosted by Daniel Shiffman, where he creates and shares tutorials, coding challenges, and live streams related to creative coding, computer science, and programming in general. Shiffman's engaging teaching style and diverse range of topics make this channel a valuable resource for learners of all levels.",
-            "tags": ["The Coding Train", "Daniel Shiffman", "creative coding", "tutorials", "live streams", "programming","video"],
-            "link": "https://www.youtube.com/user/shiffman",
-            "posted_by": "AlinM",
-            "is_video": true
-          },
-          {
-            "title": "MFGD - Fragment Shaders",
-            "summary": "YouTube playlist about fragment shaders.",
-            "description": "MFGD - Fragment Shaders is a YouTube playlist dedicated to fragment shaders. It covers various topics related to fragment shaders, including tutorials, demonstrations, and practical applications. This playlist is suitable for beginners and experienced developers interested in graphics programming.",
-            "tags": ["MFGD", "fragment shaders", "graphics programming", "YouTube playlist","video"],
-            "link": "https://www.youtube.com/playlist?list=PLW3Zl3wyJwWMpFSRpeMmSBGDShbkiV1Cq",
-            "posted_by": "AlinM",
-            "is_video": true
-          },
-          {
-            "title": "Shaders Laboratory",
-            "summary": "YouTube channel about shaders.",
-            "description": "Shaders Laboratory is a YouTube channel focused on shaders, featuring tutorials, demonstrations, and discussions about shader programming. Whether you're a beginner looking to learn the basics of shaders or an experienced developer seeking advanced techniques, this channel offers valuable insights and resources.",
-            "tags": ["Shaders Laboratory", "shaders", "shader programming", "YouTube channel","video"],
-            "link": "https://www.youtube.com/channel/UCDk9-aPr8zQzwi4ylnuoJ6w",
-            "posted_by": "AlinM",
-            "is_video": true
-          },
-          {
-            "title": "Makin' Stuff Look Good",
-            "summary": "YouTube channel about shaders case studies.",
-            "description": "Makin' Stuff Look Good is a YouTube channel that focuses on shader case studies and visual effects in game development and computer graphics. Through in-depth analyses and practical demonstrations, this channel explores techniques for creating stunning visuals using shaders.",
-            "tags": ["Makin' Stuff Look Good", "shaders", "visual effects", "game development", "YouTube channel","video"],
-            "link": "https://www.youtube.com/channel/UCEklP9iLcpExB8vp_fWQseg",
-            "posted_by": "AlinM",
-            "is_video": true
-          },
-          {
-            "title": "Introduction to shaders",
-            "summary": "Part 1 of an introduction to shaders using threejs.",
-            "description": "Introduction to shaders is the first part of a series that aims to introduce beginners to shader programming using the three.js library. This tutorial covers fundamental concepts and provides hands-on examples to help learners understand the basics of shader development.",
-            "tags": ["shaders", "three.js", "WebGL", "tutorial"],
-            "link": "https://aerotwist.com/tutorials/an-introduction-to-shaders-part-1/",
-            "posted_by": "AlinM",
-            "is_tutorial": true
-          },
-          {
-            "title": "Three.js 101",
-            "summary": "Introduction to three.js from a creative coder perspective.",
-            "description": "Three.js 101 is a beginner-friendly tutorial that offers an introduction to three.js, a popular JavaScript library for creating 3D graphics in web browsers. The tutorial provides insights from a creative coder's perspective, making it accessible to artists, designers, and developers interested in 3D web graphics.",
-            "tags": ["three.js", "creative coding", "tutorial"],
-            "link": "https://medium.com/@necsoft/three-js-101-hello-world-part-1-443207b1ebe1",
-            "posted_by": "AlinM",
-            "is_tutorial": true
-          },
-          {
-            "title": "ml4a",
-            "summary": "Machine learning for artists.",
-            "description": "ml4a is a platform dedicated to machine learning applications in the field of art. It provides resources, tutorials, and tools for artists interested in integrating machine learning techniques into their creative processes. Whether you're a beginner or an experienced artist, ml4a offers valuable insights and support.",
-            "tags": ["machine learning", "art", "tutorial", "machine learning"],
-            "link": "https://ml4a.net/",
-            "posted_by": "AlinM",
-            "is_machine_learning": true
-          },
-          {
-            "title": "Keras.js",
-            "summary": "Run Keras models (tensorflow backend) in the browser, with GPU support.",
-            "description": "Keras.js enables running Keras models, which are powered by TensorFlow backend, directly in web browsers with GPU support. This tool opens up opportunities for deploying machine learning models on client-side applications, facilitating efficient inference without the need for server-side computation.",
-            "tags": ["Keras", "TensorFlow", "web development", "machine learning"],
-            "link": "https://transcranial.github.io/keras-js/#/",
-            "posted_by": "AlinM",
-            "is_machine_learning": true
-          },
-          {
-            "title": "Tesseract.js",
-            "summary": "Pure Javascript Multilingual OCR.",
-            "description": "Tesseract.js is a pure JavaScript library for performing optical character recognition (OCR) in web browsers. It supports multiple languages and provides efficient text extraction from images without requiring server-side processing. Tesseract.js is suitable for various applications, including document digitization and text analysis.",
-            "tags": ["OCR", "JavaScript", "text extraction", "web development", "machine learning"],
-            "link": "https://tesseract.projectnaptha.com/",
-            "posted_by": "AlinM",
-            "is_machine_learning": true
-          },
-          {
-            "title": "Google ML",
-            "summary": "Cloud machine learning by Google.",
-            "description": "Google ML offers cloud-based machine learning services powered by Google's infrastructure and expertise. It provides scalable solutions for training and deploying machine learning models, enabling developers and businesses to harness the power of AI without managing complex infrastructure. Google ML supports various use cases, from predictive analytics to natural language processing.",
-            "tags": ["Google", "machine learning", "cloud computing", "AI services","machine learning"],
-            "link": "https://cloud.google.com/vertex-ai",
-            "posted_by": "AlinM",
-            "is_machine_learning": true
-          },
-          {
-            "title": "CreativeApplications.Net [CAN]",
-            "summary": "Famous digital art blog.",
-            "description": "CreativeApplications.Net (CAN) is a renowned digital art blog that showcases innovative works and projects at the intersection of art, design, and technology. With a focus on creative coding, interactive installations, and digital media, CAN provides a platform for artists, designers, and technologists to share their groundbreaking creations and explore emerging trends in the field of digital art.",
-            "tags": ["digital art", "creative coding", "technology", "blog"],
-            "link": "https://www.creativeapplications.net/",
-            "posted_by": "AlinM",
-            "is_blog": true
-          },
-          {
-            "title": "iquilezles.org",
-            "summary": "Home of Íñigo Quílez, specialised in GLSL and math snippets.",
-            "description": "iquilezles.org is the personal website of Íñigo Quílez, a renowned expert in GLSL (OpenGL Shading Language) and mathematical algorithms. The website serves as a repository for GLSL shaders, mathematical snippets, and insightful articles exploring the intersection of graphics programming and mathematics. It's a valuable resource for developers and enthusiasts interested in shader programming and computational geometry.",
-            "tags": ["GLSL", "mathematics", "graphics programming", "website", "blog"],
-            "link": "https://iquilezles.org/",
-            "posted_by": "AlinM",
-            "is_blog": true
-          },
-          {
-            "title": "bit-101.com",
-            "summary": "Blog by Keith Peters, specialised in creative coding.",
-            "description": "bit-101.com is a blog maintained by Keith Peters, a prominent figure in the creative coding community. Specializing in creative coding, Keith shares tutorials, insights, and experiments related to graphics programming, interactive art, and generative design. With a wealth of knowledge and experience, bit-101.com is a go-to resource for anyone interested in exploring the intersection of code and creativity.",
-            "tags": ["creative coding", "graphics programming", "blog", "tutorials", "blog"],
-            "link": "https://www.bit-101.com/blog/",
-            "posted_by": "AlinM",
-            "is_blog": true
-          },
-          {
-            "title": "ibreakdownshaders",
-            "summary": "Explore the math behind shaders.",
-            "description": "ibreakdownshaders is a website dedicated to exploring the mathematics behind shader programming. It offers in-depth tutorials, articles, and analyses dissecting the intricate mathematical concepts used in shader development. Whether you're a beginner or an experienced developer, ibreakdownshaders provides valuable insights into the fascinating world of shader programming.",
-            "tags": ["shaders", "mathematics", "website", "tutorials","blog"],
-            "link": "https://ibreakdownshaders.blogspot.com/",
-            "posted_by": "AlinM",
-            "is_blog": true
-          }
-    ]
+  "resources": [
+    {
+      "title": "Generative Art: A Practical Guide",
+      "summary": "Practical guide using Processing.",
+      "description": "Generative Art presents both the techniques and the beauty of algorithmic art. In it, you'll find dozens of high-quality examples of generative art, along with the specific steps the author followed to create each unique piece using the Processing programming language. The book includes concise tutorials for each of the technical components required to create the book's images, and it offers countless suggestions for how you can combine and reuse the various techniques to create your own works.",
+      "tags": "generative art, Processing, algorithmic art, book, online book",
+      "link": "https://www.manning.com/books/generative-art",
+      "posted_by": "AlinM",
+      "is_book": true,
+      "is_online_book": true,
+      "image_src": "generative-art.jpg",
+      "clicks": 850
+    },
+    {
+      "title": "The Nature of Code",
+      "summary": "Simulating natural systems with Processing.",
+      "description": "How can we capture the unpredictable evolutionary and emergent properties of nature in software? How can understanding the mathematical principles behind our physical world help us to create digital worlds? This book focuses on the programming strategies and techniques behind computer simulations of natural systems using Processing.",
+      "tags": "natural systems, Processing, simulations, book, online book",
+      "link": "http://natureofcode.com/",
+      "posted_by": "AlinM",
+      "is_book": true,
+      "is_online_book": true,
+      "image_src": "nature-of-code.png",
+      "clicks": 800
+    },
+    {
+      "title": "Programming Fractals and Strange Attractors in JavaScript",
+      "summary": "A tutorial on how to create fractals and strange attractors in JavaScript.",
+      "description": "This book, as its name implies, is about playing with fractals, strange attractors and chaos theory. By 'playing' is meant writing computer programs that will generate fractals and other related forms. By learning the principles behind the shapes and the code that creates these images, you will gain a far greater understanding of and appreciation for the subject. You will also be able to experiment with these concepts on a level that you could probably never achieve if you were just randomly tweaking some sliders in someone else's application.",
+      "tags": "fractals, chaos theory, strange attractors, JavaScript, online book",
+      "link": "http://www.playingwithchaos.net/",
+      "posted_by": "AlinM",
+      "is_online_book": true,
+      "clicks": 13
+    },
+    {
+      "title": "Programming Interactivity",
+      "summary": "Designer's Guide to Processing, Arduino, and openFrameworks.",
+      "description": "Make cool stuff. If you're a designer or artist without a lot of programming experience, this book will teach you to work with 2D and 3D graphics, sound, physical interaction, and electronic circuitry to create all sorts of interesting and compelling experiences -- online and off.",
+      "tags": "2D, 3D, sound, Processing, Arduino, openFrameworks, book",
+      "link": "https://www.oreilly.com/library/view/programming-interactivity/9780596800598/",
+      "posted_by": "AlinM",
+      "is_book": true,
+      "clicks": 18
+    },
+    {
+      "title": "The Book of Shaders",
+      "summary": "Step-by-step guide through the abstract and complex universe of fragment shaders.",
+      "description": "The Book of Shaders provides a comprehensive, step-by-step guide through the abstract and complex universe of fragment shaders. It's designed to teach you the fundamentals of shaders, making it accessible even to those with no prior experience in graphics programming.",
+      "tags": "shaders, fragment shaders, graphics programming, online book",
+      "link": "https://thebookofshaders.com/",
+      "posted_by": "AlinM",
+      "is_online_book": true,
+      "clicks": 12
+    },
+    {
+      "title": "Learn OpenGL",
+      "summary": "Extensive tutorial resource for learning Modern OpenGL.",
+      "description": "Learn OpenGL is an extensive tutorial resource for learning Modern OpenGL. It covers a wide range of topics from the basics of rendering to advanced techniques. This resource is ideal for anyone looking to gain a deep understanding of OpenGL programming.",
+      "tags": "OpenGL, graphics programming, rendering, online book",
+      "link": "https://learnopengl.com/",
+      "posted_by": "AlinM",
+      "is_online_book": true,
+      "clicks": 14
+    },
+    {
+      "title": "WebGL Fundamentals",
+      "summary": "WebGL from the ground up. No magic.",
+      "description": "WebGL Fundamentals is a comprehensive guide that teaches you WebGL from the ground up without relying on any frameworks or libraries. It covers everything you need to know to create 3D graphics using WebGL, making it a perfect resource for beginners and experienced programmers alike.",
+      "tags": "WebGL, 3D graphics, JavaScript, online book",
+      "link": "https://webglfundamentals.org/",
+      "posted_by": "AlinM",
+      "is_online_book": true,
+      "clicks": 11
+    },
+    {
+      "title": "Scratchapixel 2.0",
+      "summary": "Learn Computer Graphics From Scratch.",
+      "description": "Scratchapixel 2.0 is an educational resource that teaches computer graphics from scratch. It covers a wide range of topics including ray tracing, rasterization, and other essential graphics techniques. This resource is suitable for anyone interested in understanding the fundamentals of computer graphics.",
+      "tags": "computer graphics, ray tracing, rasterization, online book",
+      "link": "https://www.scratchapixel.com/",
+      "posted_by": "AlinM",
+      "is_online_book": true,
+      "clicks": 9
+    },
+    {
+      "title": "Interactive 3D Graphics",
+      "summary": "Udacity course that teaches you the principles of 3D computer graphics.",
+      "description": "The Interactive 3D Graphics course from Udacity teaches you the principles of 3D computer graphics, covering topics such as rendering, lighting, and shading. Through hands-on projects and expert feedback, you'll learn how to create immersive 3D experiences using industry-standard tools and techniques.",
+      "tags": "3D graphics, computer graphics, rendering, course",
+      "link": "https://www.udacity.com/course/interactive-3d-graphics--cs291",
+      "posted_by": "AlinM",
+      "is_course": true,
+      "clicks": 17
+    },
+    {
+      "title": "Creative Programming for Digital Media & Mobile Apps",
+      "summary": "Coursera course on creative coding with Processing.",
+      "description": "The Creative Programming for Digital Media & Mobile Apps course on Coursera teaches you how to use creative coding techniques with Processing to develop digital media and mobile applications. Through hands-on projects and interactive exercises, you'll learn how to create visually stunning and interactive experiences for various platforms.",
+      "tags": "creative coding, Processing, digital media, mobile apps, course",
+      "link": "https://www.coursera.org/learn/digitalmedia",
+      "posted_by": "AlinM",
+      "is_course": true,
+      "clicks": 16
+    },
+    {
+      "title": "Three.js Journey",
+      "summary": "Course by Bruno Simon that teaches you to create WebGL websites with Three.js.",
+      "description": "The Three.js Journey course by Bruno Simon teaches you the secrets to create the coolest WebGL websites with Three.js, whether you're a beginner or an advanced developer. Through step-by-step tutorials and real-world projects, you'll learn how to leverage the power of Three.js to build stunning 3D web experiences.",
+      "tags": "Three.js, WebGL, 3D web development, course",
+      "link": "https://threejs-journey.com/",
+      "posted_by": "AlinM",
+      "is_course": true,
+      "clicks": 19
+    },
+    {
+      "title": "3D Computer Graphics Programming",
+      "summary": "Learn all the theory and the math behind 3D graphics while creating a software renderer from scratch using the C programming language.",
+      "description": "The 3D Computer Graphics Programming course teaches you all the theory and math behind 3D graphics while guiding you through the process of creating a software renderer from scratch using the C programming language. Through this hands-on approach, you'll gain a deep understanding of the principles of 3D computer graphics.",
+      "tags": "3D graphics, computer graphics, software renderer, C programming, course",
+      "link": "https://pikuma.com/courses/learn-3d-computer-graphics-programming",
+      "posted_by": "AlinM",
+      "is_course": true,
+      "clicks": 14
+    },
+    {
+      "title": "Processing",
+      "summary": "Computer programming language and IDE for visual arts.",
+      "description": "Processing is a flexible software sketchbook and a language for learning how to code within the context of the visual arts.",
+      "tags": [
+        "Processing",
+        "visual arts",
+        "IDE",
+        "programming language",
+        "framework"
+      ],
+      "link": "https://processing.org/",
+      "posted_by": "AlinM",
+      "is_framework": true,
+      "clicks": 10
+    },
+    {
+      "title": "openFrameworks",
+      "summary": "Open source C++ toolkit for creative coding.",
+      "description": "openFrameworks is an open-source C++ toolkit for creative coding. It simplifies the process of writing code for artists and designers, and allows for easy creation of complex and powerful interactive visual experiences.",
+      "tags": [
+        "openFrameworks",
+        "C++",
+        "creative coding",
+        "framework"
+      ],
+      "link": "https://openframeworks.cc/",
+      "posted_by": "AlinM",
+      "is_framework": true,
+      "clicks": 13
+    },
+    {
+      "title": "p5.js",
+      "summary": "JavaScript library for creative coding.",
+      "description": "p5.js is a JavaScript library that makes coding accessible for artists, designers, educators, and beginners. It is built with the goal of creating a platform for learning and prototyping interactive visuals and animations.",
+      "tags": [
+        "p5.js",
+        "JavaScript",
+        "creative coding",
+        "library",
+        "framework"
+      ],
+      "link": "https://p5js.org/",
+      "posted_by": "AlinM",
+      "is_framework": true,
+      "clicks": 20
+    },
+    {
+      "title": "Three.js",
+      "summary": "JavaScript 3D library.",
+      "description": "Three.js is a JavaScript library that simplifies the creation of 3D graphics on the web. It provides an easy-to-use API for building complex 3D scenes, animations, and interactive applications.",
+      "tags": [
+        "Three.js",
+        "JavaScript",
+        "3D graphics",
+        "library",
+        "framework"
+      ],
+      "link": "https://threejs.org/",
+      "posted_by": "AlinM",
+      "is_framework": true,
+      "clicks": 17
+    },
+    {
+      "title": "Paper.js",
+      "summary": "The swiss army knife of vector graphics scripting.",
+      "description": "Paper.js is the swiss army knife of vector graphics scripting. It's designed to make it easy to work with vector graphics in the browser, allowing you to create complex and interactive visualizations.",
+      "tags": [
+        "Paper.js",
+        "vector graphics",
+        "scripting",
+        "library",
+        "web programming library"
+      ],
+      "link": "http://paperjs.org/",
+      "posted_by": "AlinM",
+      "is_web_programming_library": true,
+      "clicks": 243
+    },
+    {
+      "title": "Pixi.js",
+      "summary": "HTML 5 2D rendering engine that uses WebGL with canvas fallback.",
+      "description": "Pixi.js is an HTML 5 2D rendering engine that uses WebGL with canvas fallback. It's designed to make it easy to create fast and interactive 2D graphics in the browser.",
+      "tags": [
+        "Pixi.js",
+        "HTML5",
+        "2D rendering engine",
+        "WebGL",
+        "canvas",
+        "web programming library"
+      ],
+      "link": "https://pixijs.com/",
+      "posted_by": "AlinM",
+      "is_web_programming_library": true,
+      "clicks": 315
+    },
+    {
+      "title": "Arduino",
+      "summary": "Open source microcontroller kits for building digital devices and interactive objects.",
+      "description": "Arduino is an open-source platform used for building digital devices and interactive objects that can sense and control physical devices. It consists of both hardware and software components, making it easy for beginners and professionals alike to create a wide range of projects.",
+      "tags": [
+        "Arduino",
+        "microcontroller",
+        "hardware",
+        "electronics",
+        "hardware"
+      ],
+      "link": "https://www.arduino.cc/",
+      "posted_by": "AlinM",
+      "is_hardware": true,
+      "clicks": 125
+    },
+    {
+      "title": "Raspberry Pi",
+      "summary": "Small single-board computers.",
+      "description": "Raspberry Pi is a series of small single-board computers developed by the Raspberry Pi Foundation. It is widely used for various purposes, including education, DIY projects, and as a low-cost platform for computing applications.",
+      "tags": [
+        "Raspberry Pi",
+        "single-board computer",
+        "hardware",
+        "education"
+      ],
+      "link": "https://www.raspberrypi.org/",
+      "posted_by": "AlinM",
+      "is_hardware": true,
+      "clicks": 212
+    },
+    {
+      "title": "Puck.js",
+      "summary": "Open source JavaScript microcontroller you can program wirelessly.",
+      "description": "Puck.js is an open-source JavaScript microcontroller that can be programmed wirelessly. It is compact, low-power, and equipped with various sensors, making it suitable for IoT (Internet of Things) projects and wearable devices.",
+      "tags": [
+        "Puck.js",
+        "JavaScript",
+        "microcontroller",
+        "IoT",
+        "wearable",
+        "hardware"
+      ],
+      "link": "https://www.puck-js.com/",
+      "posted_by": "AlinM",
+      "is_hardware": true,
+      "clicks": 188
+    },
+    {
+      "title": "BeagleBoard",
+      "summary": "Low-power open source single-board computers.",
+      "description": "BeagleBoard is a family of low-power open-source single-board computers. It is designed for embedded computing applications and DIY projects, providing a flexible and expandable platform for developers and hobbyists.",
+      "tags": [
+        "BeagleBoard",
+        "single-board computer",
+        "embedded computing",
+        "DIY",
+        "hardware"
+      ],
+      "link": "https://beagleboard.org/",
+      "posted_by": "AlinM",
+      "is_hardware": true,
+      "clicks": 276
+    },
+    {
+      "title": "The Coding Train",
+      "summary": "Daniel Shiffman makes videos about creative coding.",
+      "description": "The Coding Train is a YouTube channel hosted by Daniel Shiffman, where he creates and shares tutorials, coding challenges, and live streams related to creative coding, computer science, and programming in general. Shiffman's engaging teaching style and diverse range of topics make this channel a valuable resource for learners of all levels.",
+      "tags": [
+        "The Coding Train",
+        "Daniel Shiffman",
+        "creative coding",
+        "tutorials",
+        "live streams",
+        "programming",
+        "video"
+      ],
+      "link": "https://www.youtube.com/user/shiffman",
+      "posted_by": "AlinM",
+      "is_video": true,
+      "clicks": 392
+    },
+    {
+      "title": "MFGD - Fragment Shaders",
+      "summary": "YouTube playlist about fragment shaders.",
+      "description": "MFGD - Fragment Shaders is a YouTube playlist dedicated to fragment shaders. It covers various topics related to fragment shaders, including tutorials, demonstrations, and practical applications. This playlist is suitable for beginners and experienced developers interested in graphics programming.",
+      "tags": [
+        "MFGD",
+        "fragment shaders",
+        "graphics programming",
+        "YouTube playlist",
+        "video"
+      ],
+      "link": "https://www.youtube.com/playlist?list=PLW3Zl3wyJwWMpFSRpeMmSBGDShbkiV1Cq",
+      "posted_by": "AlinM",
+      "is_video": true,
+      "clicks": 273
+    },
+    {
+      "title": "Shaders Laboratory",
+      "summary": "YouTube channel about shaders.",
+      "description": "Shaders Laboratory is a YouTube channel focused on shaders, featuring tutorials, demonstrations, and discussions about shader programming. Whether you're a beginner looking to learn the basics of shaders or an experienced developer seeking advanced techniques, this channel offers valuable insights and resources.",
+      "tags": [
+        "Shaders Laboratory",
+        "shaders",
+        "shader programming",
+        "YouTube channel",
+        "video"
+      ],
+      "link": "https://www.youtube.com/channel/UCDk9-aPr8zQzwi4ylnuoJ6w",
+      "posted_by": "AlinM",
+      "is_video": true,
+      "clicks": 417
+    },
+    {
+      "title": "Makin' Stuff Look Good",
+      "summary": "YouTube channel about shaders case studies.",
+      "description": "Makin' Stuff Look Good is a YouTube channel that focuses on shader case studies and visual effects in game development and computer graphics. Through in-depth analyses and practical demonstrations, this channel explores techniques for creating stunning visuals using shaders.",
+      "tags": [
+        "Makin' Stuff Look Good",
+        "shaders",
+        "visual effects",
+        "game development",
+        "YouTube channel",
+        "video"
+      ],
+      "link": "https://www.youtube.com/channel/UCEklP9iLcpExB8vp_fWQseg",
+      "posted_by": "AlinM",
+      "is_video": true,
+      "clicks": 144
+    },
+    {
+      "title": "Introduction to shaders",
+      "summary": "Part 1 of an introduction to shaders using threejs.",
+      "description": "Introduction to shaders is the first part of a series that aims to introduce beginners to shader programming using the three.js library. This tutorial covers fundamental concepts and provides hands-on examples to help learners understand the basics of shader development.",
+      "tags": [
+        "shaders",
+        "three.js",
+        "WebGL",
+        "tutorial"
+      ],
+      "link": "https://aerotwist.com/tutorials/an-introduction-to-shaders-part-1/",
+      "posted_by": "AlinM",
+      "is_tutorial": true,
+      "clicks": 221
+    },
+    {
+      "title": "Three.js 101",
+      "summary": "Introduction to three.js from a creative coder perspective.",
+      "description": "Three.js 101 is a beginner-friendly tutorial that offers an introduction to three.js, a popular JavaScript library for creating 3D graphics in web browsers. The tutorial provides insights from a creative coder's perspective, making it accessible to artists, designers, and developers interested in 3D web graphics.",
+      "tags": [
+        "three.js",
+        "creative coding",
+        "tutorial"
+      ],
+      "link": "https://medium.com/@necsoft/three-js-101-hello-world-part-1-443207b1ebe1",
+      "posted_by": "AlinM",
+      "is_tutorial": true,
+      "clicks": 189
+    },
+    {
+      "title": "ml4a",
+      "summary": "Machine learning for artists.",
+      "description": "ml4a is a platform dedicated to machine learning applications in the field of art. It provides resources, tutorials, and tools for artists interested in integrating machine learning techniques into their creative processes. Whether you're a beginner or an experienced artist, ml4a offers valuable insights and support.",
+      "tags": [
+        "machine learning",
+        "art",
+        "tutorial",
+        "machine learning"
+      ],
+      "link": "https://ml4a.net/",
+      "posted_by": "AlinM",
+      "is_machine_learning": true,
+      "clicks": 328
+    },
+    {
+      "title": "Keras.js",
+      "summary": "Run Keras models (tensorflow backend) in the browser, with GPU support.",
+      "description": "Keras.js enables running Keras models, which are powered by TensorFlow backend, directly in web browsers with GPU support. This tool opens up opportunities for deploying machine learning models on client-side applications, facilitating efficient inference without the need for server-side computation.",
+      "tags": [
+        "Keras",
+        "TensorFlow",
+        "web development",
+        "machine learning"
+      ],
+      "link": "https://transcranial.github.io/keras-js/#/",
+      "posted_by": "AlinM",
+      "is_machine_learning": true,
+      "clicks": 258
+    },
+    {
+      "title": "Tesseract.js",
+      "summary": "Pure Javascript Multilingual OCR.",
+      "description": "Tesseract.js is a pure JavaScript library for performing optical character recognition (OCR) in web browsers. It supports multiple languages and provides efficient text extraction from images without requiring server-side processing. Tesseract.js is suitable for various applications, including document digitization and text analysis.",
+      "tags": [
+        "OCR",
+        "JavaScript",
+        "text extraction",
+        "web development",
+        "machine learning"
+      ],
+      "link": "https://tesseract.projectnaptha.com/",
+      "posted_by": "AlinM",
+      "is_machine_learning": true,
+      "clicks": 167
+    },
+    {
+      "title": "Google ML",
+      "summary": "Cloud machine learning by Google.",
+      "description": "Google ML offers cloud-based machine learning services powered by Google's infrastructure and expertise. It provides scalable solutions for training and deploying machine learning models, enabling developers and businesses to harness the power of AI without managing complex infrastructure. Google ML supports various use cases, from predictive analytics to natural language processing.",
+      "tags": [
+        "Google",
+        "machine learning",
+        "cloud computing",
+        "AI services",
+        "machine learning"
+      ],
+      "link": "https://cloud.google.com/vertex-ai",
+      "posted_by": "AlinM",
+      "is_machine_learning": true,
+      "clicks": 382
+    },
+    {
+      "title": "CreativeApplications.Net [CAN]",
+      "summary": "Famous digital art blog.",
+      "description": "CreativeApplications.Net (CAN) is a renowned digital art blog that showcases innovative works and projects at the intersection of art, design, and technology. With a focus on creative coding, interactive installations, and digital media, CAN provides a platform for artists, designers, and technologists to share their groundbreaking creations and explore emerging trends in the field of digital art.",
+      "tags": [
+        "digital art",
+        "creative coding",
+        "technology",
+        "blog"
+      ],
+      "link": "https://www.creativeapplications.net/",
+      "posted_by": "AlinM",
+      "is_blog": true,
+      "clicks": 422
+    },
+    {
+      "title": "iquilezles.org",
+      "summary": "Home of Íñigo Quílez, specialised in GLSL and math snippets.",
+      "description": "iquilezles.org is the personal website of Íñigo Quílez, a renowned expert in GLSL (OpenGL Shading Language) and mathematical algorithms. The website serves as a repository for GLSL shaders, mathematical snippets, and insightful articles exploring the intersection of graphics programming and mathematics. It's a valuable resource for developers and enthusiasts interested in shader programming and computational geometry.",
+      "tags": [
+        "GLSL",
+        "mathematics",
+        "graphics programming",
+        "website",
+        "blog"
+      ],
+      "link": "https://iquilezles.org/",
+      "posted_by": "AlinM",
+      "is_blog": true,
+      "clicks": 296
+    },
+    {
+      "title": "bit-101.com",
+      "summary": "Blog by Keith Peters, specialised in creative coding.",
+      "description": "bit-101.com is a blog maintained by Keith Peters, a prominent figure in the creative coding community. Specializing in creative coding, Keith shares tutorials, insights, and experiments related to graphics programming, interactive art, and generative design. With a wealth of knowledge and experience, bit-101.com is a go-to resource for anyone interested in exploring the intersection of code and creativity.",
+      "tags": [
+        "creative coding",
+        "graphics programming",
+        "blog",
+        "tutorials",
+        "blog"
+      ],
+      "link": "https://www.bit-101.com/blog/",
+      "posted_by": "AlinM",
+      "is_blog": true,
+      "clicks": 6
+    },
+    {
+      "title": "ibreakdownshaders",
+      "summary": "Explore the math behind shaders.",
+      "description": "ibreakdownshaders is a website dedicated to exploring the mathematics behind shader programming. It offers in-depth tutorials, articles, and analyses dissecting the intricate mathematical concepts used in shader development. Whether you're a beginner or an experienced developer, ibreakdownshaders provides valuable insights into the fascinating world of shader programming.",
+      "tags": [
+        "shaders",
+        "mathematics",
+        "website",
+        "tutorials",
+        "blog"
+      ],
+      "link": "https://ibreakdownshaders.blogspot.com/",
+      "posted_by": "AlinM",
+      "is_blog": true,
+      "clicks": 27
+    }
+  ]
 }
