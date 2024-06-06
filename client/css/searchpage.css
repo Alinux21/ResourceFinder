@@ -142,6 +142,17 @@ article p {
     color: #666666;
 }
 
+.filter-button {
+    background-color: #20CD8D;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+
+}
+
 
 @media only screen and (max-width: 957px) {            /*mobile+tablet*/
 
