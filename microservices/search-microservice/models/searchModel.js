@@ -22,6 +22,26 @@ function getResourcesByWords(specialWords, limit, offset) {
     });
 }
 
+function getSpeciallisedResources(specialWords, limit, offset) {
+    return new Promise((resolve, reject) => {
+        let sql = "SELECT * FROM resources WHERE";
+        const conditions = specialWords.flatMap(word => [` tags LIKE ?`, `title LIKE ?`]);
+        sql += conditions.join(" AND ");
+        sql += " LIMIT ? OFFSET ?";
+
+        const values = [...specialWords.flatMap(word => [`%${word}%`, `%${word}%`]), limit, offset];
+
+        con.query(sql, values, function (err, result) {
+            if (err) {
+                reject(err);
+            } else {
+                console.log("Select performed!");
+                resolve(result);
+            }
+        });
+    });
+}
+
 function getAllExceptSpecialWords(specialWords, limit, offset) {
     return new Promise((resolve, reject) => {
         let sql = "SELECT * FROM resources WHERE";
@@ -45,17 +65,17 @@ function getAllExceptSpecialWords(specialWords, limit, offset) {
 function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionary, limit, offset) {
     return new Promise((resolve, reject) => {
         let sql = "SELECT * FROM resources WHERE";
-
+        
         const positiveConditions = positiveGroup.flatMap(group => {
             const words = group.split(' ');
             const specializedWords = words.filter(word => specializedDictionary.includes(word.toLowerCase()));
-            return specializedWords.map(word => `( tags LIKE ? AND title LIKE ? )`);
+            return specializedWords.map(word => `(tags LIKE ? AND title LIKE ?)`);
         });
 
         const negativeConditions = negativeGroup.flatMap(group => {
             const words = group.split(' ');
             const specializedWords = words.filter(word => specializedDictionary.includes(word.toLowerCase()));
-            return specializedWords.map(word => `( tags NOT LIKE ? AND title NOT LIKE ? )`);
+            return specializedWords.map(word => `(tags NOT LIKE ? AND title NOT LIKE ?)`);
         });
 
         let conditions = "";
@@ -68,6 +88,10 @@ function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionar
             } else {
                 conditions += negativeConditions.join(' AND ');
             }
+        }
+
+        if (!conditions) {
+            conditions = "1";
         }
 
         sql += ` ${conditions}`;
@@ -87,8 +111,8 @@ function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionar
 
         const values = [...positiveValues, ...negativeValues, limit, offset];
 
-        const formattedSql = formatSql(sql, values);
-        console.log("Formatted SQL: ", formattedSql);
+        console.log("Constructed SQL: ", sql);
+        console.log("Values: ", values);
 
         con.query(sql, values, function (err, result) {
             if (err) {
@@ -101,6 +125,7 @@ function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionar
     });
 }
 
+
 function formatSql(sql, values) {
     return sql.replace(/\?/g, () => {
         const value = values.shift();
@@ -111,5 +136,6 @@ function formatSql(sql, values) {
 module.exports = {
     getResourcesByWords,
     getAllExceptSpecialWords,
-    getResourcesByGroups
+    getResourcesByGroups,
+    getSpeciallisedResources
 }

@@ -14,10 +14,10 @@ async function searchAlgorithm(req, res, query, limit, offset) {
 
         const positiveWords = ["just", "only", "doar", "neaparat", "numai"];
         const negativeWords = ["fara", "without"];
-        const linkWords = ["and", "si", "or", "sau"];
+        const linkWords = ["and", "or", "sau"];
 
         // Levenshtein distance - delete, insert, replace - used for normalizing words
-        const specializedDictionary = ["java", "opengl", "3d", "three.js", "art", "nature of code", "nature", "code", "book", "books", ];
+        const specializedDictionary = ["java", "opengl", "3d", "three.js", "art", "nature of code", "nature", "code", "book", "books", "generative art", "Processing", "algorithmic art", "book", "online book", "fractals", "polyphonic", "generator", "natural", "systems", "chaos", "theory", "strange", "attractors", "JavaScript", "online", "book", "shaders", "fragment", "shaders", "graphics", "programming", "online", "book"];
         const specializedWords = wordVector.filter(word => {
             const lowerWord = word.toLowerCase();
             return specializedDictionary.some(dictWord => levenshtein(lowerWord, dictWord) <= 1);
@@ -109,7 +109,7 @@ async function searchAlgorithm(req, res, query, limit, offset) {
             const hasNegativeWords = naturalWords.some(word => negativeWords.includes(word.toLowerCase()));
 
             if (hasPositiveWords && !hasNegativeWords) {
-                searchModel.getResourcesByWords(specializedWords, limit, offset)
+                searchModel.getSpeciallisedResources(specializedWords, limit, offset)
                     .then((data) => {
 
                         const results = data.map(item => {
