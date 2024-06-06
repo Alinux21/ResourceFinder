@@ -23,7 +23,7 @@ main {
 }
 
 .logo{
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
 }
 
@@ -66,7 +66,6 @@ article h2 {
     margin-top: 0;
     color: #182527;
     font-size: 24px;
-    overflow-wrap: break-word;
 }
 
 article p {
@@ -225,21 +224,12 @@ a:link {
     }
 
     .sidepanel {
-        width: 10%;
-        display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        justify-content:space-around;
     }
 
     .sidepanel p {
         width: 100%;
-        margin-bottom: 10px; 
-        margin-right: 2%; 
     }
         
-    .sidepanel p:last-child {
-        margin-right: 0; 
-    }
 
 }
