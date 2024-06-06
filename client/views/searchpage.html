@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Most Popular Page</title>
     <link rel="stylesheet" href="../css/searchpage.css">
-    <link rel="icon" type="image/x-icon" href="../assets/images/logo-wheel-favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo-wheel-favicon.ico" onclick="logoRedirect()">
 </head>
 
 <body>
@@ -31,8 +31,8 @@
 
                 <h3>Books</h3>
                 <ul>
-                    <li><input type="checkbox" value="is_book"><span>Books</span> <span class="filter-result-count">(42)</span></li>
-                    <li><input type="checkbox" value="is_online_book"><span>Online Books</span> <span class="filter-result-count">(42)</span>
+                    <li><input type="checkbox" value="is_book"><span>Books</span> <span class="filter-result-count"></span></li>
+                    <li><input type="checkbox" value="is_online_book"><span>Online Books</span> <span class="filter-result-count"></span>
                     </li>
                     <li><input type="checkbox" value="is_course"><span>Courses</span> <span class="filter-result-count">(25)</span></li>
                     </li>
@@ -40,7 +40,7 @@
 
                 <h3>Software Type</h3>
                 <ul>
-                    <li><input type="checkbox" value="is_framework"><span>Frameworks</span> <span class="filter-result-count">(30)</span>
+                    <li><input type="checkbox" value="is_framework"><span>Frameworks</span> <span class="filter-result-count"></span>
                     </li>
                     <li><input type="checkbox" value="is_machine_learning"><span>Machine learning • AI</span> <span
                             class="filter-result-count">(45)</span></li>
@@ -73,7 +73,7 @@
         <div class="search-results-box">
             <h2>Search results:</h2>
             <div class="search-results-box-content" id="search-results">
-                <script src="../js/getSearchTokens.js"></script>
+            <script src="../js/getSearchTokens.js"></script>
             </div>
         </div>
 

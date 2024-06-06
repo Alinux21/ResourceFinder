@@ -2,13 +2,14 @@ const path = require('path');
 const { connectToDatabase } = require('../config/db-config');
 const con = connectToDatabase();
 
-function getResourcesByWords(specialWords) {
+function getResourcesByWords(specialWords, limit, offset) {
     return new Promise((resolve, reject) => {
         let sql = "SELECT * FROM resources WHERE";
         const conditions = specialWords.map(() => ` tags LIKE ?`);
         sql += conditions.join(" OR ");
-        
-        const values = specialWords.map(word => `%${word}%`);
+        sql += " LIMIT ? OFFSET ?";
+
+        const values = [...specialWords.map(word => `%${word}%`), limit, offset];
 
         con.query(sql, values, function (err, result) {
             if (err) {
@@ -21,32 +22,14 @@ function getResourcesByWords(specialWords) {
     });
 }
 
-function getEspeciallyResourcesByWords(specialWords) {
-    return new Promise((resolve, reject) => {
-        let sql = "SELECT * FROM resources WHERE";
-        const conditions = specialWords.flatMap(word => [` tags LIKE ?`, `title LIKE ?`]);
-        sql += conditions.join(" AND ");
-        
-        const values = specialWords.flatMap(word => [`%${word}%`, `%${word}%`]);
-
-        con.query(sql, values, function (err, result) {
-            if (err) {
-                reject(err);
-            } else {
-                console.log("Select performed!");
-                resolve(result);
-            }
-        });
-    });
-}
-
-function getAllExceptSpecialWords(specialWords) {
+function getAllExceptSpecialWords(specialWords, limit, offset) {
     return new Promise((resolve, reject) => {
         let sql = "SELECT * FROM resources WHERE";
         const conditions = specialWords.flatMap(word => [` tags NOT LIKE ?`, `title NOT LIKE ?`]);
         sql += conditions.join(" AND ");
-        
-        const values = specialWords.flatMap(word => [`%${word}%`, `%${word}%`]);
+        sql += " LIMIT ? OFFSET ?";
+
+        const values = [...specialWords.flatMap(word => [`%${word}%`, `%${word}%`]), limit, offset];
 
         con.query(sql, values, function (err, result) {
             if (err) {
@@ -59,25 +42,22 @@ function getAllExceptSpecialWords(specialWords) {
     });
 }
 
-function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionary) {
+function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionary, limit, offset) {
     return new Promise((resolve, reject) => {
         let sql = "SELECT * FROM resources WHERE";
 
-        // Generate conditions for positive group using OR
         const positiveConditions = positiveGroup.flatMap(group => {
             const words = group.split(' ');
             const specializedWords = words.filter(word => specializedDictionary.includes(word.toLowerCase()));
             return specializedWords.map(word => `( tags LIKE ? AND title LIKE ? )`);
         });
 
-        // Generate conditions for negative group using AND
         const negativeConditions = negativeGroup.flatMap(group => {
             const words = group.split(' ');
             const specializedWords = words.filter(word => specializedDictionary.includes(word.toLowerCase()));
             return specializedWords.map(word => `( tags NOT LIKE ? AND title NOT LIKE ? )`);
         });
 
-        // Combine conditions with proper grouping
         let conditions = "";
         if (positiveConditions.length > 0) {
             conditions += `(${positiveConditions.join(' OR ')})`;
@@ -91,6 +71,7 @@ function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionar
         }
 
         sql += ` ${conditions}`;
+        sql += " LIMIT ? OFFSET ?";
 
         const positiveValues = positiveGroup.flatMap(group => {
             const words = group.split(' ');
@@ -104,7 +85,7 @@ function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionar
             return specializedWords.flatMap(word => [`%${word}%`, `%${word}%`]);
         });
 
-        const values = [...positiveValues, ...negativeValues];
+        const values = [...positiveValues, ...negativeValues, limit, offset];
 
         const formattedSql = formatSql(sql, values);
         console.log("Formatted SQL: ", formattedSql);
@@ -120,7 +101,6 @@ function getResourcesByGroups(positiveGroup, negativeGroup, specializedDictionar
     });
 }
 
-// Helper function to format the SQL query for debugging purposes
 function formatSql(sql, values) {
     return sql.replace(/\?/g, () => {
         const value = values.shift();
@@ -128,10 +108,8 @@ function formatSql(sql, values) {
     });
 }
 
-
 module.exports = {
     getResourcesByWords,
-    getEspeciallyResourcesByWords,
     getAllExceptSpecialWords,
     getResourcesByGroups
 }

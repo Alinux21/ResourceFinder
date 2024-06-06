@@ -35,44 +35,6 @@ function importResources() {
 
 }
 
-function centeredAlert(elementId) {
-
-    var currentBox = document.getElementById(elementId);
-    var overlay = document.getElementById('overlay');
-
-
-    //showing the exportBox and the overlay
-    currentBox.style.display = 'block';
-    overlay.style.display = 'block';
-
-    //disabling scrolling
-    document.body.style.overflow = 'hidden';
-
-    currentBox.style.display = 'block';
-    currentBox.style.position = 'fixed'; 
-    currentBox.style.top = '50%'; 
-    currentBox.style.left = '50%'; 
-    currentBox.style.transform = 'translate(-50%, -50%)'; 
-    currentBox.style.backgroundColor = 'white';
-    currentBox.style.padding = '20px';
-    currentBox.style.border = '1px solid black';
-    currentBox.style.borderRadius = '5px';
-    currentBox.style.zIndex = '2';
-    currentBox.style.width = '40%';
-
-
-    overlay.addEventListener('click', function () {
-        //hiding the exportBox and the overlay
-        currentBox.style.display = 'none';
-        overlay.style.display = 'none';
-
-        //re-enabling scrolling
-        document.body.style.overflow = 'auto';
-    });
-
-
-}
-
 function exportJSON() {
     console.log("Exporting JSON");
 

@@ -1,3 +1,5 @@
+localStorage.getItem('token') ? null : window.location.href = 'main-guest.html';
+
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 

@@ -60,9 +60,13 @@ const gatewayRouter = (req,res) =>{
     
         gatewayController.importResources(req,res);
 
-    } else if (req.url.match(/\/api\/words\/([a-zA-Z0-9-_. (){}\[\]!@#$%^&~]+)/) && req.method === 'GET') {
-        gatewayController.search(req,res);
-    } else if (req.url === '/api/resources/popularResources' && req.method === 'GET') {
+    } else if (req.url.match(/^\/api\/words\/([^\/]+)\?limit=(\d+)&offset=(\d+)$/) && req.method === 'GET') {
+
+        console.log('search');
+        gatewayController.search(req, res);
+        
+    } 
+    else if (req.url === '/api/resources/popularResources' && req.method === 'GET') {
         gatewayController.getPopularResources(req,res);
     } else if (req.url === '/api/resources/latestResources' && req.method === 'GET') {
         gatewayController.getLatestResources(req,res);
@@ -72,6 +76,7 @@ const gatewayRouter = (req,res) =>{
         gatewayController.updateMyAccount(req,res);
     }
     else{
+        console.log('Api not found');
             res.statusCode = 404;
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify({ message: 'Api not found' }));

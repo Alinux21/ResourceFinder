@@ -1,5 +1,16 @@
 var urlParams = new URLSearchParams(window.location.search);
 var query = urlParams.get('query');
+let currentPage = 1;
+const resultsPerPage = 10;
+let fetching = false;
+
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('query');
+    if (query) {
+        document.getElementById('search').value = query;
+    }
+}
 
 var typeMap = [
     'is_book',
@@ -39,7 +50,7 @@ function getAllTypes(element) {
 }
 
 function fetchAndDisplayResources() {
-    fetch('http://localhost:5010/api/words/' + query)
+    fetch('http://localhost:5010/api/words/' + query+'?limit=10&offset=0')
         .then(response => response.json())
         .then(data => {
             window.allData = data;
@@ -82,3 +93,67 @@ function applyFilters() {
 }
 
 document.addEventListener('DOMContentLoaded', fetchAndDisplayResources);
+
+function startSearch() {
+    currentPage = 1;
+    document.getElementById("search-results").innerHTML = ''; //clear previous results
+    fetchResults();
+}
+
+function fetchResults() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('query');
+    const offset = (currentPage - 1) * resultsPerPage;
+
+    if (!fetching && query) {
+        fetching = true;
+        fetch(`http://localhost:5010/api/words/${query}?limit=${resultsPerPage}&offset=${offset}`)
+            .then(response => response.json())
+            .then(data => {
+                displayResults(data);
+                fetching = false;
+            });
+    }
+}
+
+function displayResults(data) {
+    const searchResults = document.getElementById("search-results");
+
+    data.forEach(element => {
+        const article = document.createElement('article');
+        article.onclick = () => getResource(event, element.id);
+
+        const title = document.createElement('h2');
+        title.textContent = element.title;
+
+        const summary = document.createElement('p');
+        summary.textContent = element.summary;
+
+        const tags = document.createElement('p');
+        tags.className = 'tags';
+        tags.textContent = element.tags.split(',').map(tag => '#' + tag.trim().replace(' ', '_')).join(' ');
+
+        article.appendChild(title);
+        article.appendChild(summary);
+        article.appendChild(tags);
+
+        searchResults.appendChild(article);
+    });
+
+    if (data.length < resultsPerPage) {
+        window.removeEventListener('scroll', handleScroll);
+    }
+}
+
+function handleScroll() {
+    const bottomOfWindow = window.innerHeight + window.scrollY >= document.documentElement.offsetHeight;
+
+    if (bottomOfWindow) {
+        currentPage++;
+        fetchResults();
+    }
+}
+
+window.addEventListener('scroll', handleScroll);
+
+startSearch();  //initialize the first search
