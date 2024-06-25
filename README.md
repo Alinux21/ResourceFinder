@@ -27,3 +27,4 @@ Team members: Isache Bogdan and Moloce Alin.
 ![5](https://github.com/Alinux21/web_project/assets/125958940/3b7cf0a2-2ecf-42dc-971a-61bc5f600ddf)
 ![6](https://github.com/Alinux21/web_project/assets/125958940/cd64f579-6c0f-457c-ac5d-2db4934d33c6)
 ![7](https://github.com/Alinux21/web_project/assets/125958940/46925425-da7c-4ece-8d00-e14d168091d0)
+![8](https://github.com/Alinux21/web_project/assets/125958940/75574a1f-1d37-4d94-bf56-813d39ef44d2)
