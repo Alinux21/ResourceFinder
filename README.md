@@ -20,3 +20,10 @@ Team members: Isache Bogdan and Moloce Alin.
  
 ![ReFiC2 drawio](https://github.com/Alinux21/web_project/assets/125958940/4677756f-6f14-4313-b197-cd9cf4614b42)
 
+## Pages Preview
+
+![2](https://github.com/Alinux21/web_project/assets/125958940/5dc3bd9f-28ca-4b00-a523-fe26e4f72359)
+![4](https://github.com/Alinux21/web_project/assets/125958940/c5784bc9-9abd-4fa4-b792-657b1f3dc4b9)
+![5](https://github.com/Alinux21/web_project/assets/125958940/3b7cf0a2-2ecf-42dc-971a-61bc5f600ddf)
+![6](https://github.com/Alinux21/web_project/assets/125958940/cd64f579-6c0f-457c-ac5d-2db4934d33c6)
+![7](https://github.com/Alinux21/web_project/assets/125958940/46925425-da7c-4ece-8d00-e14d168091d0)
